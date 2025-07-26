@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Navmen.css";
+import "./NavMen.css";
 import { Link } from "react-router-dom";
 const NavMen = ({ onClose }) => {
   const [isMenuOpen, setIsMenuOpen] = useState({});
