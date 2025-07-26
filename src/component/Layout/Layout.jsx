@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import '../Layout/Layout.css';
 import LandingPage from "../../pages/LandingPage/LandingPage";
-import Footer from "../Footer/footer";
+import Footer from "../../component/Footer/Footer"
 import NavMain from "../Navbar/NavMain/NavMain";
 import Hamburger from "../Navbar/Hamburger/Hamburger";
 import  { Toaster } from 'react-hot-toast';
