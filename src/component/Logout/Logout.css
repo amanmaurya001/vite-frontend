@@ -1,0 +1,25 @@
+.logout{
+    height: 100%;
+    width: 100%;
+   
+    display: flex;
+    align-items: center;
+}
+.logout-button {
+ 
+  height: 100%;
+width: 100%;
+  background-color:transparent;       /* Dark background */
+  color: white;
+  border: none;
+
+  cursor: pointer;
+  font-weight: 100;
+  font-size: 17px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button:hover {
+  background-color: gray;   /* Red hover */
+}

@@ -1,0 +1,88 @@
+.adminproducts {
+  height: 100%;
+
+
+  width: 100%;
+}
+
+.admin-product-table {
+
+  z-index: 0;
+
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", sans-serif;
+  table-layout: fixed; /* even spacing */
+}
+
+.admin-product-table thead {
+  
+  position: sticky;
+  top: 0vh;
+  background-color: #f5f7fa;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.admin-product-table th {
+  
+  height: 5vh;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  background-color: inherit;
+  white-space: nowrap;
+}
+
+
+.admin-product-table td {
+    text-align: center;
+ 
+  height: 8vh;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-product-table td img {
+  width: 60px;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.td-img{
+   text-align: center;
+  vertical-align: middle;
+}
+.actions {
+  align-items: center;
+  justify-content: space-around;
+  
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+ 
+height: 40%;
+width: 30%;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.actions .edit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.actions .delete-btn {
+  background-color: #f44336;
+  color: white;
+}

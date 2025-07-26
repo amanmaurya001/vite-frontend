@@ -1,0 +1,26 @@
+@font-face {
+  font-family: Qwitcher;
+  src: url(./../../public/fonts/QwitcherGrypen-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: Merriweather;
+  src: url(./../../public/fonts/Merriweather-LightItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair;
+  src: url(./../../public/fonts/Playfair-VariableFont_opszwdthwght.ttf)
+    format("truetype");
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+body ::-webkit-scrollbar {
+  display: none;
+}
+
+
+

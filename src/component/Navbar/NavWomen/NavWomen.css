@@ -1,0 +1,66 @@
+@font-face {
+    font-family: Playfair;
+    src: url(./../../public/fonts/Playfair-VariableFont_opsz,wdth,wght.ttf) format('truetype');
+  }
+  @font-face {
+  font-family:Merriweather;
+  src: url(./../../public/fonts/Merriweather-LightItalic.ttf) format('truetype');
+}
+.navWomen{
+    margin-top: 4%;
+   
+ 
+    height: auto;
+}
+
+
+.navWomen-box{
+    height: 50px;
+}
+.navWomen-box h2{
+      color: hsl(40, 100%, 90%);
+    margin-left: 5%;
+     height: 100%;
+   display: flex;
+   align-items: center;
+    letter-spacing: 1px;
+      font-family: Playfair;
+    font-weight: 400;
+ }
+.women-menu{
+  border-top: 1px solid grey;
+    display: grid;
+  column-gap: 0px;
+  row-gap: 0px;
+  grid-template-columns: repeat(2, 1fr); 
+  
+    height: auto;
+    width: 100%;
+   
+}
+
+.women-item h3{
+     letter-spacing: 0.5px;
+   font-family: Playfair;
+      color: #cab91d;
+  display: flex;
+  align-items: center;
+          
+   
+    height: 50px;
+margin-left: 10%;
+}
+.women-item a{
+  text-decoration: none;
+}
+.women-item li{
+     letter-spacing: 0.5px;
+   font-family: Playfair;
+       color: hsl(40, 100%, 90%);
+  margin-left: 13%;
+           display: flex;
+  align-items: center;
+ 
+    height: 40px;
+
+}

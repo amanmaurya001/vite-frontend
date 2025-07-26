@@ -1,0 +1,46 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+  font-family: 'GreatVibes';
+  src: url('./../../public/fonts/GreatVibes-Regular.ttf') format('truetype');
+}
+.heading{
+margin-top: 2%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.heading h1{
+    font-size: 10vh;
+      font-family: 'GreatVibes';
+    color: black;
+}
+.filter-section{
+  position: sticky;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+background-color: white;
+  border-bottom: 1px solid grey;
+  height: 50px;
+}
+.product-grid{  
+  overflow: hidden;
+      padding: 2vh 1vh;
+  
+    width: 100%;
+    height: auto;
+   
+     display: grid;
+  column-gap: 10px;
+   row-gap: 30px;
+
+  grid-template-columns: repeat(4, 1fr); 
+
+}

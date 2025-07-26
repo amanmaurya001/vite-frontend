@@ -1,0 +1,223 @@
+@font-face {
+  font-family: Playfair;
+  src: url(./../../public/fonts/Playfair-VariableFont_opszwdthwght.ttf)
+    format("truetype");
+}
+@font-face {
+  font-family: Merriweather;
+  src: url(./../../public/fonts/Merriweather-LightItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: cripson;
+  src: url(./../../public/fonts/CrimsonPro-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: PlayfairDisplay;
+  src: url(./../../public/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+}
+.filter {
+  display: flex;
+  height: 90%;
+  width: 7%;
+  margin-left: 10%;
+}
+.filter h3 {
+  letter-spacing: 0.5px;
+  font-size: 2.5vh;
+  font-family: Playfair;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  height: 100%;
+  width: 60%;
+  font-weight: 500;
+}
+.filter img {
+  padding: 4% 9% 4% 9%;
+  height: 100%;
+  width: 40%;
+}
+.filter-overlay {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  pointer-events: auto;
+}
+.filter-menu {
+  background: linear-gradient(to right, #00093c, #2d0b00);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  z-index: 1002;
+  pointer-events: auto;
+}
+.filter-menu-box {
+  height: 15%;
+  width: 100%;
+  margin-top: 3%;
+}
+.filter-menu-box h3 {
+  color: hsl(40, 100%, 90%);
+  padding-left: 3%;
+  height: 25%;
+  font-size: 2.5vh;
+  border-bottom: 1px solid hsl(40, 100%, 90%);
+  font-family: Playfair;
+  font-weight: 400;
+}
+.btn-wrapp,
+.btn-wrapp-type-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 75%;
+}
+.btn-wrapp button {
+  pointer-events: auto; /* Allow click inside */
+  font-family: Playfair;
+  font-weight: 400;
+  color: rgb(243, 231, 231);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  width: 12%;
+  border-radius: 20px;
+  border: 1px solid rgb(71, 69, 69);
+  z-index: 3333;
+  cursor: pointer;
+}
+.btn-wrapp button.active {
+  background-color: black;
+  color: white;
+}
+.btn-wrapp-type-2 button {
+  font-family: Playfair;
+  font-weight: 400;
+  color: rgb(243, 231, 231);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  width: 15%;
+  border-radius: 20px;
+  border: 1px solid rgb(71, 69, 69);
+}
+.btn-wrapp-type-2 button.active {
+  background-color: black;
+  color: white;
+}
+@media screen and (min-width: 320px) and (max-width: 450px) {
+  .filter {
+    display: flex;
+    height: 90%;
+    width: 25%;
+    margin-left: 10%;
+  }
+  .filter h3 {
+    letter-spacing: 0.5px;
+    font-size: 1.8vh;
+    font-family: Playfair;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    height: 100%;
+    width: 60%;
+    font-weight: 500;
+  }
+  .filter img {
+    padding: 5% 21% 5% 0%;
+    height: 100%;
+    width: 40%;
+  }
+  .filter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    pointer-events: auto;
+  }
+  .filter-menu {
+    background: linear-gradient(to right, #00093c, #2d0b00);
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 90%;
+  }
+  .filter-menu-box {
+    height: 15%;
+    width: 100%;
+    margin-top: 3%;
+  }
+  .filter-menu-box h3 {
+    color: hsl(40, 100%, 90%);
+    padding-left: 3%;
+    height: 25%;
+    font-size: 2.5vh;
+    border-bottom: 1px solid hsl(40, 100%, 90%);
+    font-family: Playfair;
+    font-weight: 400;
+  }
+  .btn-wrapp,
+  .btn-wrapp-type-2 {
+    display: grid;
+    column-gap: 3px;
+    row-gap: 3px;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 100%;
+    height: 75%;
+  }
+  .btn-wrapp button {
+    pointer-events: auto;
+    font-family: Playfair;
+    font-weight: 400;
+    color: rgb(243, 231, 231);
+    background-color: transparent;
+    margin-left:10%;
+    height: 60%;
+    width: 80%;
+    border-radius: 20px;
+    border: 1px solid rgb(71, 69, 69);
+  }
+  .btn-wrapp button.active {
+    background-color: black;
+    color: white;
+  }
+  .btn-wrapp-type-2 button {
+    pointer-events: auto;
+    margin-left: 10%;
+    font-family: Playfair;
+    font-weight: 400;
+    color: rgb(243, 231, 231);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width: 80%;
+    border-radius: 20px;
+    border: 1px solid rgb(71, 69, 69);
+  }
+  .btn-wrapp-type-2 button.active {
+    background-color: black;
+    color: white;
+  }
+}

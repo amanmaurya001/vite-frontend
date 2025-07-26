@@ -1,0 +1,145 @@
+#block7 { 
+  margin-top: 5vh;
+  height: 76vh;
+  width: 100%;
+}
+
+#block7-up {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#block7-up h3 {
+  color: #000;
+  font-size: 4vh;
+  font-weight: 100;
+}
+
+#block7-mid {
+  margin-top: 6vh;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#block7-mid-product {
+  height: 100%;
+  width: 22%;
+  margin-left: 0vh;
+}
+
+#block7-mid-product a {
+  height: 100%;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+#block7-mid-product-img {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#block7-mid-product-img img {
+  height: 100%;
+  width: 100%;
+}
+
+#block7-mid-product-img img:hover {
+  height: 97%;
+  width: 98%;
+  transition: all 0.7s ease; 
+}
+
+#block7-mid-product-name {
+  height: 10%;
+  width: 100%;
+  font-family: Playfair;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 2.5vh;
+  font-weight: 600;
+}
+@media screen and (min-width: 320px) and (max-width: 450px) {
+  #block7 { 
+  margin-top: 2vh;
+  height: 76vh;
+  width: 100%;
+}
+
+#block7-up {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    width: 100%;
+}
+
+#block7-up h3 {
+ font-size: 2.5vh;
+    font-weight: 100;
+}
+
+#block7-mid {
+  display: grid;
+    grid-template-columns: 48% 48%;
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 0 2vh;
+    margin-top: 2vh;
+    height: 66vh;
+    width: 100%;
+}
+
+#block7-mid-product {
+ height: 32vh;
+    width: 100%;
+    margin-left: 0;
+}
+
+#block7-mid-product a {
+   display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+#block7-mid-product-img {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 29vh;
+    width: 100%;
+}
+
+#block7-mid-product-img img {
+  height: 100%;
+  width: 100%;
+}
+
+#block7-mid-product-img img:hover {
+  height: 97%;
+  width: 98%;
+  transition: all 0.7s ease; 
+}
+
+#block7-mid-product-name {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3vh;
+    width: 100%;
+    font-size: 1.7vh;
+    font-weight: 700;
+    color: #000;
+}
+}

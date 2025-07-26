@@ -1,0 +1,57 @@
+#block1 {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  
+}
+
+.swiper2 {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.SwiperSlide{
+    
+}
+#hero1 {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}
+#hero2-1,
+#hero2-2,
+#hero2-3 {
+  font-family: Inria;
+  position: absolute;
+  color: #041727;
+}
+@media screen and (min-width: 320px) and (max-width: 450px) {
+
+  #block1 {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  
+}
+
+.swiper2 {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.SwiperSlide{
+    
+}
+#hero1 {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}
+#hero2-1,
+#hero2-2,
+#hero2-3 {
+  font-family: Inria;
+  position: absolute;
+  color: #041727;
+}
+}

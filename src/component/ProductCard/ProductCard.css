@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: "GreatVibes";
+  src: url("./../../public/fonts/GreatVibes-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Playfair;
+  src: url(./../../public/fonts/Playfair-VariableFont_opszwdthwght.ttf)
+    format("truetype");
+}
+@font-face {
+  font-family: Merriweather;
+  src: url(./../../public/fonts/Merriweather-LightItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: cripson;
+  src: url(./../../public/fonts/CrimsonPro-Italic-VariableFont_wght.ttf);
+}
+.product-card {
+  height: 80vh;
+  width: 100%;
+}
+.product-card a {
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+.image {
+  position: relative;
+
+  height: 87%;
+  width: 100%;
+  overflow: hidden;
+}
+.image img {
+  height: 100%;
+  width: 100%;
+}
+.img1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  object-fit: fill;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+.img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  object-fit: fill;
+  z-index: -2;
+}
+.image:hover .img1 {
+  opacity: 0;
+}
+
+.image:hover .img2 {
+  transition: all 0.4s ease;
+}
+
+.image:hover .img2 {
+  transform: scale(1);
+}
+.name {
+  color: #362e2e;
+  font-family: Playfair;
+  display: flex;
+  align-items: flex-end;
+
+  height: 6%;
+  margin-left: 2vh;
+  font-weight: 100;
+}
+.price {
+  display: flex;
+  align-items: flex-start;
+
+  height: 7%;
+}
+
+.price h2 {
+  font-family: cripson;
+  font-weight: 500;
+  color: #362e2e;
+  margin-left: 2vh;
+  font-size: 2.5vh;
+}
+
+.price h3 {
+  margin-top: 4px;
+  font-weight: 500;
+  text-decoration: line-through;
+  margin-left: 2vh;
+  font-family: cripson;
+  color: black;
+
+  font-size: 2vh;
+}
+.price h4 {
+  font-weight: 500;
+  margin-top: 6px;
+  margin-left: 2vh;
+  font-family: cripson;
+  color: rgb(30, 16, 219);
+
+  font-size: 1.6vh;
+}
+@media screen and (min-width: 320px) and (max-width: 450px) {
+  .product-card {
+
+    height: 45vh;
+    width: 100%;
+  }
+  .product-card a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+  }
+  .image {
+    position: relative;
+
+    height: 85%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .image img {
+    height: 100%;
+    width: 100%;
+  }
+  .img1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    object-fit: fill;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  .img2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    object-fit: fill;
+    z-index: -2;
+  }
+  .image:hover .img1 {
+    opacity: 0;
+  }
+
+  .image:hover .img2 {
+    transition: all 0.4s ease;
+  }
+
+  .image:hover .img2 {
+    transform: scale(1);
+  }
+  .name {
+
+    color: #362e2e;
+    font-family: Playfair;
+    display: flex;
+    align-items: flex-end;
+font-size: 1.3vh;
+    height: 7%;
+    margin-left: 1vh;
+    font-weight: 100;
+  }
+  .price {
+    
+    display: flex;
+    align-items: flex-start;
+
+    height: 7%;
+  }
+
+  .price h2 {
+    font-family: cripson;
+    font-weight: 500;
+    color: #362e2e;
+    margin-left: 1vh;
+    font-size: 1.5vh;
+  }
+
+  .price h3 {
+    margin-top: 4px;
+    font-weight: 500;
+    text-decoration: line-through;
+    margin-left: 1vh;
+    font-family: cripson;
+    color: black;
+
+    font-size: 1vh;
+  }
+  .price h4 {
+    font-weight: 500;
+    margin-top: 6px;
+    margin-left: 1vh;
+    font-family: cripson;
+    color: rgb(30, 16, 219);
+
+    font-size: 1vh;
+  }
+}
