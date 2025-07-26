@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../NavLastest/NavLatest.css";
+import "./NavLatest.css";
 const NavLatest = () => {
 const Latest =[
    
