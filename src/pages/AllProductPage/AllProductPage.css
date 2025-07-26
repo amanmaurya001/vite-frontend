@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: "GreatVibes";
-  src: url("./../../public/fonts/GreatVibes-Regular.ttf") format("truetype");
+  src: url("/fonts/GreatVibes-Regular.ttf") format("truetype");
 }
 .heading {
   margin-top: 2%;
