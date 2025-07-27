@@ -177,7 +177,7 @@ width: 2%;
 }
 
 .navbar-actions{
-border: 1px solid red;
+
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -185,20 +185,21 @@ border: 1px solid red;
     height: 100%;
       width: 32%;
 }
-.nav-link{  border: 1px solid red;
-
+.nav-link{  
+padding: 0;
   position: relative;
     height: 60%;
       width:15%;
 }
 .nav-link:nth-of-type(1){
 
-   height: 60%;
-      width: 20%;
+   height: 50%;
+      width: 12%;
 }
 
 .nav-link img {
-  
+  margin: 0;
+  padding: 0%;
       height: 100%;
       width:100%;
 }
