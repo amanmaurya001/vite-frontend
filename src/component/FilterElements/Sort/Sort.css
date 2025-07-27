@@ -1,18 +1,18 @@
 @font-face {
     font-family: Playfair;
-    src: url(./../../public/fonts/Playfair-VariableFont_opsz,wdth,wght.ttf) format('truetype');
+    src: url(/fonts/Playfair-VariableFont_opsz,wdth,wght.ttf) format('truetype');
   }
   @font-face {
   font-family:Merriweather;
-  src: url(./../../public/fonts/Merriweather-LightItalic.ttf) format('truetype');
+  src: url(/fonts/Merriweather-LightItalic.ttf) format('truetype');
 }
 @font-face {
   font-family: cripson;
-  src: url(./../../public/fonts/CrimsonPro-Italic-VariableFont_wght.ttf);
+  src: url(/fonts/CrimsonPro-Italic-VariableFont_wght.ttf);
 }
 @font-face {
   font-family: PlayfairDisplay;
-  src: url(./../../public/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+  src: url(/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
 }
 .sort{
     display: flex;
@@ -102,4 +102,95 @@ border-bottom: 1px solid hsl(40, 100%, 90%);
 .sort-btn-wrapp button.active{
    background-color: black;
   color: white;
+}
+@media screen and (min-width: 320px) and (max-width: 450px) {
+  .sort{
+    display: flex;
+    height: 90%;
+   width: 20%;
+    margin-right: 10%;
+}
+.sort h3{
+  letter-spacing: 0.5px;
+    font-size:1.4vh;
+    font-family: Playfair;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    height: 100%;
+    width: 60%;
+   font-weight: 500;
+}
+.sort img{
+
+  padding:8% 21% 8% 0%;
+     height: 100%;
+    width: 40%;
+   
+}
+.sort-overlay {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  pointer-events: auto;
+}
+.sort-menu{
+ background: linear-gradient(to right, #00093c, #2d0b00);
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 30%;
+    z-index: 111;
+    
+}
+.sort-menu-box{
+ 
+   height: 80%;
+   width: 100%;
+   margin-top: 3%;
+}
+.sort-menu-box h3{
+  color: hsl(40, 100%, 90%);
+  padding-left: 3%;
+  height: 5%;
+  font-size: 2.5vh;
+border-bottom: 1px solid hsl(40, 100%, 90%);
+  font-family: Playfair;
+  font-weight: 400;
+}
+.sort-btn-wrapp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  
+  height: 75%;
+}
+.sort-btn-wrapp button{
+  font-family: cripson;
+     color: rgb(243, 231, 231);
+  
+  font-weight: 300;
+   margin-top: 1%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7%;
+  width: 80%;
+  border-radius: 20px;
+   border: 1px solid rgb(71, 69, 69);
+   font-size: 2vh;
+}
+.sort-btn-wrapp button.active{
+   background-color: black;
+  color: white;
+}
 }

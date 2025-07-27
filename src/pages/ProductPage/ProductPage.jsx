@@ -190,6 +190,7 @@ const ProductPage = () => {
             ))}
           </div>
           <section className="quantity-and-wish">
+            
             <div className="quantity">
               <button
                 onClick={() => {

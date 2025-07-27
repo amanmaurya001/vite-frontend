@@ -183,7 +183,7 @@ width: 2%;
     justify-content: center;
    
     height: 100%;
-      width: 25%;
+      width: 32%;
 }
 .nav-link{  
   margin-left: 4%;
@@ -201,5 +201,15 @@ width: 2%;
   
       height: 100%;
       width:100%;
+}
+.nav-search-bar{
+
+ 
+background-color: white;
+  position: absolute;
+  top: 7vh;
+animation: slideDown 0.3s ease forwards;
+  height: 4vh;
+  width: 100%;
 }
 }

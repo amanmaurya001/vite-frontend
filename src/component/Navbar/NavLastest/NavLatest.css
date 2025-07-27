@@ -1,10 +1,10 @@
 @font-face {
     font-family: Playfair;
-    src: url(./../../public/fonts/Playfair-VariableFont_opsz,wdth,wght.ttf) format('truetype');
+    src: url(/public/fonts/Playfair-VariableFont_opsz,wdth,wght.ttf) format('truetype');
   }
   @font-face {
   font-family:Merriweather;
-  src: url(./../../public/fonts/Merriweather-LightItalic.ttf) format('truetype');
+  src: url(/public/fonts/Merriweather-LightItalic.ttf) format('truetype');
 }
 .navLatest{
     margin-top: 4%;
@@ -65,4 +65,68 @@
     list-style-type: none;
  
 
+}
+@media screen and (min-width: 320px) and (max-width: 450px) {
+  .navLatest{
+    margin-top: 4%;
+   
+  
+    height: auto;
+}
+.navLatest-box{
+    height: 40px;
+}
+.navLatest-box h2{
+      color: hsl(40, 100%, 90%);
+    margin-left: 5%;
+     height: 100%;
+   display: flex;
+   align-items: center;
+    letter-spacing: 1px;
+      font-family: Playfair;
+    font-weight: 400;
+ font-size: 2vh;
+
+}
+.latest-menu{
+    border-top: 1px solid grey;
+    display: flex;
+
+  
+    height: auto;
+    width: 100%;
+   
+}
+.latest-menu-men,.latest-menu-women{
+
+ 
+    width: 50%;
+    
+}
+.latest-menu-men h3,.latest-menu-women h3{
+      color: #cab91d;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    height: 5vh;
+     font-family: Playfair;
+    margin-left:10% ;
+    font-size: 1.8vh;
+
+}
+.latest-menu-men li,.latest-menu-women li{
+       letter-spacing: 0.5px;
+     color: hsl(40, 100%, 90%);
+    font-size: 1.1rem;
+      display: flex;
+    align-items: center;
+      height: 4vh;
+    margin-left:14% ;
+       font-family: Playfair;
+    list-style-type: none;
+    font-size: 1.4vh;
+ 
+
+}
 }
