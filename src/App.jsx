@@ -30,9 +30,28 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-      
+        <Route path="/search" element={<SearchPage />} />
+
+        <Route
+          path="/productlisting/:navGender/allproducts"
+          element={<AllProductPage />}
+        />
+          
+
+        <Route
+          path="/productlisting/:navGender/:navCategory"
+          element={<ProductListingPage />}
+        />
+
+        
+        <Route path="/products/:productId" element={<ProductPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/wishlist" element={<WishList />} />
+        <Route path="/cart" element={<Cart />} />
 
 
+               {/* internal routes of profile dash baord */}
           <Route path="/profiledashboard" element={<ProfileDashboard />} >
               <Route path="profile" element={<Profile />} />
               <Route path="cart" element={<Cart />} />
@@ -43,33 +62,15 @@ function App() {
 
          </Route>
 
-         <Route path="/profile" element={<Profile />} />
-
-
-     
-        <Route path="/search" element={<SearchPage />} />
-           <Route path="/protected" element={<ProtectedRoute />} />
-
-        <Route
-          path="/productlisting/:navGender/allproducts"
-          element={<AllProductPage />}
-        />
-        <Route
-          path="/productlisting/:navGender/:navCategory"
-          element={<ProductListingPage />}
-        />
-        <Route path="/products/:productId" element={<ProductPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/wishlist" element={<WishList />} />
-        <Route path="/cart" element={<Cart />} />
-
+     {/* internal routes of admin dash board dash baord */}
         <Route path="/admin/dashboard" element={<ProtectedRoute> <DashBoard /></ProtectedRoute>}>
           <Route index element={<h3>Welcome to Dashboard 👋</h3>} />
           <Route path="all-products" element={<Products />} />
           <Route path="create-product" element={<CreateProduct />} />
           <Route path=":SingleProductId" element={<EditProducts />} />
         </Route>
+
+
       </Routes>
     </Layout>
   );

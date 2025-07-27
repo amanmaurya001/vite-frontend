@@ -188,6 +188,7 @@ const ProductListingPage = () => {
           filteredListing.map((product) => (
             <ProductCard
               key={product.id}
+               productId={product.id}
               image0={product.images[0]}
               image1={product.images[1]}
               name={product.name}

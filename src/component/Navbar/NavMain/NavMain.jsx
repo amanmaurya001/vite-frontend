@@ -64,7 +64,7 @@ const NavMain = () => {
           <div className="nav-link">
             {user && user.username ? (
               <div className="avatar-circle">
-                <Link to="/profiledashboard">{user.username[0].toUpperCase()}</Link>
+                <Link to="/profiledashboard/profile">{user.username[0].toUpperCase()}</Link>
               </div>
             ) : (
               <Link to="/login">

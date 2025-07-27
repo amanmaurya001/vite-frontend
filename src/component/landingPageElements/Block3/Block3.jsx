@@ -42,7 +42,7 @@ const Block3 = () => {
 
               {
                 label: "Corset",
-                link: "mini-dress",
+                link: "/productlisting/women/corset",
                 img: "/PHotos/women/women-corset/corset0001/1.jpg",
               },
               {
@@ -65,7 +65,7 @@ const Block3 = () => {
                 <div className="block3-product">
                   <h1>{item.label}</h1>
                   <button id="button1">shop now</button>
-                  <Link to={""}>
+                  <Link to={item.link}>
                     <img src={`${item.img}`} alt="" />
                   </Link>
                 </div>

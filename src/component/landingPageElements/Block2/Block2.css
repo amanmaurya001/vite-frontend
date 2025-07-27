@@ -34,7 +34,7 @@
   position: absolute;
   top: 78%;
   margin-left: 10vh;
-  z-index: 99;
+  z-index: 4;
   color: #ffffff;
   font-size: 6vh;
   font-family: Playfair;
@@ -48,7 +48,7 @@
   width: 30vh;
   display: flex;
   justify-content: space-evenly;
-  z-index: 99;
+  z-index: 4;
 }
 
 #block2-left div a,
@@ -95,7 +95,7 @@
   position: absolute;
   top: 75%;
   margin-left: 2vh;
-  z-index: 99;
+  z-index: 4;
   color: #ffffff;
   font-size: 2vh;
   font-family: Playfair;
@@ -109,7 +109,7 @@
   width: 10vh;
   display: flex;
   justify-content: space-evenly;
-  z-index: 99;
+  z-index: 4;
 }
 
 #block2-left div a,
