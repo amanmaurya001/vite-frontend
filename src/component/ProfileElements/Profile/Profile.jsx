@@ -5,11 +5,12 @@ import "./Profile.css";
 import { Link, Outlet } from "react-router-dom";
 
 const Profile = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const token = localStorage.getItem("token");
   const [profiledata, setProfiledata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:1234/profile", {
+      .get(`${backendUrl}/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -30,6 +31,8 @@ const Profile = () => {
         </div>
 
         <div className="profile-details">
+
+
           <div className="detail-card">
             <span>👤</span>
             <p>
@@ -37,6 +40,10 @@ const Profile = () => {
             </p>
             <p>{profiledata.username}</p>
           </div>
+
+
+
+
           <div className="detail-card">
             <span>📧</span>
             <p>

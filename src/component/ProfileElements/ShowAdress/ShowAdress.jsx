@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import toast from "react-hot-toast";
 const ShowAddress = () => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const token = localStorage.getItem("token");
     const navigate = useNavigate();
 const[address,setAddress]=useState([]);
@@ -12,7 +13,7 @@ const[address,setAddress]=useState([]);
 useEffect(()=>{
 
    axios
-      .get("http://localhost:1234/showAdress", {
+      .get(`${backendUrl}/showAdress`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

@@ -1,7 +1,7 @@
 #ham {
   background: linear-gradient(to right, #00093c, #2d0b00);
 
-  height: 100vh;
+  height: 100%;
   width: 50%;
   display: flex;
   position: fixed;
