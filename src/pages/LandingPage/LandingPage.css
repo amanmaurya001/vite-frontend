@@ -1,14 +1,14 @@
 @font-face {
   font-family: Qwitcher;
-  src: url(./../../public/fonts/QwitcherGrypen-Regular.ttf) format("truetype");
+  src: url(/fonts/QwitcherGrypen-Regular.ttf) format("truetype");
 }
 @font-face {
   font-family: Merriweather;
-  src: url(./../../public/fonts/Merriweather-LightItalic.ttf) format("truetype");
+  src: url(/fonts/Merriweather-LightItalic.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair;
-  src: url(./../../public/fonts/Playfair-VariableFont_opszwdthwght.ttf)
+  src: url(/fonts/Playfair-VariableFont_opszwdthwght.ttf)
     format("truetype");
 }
 
