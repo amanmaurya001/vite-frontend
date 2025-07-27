@@ -34,7 +34,7 @@ const Signup = () => {
         navigate('/login');
       })
       .catch((err) => {
-        toast.error("chutiya ho ka beeee", { position: 'top-center' });
+        toast.error("something went wrong", { position: 'top-center' });
       });
   };
 

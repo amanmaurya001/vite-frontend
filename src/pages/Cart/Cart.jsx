@@ -44,7 +44,7 @@ const Cart = () => {
           .catch((err) => {
             console.log(err);
           });
-        // setData((prev) => prev.filter((item) => item.itemId !== passingItemId));
+   
       })
       .catch((err) => {
         toast.error(res.data.message, { position: "top-center" });
