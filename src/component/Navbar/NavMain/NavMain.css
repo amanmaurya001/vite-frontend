@@ -177,19 +177,19 @@ width: 2%;
 }
 
 .navbar-actions{
-
+border: 1px solid red;
     display: flex;
     align-items: center;
-    justify-content: center;
-   
+    justify-content: space-around;
+
     height: 100%;
       width: 32%;
 }
-.nav-link{  
-  margin-left: 4%;
+.nav-link{  border: 1px solid red;
+
   position: relative;
     height: 60%;
-      width:20%;
+      width:15%;
 }
 .nav-link:nth-of-type(1){
 
@@ -207,9 +207,9 @@ width: 2%;
  
 background-color: white;
   position: absolute;
-  top: 7vh;
+  top: 4vh;
 animation: slideDown 0.3s ease forwards;
-  height: 4vh;
+  height: 7vh;
   width: 100%;
 }
 }
