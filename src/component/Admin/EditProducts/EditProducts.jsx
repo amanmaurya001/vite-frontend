@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 import "./EditProducts.css";
 
 const EditProducts = () => {
-  // const { SingleProductId} = useParams();
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+   const { SingleProductId} = useParams();
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -35,14 +36,14 @@ const EditProducts = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:1234/admin/singleproducts/687e6af2e115e0b0acd1cfb4",
+        `${backendUrl}/admin/singleproducts/${SingleProductId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
       .then((res) => setFormData(res.data))
       .catch((err) => toast.error("Failed to fetch product"));
-  }, [token]);
+  }, [SingleProductId, token]);
 
 
 
@@ -94,7 +95,7 @@ const EditProducts = () => {
     };
 
     axios
-      .put("http://localhost:1234/admin/updateproducts/687e6af2e115e0b0acd1cfb4", payload, {
+      .put(`${backendUrl}/admin/updateproducts/${SingleProductId}`, payload, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {

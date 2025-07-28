@@ -370,58 +370,7 @@
   margin-bottom: 10vh;
   height: 70vh;
 }
-.mySwiper2 {
-  height: 100%;
 
-  overflow: hidden;
-}
-.swiperslide {
-  height: 100%;
-  box-sizing: border-box; /* Ensures border is included in height */
-}
-/* .swiperslide a{
-     height: 100%;
-    width: 100%;
-} */
-
-.swiper-box {
-  height: 100%;
-  width: 100%;
-}
-/* .swiper-box a{
-   text-decoration: none;
-   height: 100%;
-    width: 100%;
-} */
-.swiper-box img {
-  height: 82%;
-  width: 100%;
-}
-.swiper-box h1 {
-  color: black;
-  padding-left: 2vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  height: 10%;
-  width: 100%;
-  font-size: 3vh;
-  text-decoration: none;
-  color: black;
-}
-.swiper-box p {
-  color: black;
-  padding-left: 2vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-decoration: none;
-  height: 8%;
-  width: 100%;
-  font-family: cripson;
-  font-size: 2.2vh;
-}
 @media screen and (min-width: 320px) and (max-width: 450px) {
   .zoom-modal {
   position: fixed;
@@ -812,56 +761,5 @@ margin-top: 5vh;
   margin-bottom: 0vh;
   height: 50vh;
 }
-.mySwiper2 {
-  height: 100%;
 
-  overflow: hidden;
-}
-.swiperslide {
-  height: 100%;
-  box-sizing: border-box; /* Ensures border is included in height */
-}
-/* .swiperslide a{
-     height: 100%;
-    width: 100%;
-} */
-
-.swiper-box {
-  height: 100%;
-  width: 100%;
-}
-/* .swiper-box a{
-   text-decoration: none;
-   height: 100%;
-    width: 100%;
-} */
-.swiper-box img {
-  height: 82%;
-  width: 100%;
-}
-.swiper-box h1 {
-  color: black;
-  padding-left: 2vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  height: 10%;
-  width: 100%;
-  font-size: 3vh;
-  text-decoration: none;
-  color: black;
-}
-.swiper-box p {
-  color: black;
-  padding-left: 2vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-decoration: none;
-  height: 8%;
-  width: 100%;
-  font-family: cripson;
-  font-size: 2.2vh;
-}
 }

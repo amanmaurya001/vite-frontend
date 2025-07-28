@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const ProtectedRoute = ({ children }) => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const token = localStorage.getItem("token");
   const [authorized, setAuthorized] = useState(null);
 
@@ -13,7 +14,7 @@ const ProtectedRoute = ({ children }) => {
     return;
      }
     axios
-      .get("http://localhost:1234/admin/dashboard", {
+      .get(`${backendUrl}/admin/dashboard`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

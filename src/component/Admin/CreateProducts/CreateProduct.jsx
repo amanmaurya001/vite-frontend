@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const CreateProduct = () => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [formData, setFormData] = useState({
     id: "",
     name: "",
@@ -61,7 +62,7 @@ const CreateProduct = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:1234/admin/createproducts",
+        `${backendUrl}/admin/createproducts`,
         payload
       );
       toast.success(res.data.message);

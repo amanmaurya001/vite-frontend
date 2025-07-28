@@ -162,7 +162,8 @@ const ProductListingPage = () => {
     <>
       <section className="heading">
         <h1>
-          {navGender} {navCategory}
+             {navGender.charAt(0).toUpperCase() + navGender.slice(1)}{" "}
+              {navCategory.charAt(0).toUpperCase() + navCategory.slice(1)}
         </h1>
       </section>
       <section className="filter-section">

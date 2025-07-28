@@ -20,6 +20,7 @@ import ProfileDashboard from "./pages/ProfileDashboard/ProfileDashboard";
 import CreateAddress from "./component/ProfileElements/CreateAddress/CreateAddress";
 import ShowAddress from "./component/ProfileElements/ShowAdress/ShowAdress";
 import EditAddress from "./component/ProfileElements/EditAddress/EditAddress";
+import RandomSwiper from "./component/RandomSwiper/RandomSwiper";
 
 import { Toaster } from "react-hot-toast";
 
@@ -30,7 +31,8 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/search" element={<SearchPage />} />
+         <Route path="/" element={<LandingPage />} />
+        <Route path="/RandomSwiper" element={<RandomSwiper />} />
 
         <Route
           path="/productlisting/:navGender/allproducts"

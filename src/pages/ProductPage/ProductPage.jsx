@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import RandomSwiper from "../../component/RandomSwiper/RandomSwiper";
 
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -28,12 +29,14 @@ const ProductPage = () => {
       .get(`${backendUrl}/products/${productId}`)
       .then((res) => {
         setProducts(res.data);
+        
       })
 
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+       
+  }, [productId]);
   // To check k ye product h k nhi wishlist me
   useEffect(() => {
     if (!token || !product1?._id) return;
@@ -281,186 +284,7 @@ const ProductPage = () => {
       <section className="Product-YouMayLike">
         <h1>You may also like</h1>
         <div className="you-make-like-box">
-          <Swiper
-            className="mySwiper2"
-            modules={[Autoplay]}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={5}
-            breakpoints={{
-              320: {
-                slidesPerView: 2,
-                spaceBetween: 5,
-              },
-              451: {
-                slidesPerView: 2,
-                spaceBetween: 0,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 10,
-              },
-              1024: {
-                slidesPerView: 5,
-                spaceBetween: 10,
-              },
-            }}
-          >
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiperslide">
-              {" "}
-              <div className="swiper-box">
-                <img
-                  src="/PHotos/women/women-cottage/cottage-0001/1.jpg"
-                  alt=""
-                  style={{
-                    width: "100%",
-                    objectFit: "fill",
-                    borderRadius: "8px",
-                  }}
-                />{" "}
-                <h1>dsafjksdfgds</h1> <p>asdggasg</p>
-              </div>
-            </SwiperSlide>
-          </Swiper>
+    {product1 && <RandomSwiper Gender={product1.gender} />}
         </div>
       </section>
       {isZoomed && (

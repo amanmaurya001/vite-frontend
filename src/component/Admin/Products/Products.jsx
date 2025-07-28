@@ -5,12 +5,13 @@ import toast from "react-hot-toast";
 import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
    const navigate = useNavigate();
   const [adminData, setAdminData] = useState([]);
   const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get("http://localhost:1234/admin/products", {
+      .get(`${backendUrl}/admin/products`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -29,13 +30,13 @@ const Products = () => {
     );
     if (!confirmed) return;
     axios
-      .delete(`http://localhost:1234/admin/deleteproducts/${deleteId}`, {
+      .delete(`${backendUrl}/admin/deleteproducts/${deleteId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
         toast.success(res.data.message, { position: "top-center" });
         axios
-          .get("http://localhost:1234/admin/products", {
+          .get(`${backendUrl}/admin/products`, {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then((res) => {
