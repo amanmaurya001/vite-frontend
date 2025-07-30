@@ -33,7 +33,7 @@ const Cart = () => {
       .then((res) => {
         toast.success(res.data.message, { position: "top-center" });
         axios
-          .get(`backendurl/cart`, {
+          .get(`${backendUrl}/cart`, {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then((res) => {

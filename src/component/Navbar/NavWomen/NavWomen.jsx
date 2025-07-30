@@ -30,11 +30,11 @@ const NavWomen = ({ onClose }) => {
     {
       Heading: "Dresses",
       item: [
-        { itemname: "Mini Dress", link: "/productlisting/Women/mini-dress" },
-        { itemname: "Midi Dress", link: "/productlisting/Women/midi-dress" },
-        { itemname: "Maxi Dress", link: "/productlisting/Women/maxi-dress" },
-        {itemname: "Floral Dress",link: "/productlisting/Women/floral-dress"},
-        {itemname: "Cottage Dress",link: "/productlisting/Women/Cottage-dress"}
+        { itemname: "Mini Dress", link: "/productlisting/Women/mini" },
+        { itemname: "Midi Dress", link: "/productlisting/Women/midi" },
+        { itemname: "Maxi Dress", link: "/productlisting/Women/maxi" },
+        {itemname: "Floral Dress",link: "/productlisting/Women/floral"},
+        {itemname: "Cottage Dress",link: "/productlisting/Women/Cottage"}
       ],
     },
   ];

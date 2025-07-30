@@ -16,7 +16,7 @@ const block5 = () => {
             </Link>
           </div>
           <div id="block5-right-down">
-            <Link to={"/products/cottage001"}>
+            <Link to={"/products/cottage-0002"}>
               <img src="/PHotos/home/block8-D.jpg" alt="" />
             </Link>
           </div>

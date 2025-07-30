@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import RandomSwiper from "../../component/RandomSwiper/RandomSwiper";
-
+import LodingSpiner from "../../component/LodingSpiner/LodingSpiner";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "swiper/css";
@@ -153,7 +153,7 @@ const ProductPage = () => {
   };
 
   if (!product1) {
-    return <div>Loading...</div>;
+    return <LodingSpiner/>;
   }
 
   return (

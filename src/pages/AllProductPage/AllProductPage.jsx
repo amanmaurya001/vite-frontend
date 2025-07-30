@@ -5,9 +5,10 @@ import ProductCard from "../../component/ProductCard/ProductCard";
 import Filter from "../../component/FilterElements/Filter/Filter";
 import Sort from "../../component/FilterElements/Sort/Sort";
 import "./AllProductPage.css";
+import LodingSpiner from "../../component/LodingSpiner/LodingSpiner";
 
 const AllProductPage = () => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const { navGender } = useParams();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSortOpen, setIsSortOpen] = useState(false);
@@ -167,6 +168,7 @@ const AllProductPage = () => {
     setSelectedSort(sort);
   };
 
+
   return (
     <>
       <section className="heading">
@@ -181,19 +183,15 @@ const AllProductPage = () => {
           onColourChange={handleColourChange}
           setIsFilterOpen={setIsFilterOpen}
         />
-        <Sort 
-        onSortChange={handleSortChange}
-          setIsSortOpen={setIsSortOpen}
-         />
+        <Sort onSortChange={handleSortChange} setIsSortOpen={setIsSortOpen} />
       </section>
 
       <section
         className="product-grid"
         style={{
-       pointerEvents: isFilterOpen || isSortOpen ? "none" : "auto",
+          pointerEvents: isFilterOpen || isSortOpen ? "none" : "auto",
         }}
       >
-  
         {filteredListing.length > 0 ? (
           filteredListing.map((product) => (
             <ProductCard
@@ -207,6 +205,8 @@ const AllProductPage = () => {
               Note={product.productNote}
             />
           ))
+        ) : listing.length === 0 ? (
+          <LodingSpiner />
         ) : (
           <p style={{ textAlign: "center", padding: "20px" }}>
             No matching products found.

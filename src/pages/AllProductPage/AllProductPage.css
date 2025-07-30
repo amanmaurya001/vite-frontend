@@ -22,12 +22,13 @@
   position: sticky;
   top: 7vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
+  
   background-color: white;
   border-bottom: 1px solid grey;
-  height: 50px;
+  height: 60px;
   z-index: 6;
 }
 .product-grid {
