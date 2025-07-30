@@ -13,7 +13,7 @@ const Block3 = () => {
         <div id="box2">
           <Swiper
             id="xxxx"
-            className="mySwiper2"
+            className="LP-block3-swiper"
             modules={[Autoplay]}
             autoplay={{
               delay: 2000,

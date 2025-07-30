@@ -3,11 +3,14 @@ import "../Cart/Cart.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import AddressSelection from "../../component/AddressSelection/AddressSelection";
 const Cart = () => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const token = localStorage.getItem("token");
   const [data, setData] = useState([]);
   const[summary,setsummary]=useState([]);
+  const [showAddress, setShowAddress] = useState(false);
+const [selectedAddressId, setSelectedAddressId] = useState(null);
 
   useEffect(() => {
     axios
@@ -51,20 +54,37 @@ const Cart = () => {
       });
   };
 
- const handleCheckout = () => {
+
+
+const handleCheckout = () => {
+  if (!selectedAddressId) {
+    console.log("No address selected");
+    return;
+  }
+
   axios
-    .post(`${backendUrl}/checkoutsession`, null, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    .post(
+      `${backendUrl}/checkoutsession`,
+      { addressId: selectedAddressId }, // ✅ pass addressId to backend
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
     .then((res) => {
-      window.location.href = res.data.url; // Stripe checkout page
+      window.location.href = res.data.url; // ✅ redirect to Stripe
     })
     .catch((err) => {
-      console.log(err);
+      console.log("Checkout error:", err);
     });
 };
 
+const toggleAddress = () => setShowAddress((prev) => !prev);
+
+  const handleAddressSelected = (id) => {
+    setSelectedAddressId(id);
+  };
   return (
+    <>
     <section className="cart-main">
       <section className="cart-products">
         {data.map((cartItem) => (
@@ -137,12 +157,23 @@ const Cart = () => {
             justifyContent: "space-around",
           }}
         >
-          <button onClick={(handleCheckout)}>
+          <button onClick={(toggleAddress )}>
             <h1>Checkout</h1>
           </button>
         </div>
       </section>
+          
     </section>
+      {/* ✅ Address UI dikhana hai, button gayab nahi karna */}
+      {showAddress && (
+        <AddressSelection 
+          onSelect={handleAddressSelected}
+         onCancel={toggleAddress}
+            paymentInitiate={handleCheckout}
+          />
+     
+      )}
+    </>
   );
 };
 

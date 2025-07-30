@@ -39,12 +39,17 @@
 
   height: 90%;
   width: 60%;
+  overflow: hidden;
 }
 .mySwiper2{
   z-index: -0;
  
 }
+.LP-block3-swiper{
+  height: 100%;
+  width: 100%;
 
+}
 
 
 .block3-product {

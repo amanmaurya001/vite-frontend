@@ -9,8 +9,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import "swiper/css";
 import "../ProductPage/ProductPage.css";
+import { useNavigate } from "react-router-dom";
 
 const ProductPage = () => {
+  const navigate = useNavigate();
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const { productId } = useParams();
   const [showStates, setShowStates] = useState({});
@@ -80,7 +82,8 @@ const ProductPage = () => {
         toast.success(res.data.message, { position: "top-center" });
       })
       .catch((err) => {
-        toast.error("something went wrong", { position: "top-center" });
+        toast.error("please login ", { position: "top-center" });
+        navigate("/login");
       });
   };
 
