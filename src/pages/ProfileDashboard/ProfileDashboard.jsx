@@ -29,7 +29,7 @@ const ProfileDashboard = () => {
         <Link>
           <button>orders</button>
         </Link>
-        <Link>
+        <Link to="orderhistory">
           <button>order hsitory</button>
         </Link>
 

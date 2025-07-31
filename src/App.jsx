@@ -22,6 +22,7 @@ import ShowAddress from "./component/ProfileElements/ShowAdress/ShowAdress";
 import EditAddress from "./component/ProfileElements/EditAddress/EditAddress";
 import RandomSwiper from "./component/RandomSwiper/RandomSwiper";
 import AddressSelection from "./component/AddressSelection/AddressSelection";
+import OrderHistory from "./component/OrderHistory/OrderHistory";
 
 import { Toaster } from "react-hot-toast";
 
@@ -33,6 +34,7 @@ function App() {
       <Routes>
            <Route path="/adressSelection" element={<AddressSelection/>} />
         <Route path="/" element={<LandingPage />} />
+              
          <Route path="/search" element={<SearchPage />} />
         <Route path="/RandomSwiper" element={<RandomSwiper />} />
 
@@ -63,6 +65,7 @@ function App() {
               <Route path="createAdress" element={<CreateAddress />} />
               <Route path="showAdress" element={<ShowAddress />} />
               <Route path="editAddress/:addressId" element={<EditAddress />} />
+                <Route path="orderhistory" element={<OrderHistory />} />
 
          </Route>
 
