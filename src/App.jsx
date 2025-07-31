@@ -32,7 +32,7 @@ function App() {
   return (
     <Layout>
       <Routes>
-           <Route path="/adressSelection" element={<AddressSelection/>} />
+          <Route path="/adressSelection" element={<AddressSelection/>} />
         <Route path="/" element={<LandingPage />} />
               
          <Route path="/search" element={<SearchPage />} />
@@ -65,7 +65,7 @@ function App() {
               <Route path="createAdress" element={<CreateAddress />} />
               <Route path="showAdress" element={<ShowAddress />} />
               <Route path="editAddress/:addressId" element={<EditAddress />} />
-                <Route path="orderhistory" element={<OrderHistory />} />
+              <Route path="orderhistory" element={<OrderHistory />} />
 
          </Route>
 

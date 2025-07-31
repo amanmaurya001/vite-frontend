@@ -28,47 +28,87 @@
 }
 
 .address-card {
-  border: 1px solid grey;
-  padding: 1.2rem;
-  border-radius: 8px;
-  background: #fdfdfd;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  position: relative;
+  background-color: #fefefe;
+  border: 1px solid #ddd;
+  border-left: 6px solid #4caf50;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.address-card:hover {
+  transform: translateY(-2px);
 }
 
 .name-line {
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 6px;
+  color: #333;
 }
 
 .tag {
-  font-size: 0.9rem;
-  color: #777;
+  background-color: #e0f7e9;
+  color: #2e7d32;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+.address-card p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: #555;
 }
 
 .default-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #ff6363;
+  display: inline-block;
+  background-color: #4caf50;
   color: white;
-  padding: 3px 10px;
-  border-radius: 20px;
   font-size: 0.75rem;
-  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-top: 6px;
 }
+
 .edit-adress {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.edit-adress:hover {
+  background-color: #388e3c;
 }
 .addAdress {
-  height: 6%;
-  width: 10%;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: capitalize;
+}
+
+.addAdress:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+.addAdress:active {
+  transform: scale(0.98);
 }
 
 @media screen and (min-width: 320px) and (max-width: 450px) {
@@ -147,8 +187,5 @@
     font-size: 1.3vh;
     font-weight: bold;
   }
-  .addAdress {
-    height: 6%;
-    width: 30%;
-  }
+
 }

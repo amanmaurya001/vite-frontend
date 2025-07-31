@@ -34,12 +34,20 @@ const NavMain = () => {
   return (
     <>
       <nav id="navbar">
-        <div className="navbar-hamburger" onClick={() => call(1)}>
-          <img
-            style={{ height: "40%", width: "40%" }}
-            src="/PHotos/hamburger.png"
-            alt="Logo"
-          />
+        <div className="navbar-hamburger" >
+          <div className="menu-icon-btn" onClick={() => call(1)}>
+            <img src="/PHotos/hamburger2.png" alt="Logo" />
+            <p>menu</p>
+          </div>
+          <div className="search-icon-btn"   onClick={toggleSearch}>
+            <img
+              src="/PHotos/search.png"
+              alt=""
+            
+              style={{ cursor: "pointer" }}
+            />
+            <p>search</p>
+          </div>
         </div>
 
         <div className="navbar-logo">
@@ -53,14 +61,6 @@ const NavMain = () => {
         </div>
 
         <div className="navbar-actions">
-          <div className="nav-link">
-            <img
-              src="/PHotos/search.png"
-              alt=""
-              onClick={toggleSearch}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
           <div className="nav-link">
             {user && user.username ? (
               <div className="avatar-circle">
@@ -103,7 +103,7 @@ const NavMain = () => {
               autoFocus
               onChange={(e) => setSearchText(e.target.value)}
             />
-            <button className="search" type="submit">
+            <button className="search-bar-btn" type="submit">
               <img src="/PHotos/search.png" alt="" />
             </button>
           </form>

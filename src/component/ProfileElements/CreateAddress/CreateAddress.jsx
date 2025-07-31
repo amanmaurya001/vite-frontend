@@ -80,7 +80,7 @@ const CreateAddress = () => {
             Set as default address
           </label>
 
-          <button type="submit">Save Address</button>
+          <button className='createAddressSubmit-btn' type="submit">Save Address</button>
         </form>
       </div>
     </div>

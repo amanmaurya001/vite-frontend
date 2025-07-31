@@ -5,6 +5,7 @@ import NavLatest from "../NavLastest/NavLatest";
 import NavWomen from "../NavWomen/NavWomen";
 import NavMen from "../NavMen/NavMen";
 import Logout from "../../Logout/Logout";
+import Setting from "../../Setting/Setting";
 
 const Hamburger = ({ onClose }) => {
   return (
@@ -16,8 +17,8 @@ const Hamburger = ({ onClose }) => {
           <NavWomen onClose={onClose} />
           <NavMen onClose={onClose} />
         </div>
-        <div className="main-ham-logout">
-              <Logout  />
+        <div className="main-ham-setting">
+              <Setting />
         </div>
       </section>
       <section className="ham-ad">

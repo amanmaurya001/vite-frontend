@@ -4,18 +4,10 @@
   
    
 }
-.ProfileDashboard h2{
- 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10%;
-    width: 100%;
-    font-size: 4vh;
-}
+
 .ProfileDashboard section{
     display: flex;
-    height: 90%;
+    height: 100%;
     width: 100%;
     border-top: 1px solid gray;
 }

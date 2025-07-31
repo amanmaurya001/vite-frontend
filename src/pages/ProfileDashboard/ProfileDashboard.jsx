@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 const ProfileDashboard = () => {
   return (
     <div className="ProfileDashboard">
-      <h2>My Account</h2>
+   
       <section>
       <div className="ProfileDashboard-option">
         <h3>My account</h3>
@@ -20,10 +20,10 @@ const ProfileDashboard = () => {
         </Link>
 
         <h3>My Activity</h3>
-        <Link to="cart">
+        <Link to="/cart">
           <button>My cart</button>
         </Link>
-        <Link to="wishlist">
+        <Link to="/wishlist">
           <button>My wishlist</button>
         </Link>
         <Link>

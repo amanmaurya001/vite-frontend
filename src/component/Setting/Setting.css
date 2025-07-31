@@ -1,0 +1,26 @@
+.setting{
+    border: 3px solid red;
+height: 100%;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content:  center;
+color: aliceblue;
+}
+.setting-menu{
+     background: linear-gradient(to right, #00093c, #2d0b00);
+
+  height: 100%;
+  width: 25%;
+
+  position: fixed;
+  top: 0;
+  z-index: 1050;
+}
+.setting-items{
+    height: 6%;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid gray;
+    font-size: 2.2vh;
+}
