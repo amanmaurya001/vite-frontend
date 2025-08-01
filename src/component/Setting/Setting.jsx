@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CancelElement from "../FilterElements/cancelElement/CancelElement";
 import { Link, Outlet } from "react-router-dom";
-import "./Setting.css";
+import "./setting.css";
 const Setting = () => {
 ;
   
