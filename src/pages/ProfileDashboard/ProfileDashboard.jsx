@@ -1,6 +1,7 @@
 import React from "react";
 import "./ProfileDashboard.css";
 import { Link, Outlet } from "react-router-dom";
+import Logout from "../../component/Logout/Logout";
 const ProfileDashboard = () => {
   return (
     <div className="ProfileDashboard">
@@ -37,6 +38,9 @@ const ProfileDashboard = () => {
          <Link>
           <button>Track Your Order</button>
         </Link>
+        <div>   <Logout/></div>
+       
+   
       </div>
       <div className="ProfileDashboard-output">
         <Outlet />

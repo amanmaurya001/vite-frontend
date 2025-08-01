@@ -1,27 +1,20 @@
 import React, { useState } from "react";
 import CancelElement from "../FilterElements/cancelElement/CancelElement";
+import { Link, Outlet } from "react-router-dom";
 import "./setting.css";
-const Setting = ({ onClose }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState({});
-  const call = (id) => {
-    setIsMenuOpen((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
+const Setting = () => {
+;
+  
   return (
-    <>
-  <div className="setting"  onClick={() => call(2)}>Setting</div>
-     {isMenuOpen[2] && (
-        <div className="setting-menu">
-              <CancelElement onClose={() => call(2)} />
-                <button className="setting-items">Profile</button>
-                 <button className="setting-items">change password</button>
-        
-        </div>
-      )}
+    
+  <div className="setting" >
+    <Link to="/profiledashboard/profile">
+       Setting
+    </Link>
+  </div>
+   
 
-  </>
+  
 );
 };
 

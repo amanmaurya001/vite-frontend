@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./Signup.css";
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -13,28 +13,39 @@ const Signup = () => {
     password: "",
     gender: "",
     dob: "",
-    phone: ""
+    phone: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post(`${backendUrl}/register`, formData)
-  
+    axios
+      .post(`${backendUrl}/register`, formData)
+
       .then((res) => {
-        toast.success(res.data?.message, { position: 'top-center' });
-        navigate('/login');
+        toast.success(res.data?.message, { position: "top-center" });
+        navigate("/login");
       })
       .catch((err) => {
-        toast.error("something went wrong", { position: 'top-center' });
+        const errors = err?.response?.data?.errors;
+
+        if (errors && Array.isArray(errors)) {
+          errors.forEach((msg) => {
+            toast.error(msg, { position: "top-center" });
+          });
+        } else {
+          toast.error(err?.response?.data?.message || "Something went wrong", {
+            position: "top-center",
+          });
+        }
       });
   };
 
@@ -71,7 +82,12 @@ const Signup = () => {
         />
 
         <label>Gender</label>
-        <select name="gender" value={formData.gender} onChange={handleChange} required>
+        <select
+          name="gender"
+          value={formData.gender}
+          onChange={handleChange}
+          required
+        >
           <option value="">Select</option>
           <option value="male">Male</option>
           <option value="female">Female</option>

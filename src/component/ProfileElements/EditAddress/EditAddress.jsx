@@ -57,7 +57,7 @@ const EditAddress = () => {
         toast.success(res.data?.message, { position: "top-center" });
       })
       .catch((err) => {
-        toast.error("chutiya ho ka beeee", { position: "top-center" });
+        toast.error("something went wrong", { position: "top-center" });
       });
   };
   return (

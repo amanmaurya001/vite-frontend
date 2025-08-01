@@ -4,6 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 const CreateAddress = () => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const token = localStorage.getItem("token");
   const [formData, setFormData] = useState({
     fullName: '',
@@ -31,7 +32,7 @@ const CreateAddress = () => {
     console.log("Address Submitted:", formData);
     // backend me bhejne ke liye yahan axios ya fetch use kar sakte ho
     
-    axios.post('http://localhost:1234/createAdress',formData, {
+    axios.post(`${backendUrl}/createAdress`,formData, {
         headers: { Authorization: `Bearer ${token}` },
       })
   
@@ -40,7 +41,7 @@ const CreateAddress = () => {
       
       })
       .catch((err) => {
-        toast.error("chutiya ho ka beeee", { position: 'top-center' });
+        toast.error("something went wrong", { position: 'top-center' });
       });
   };
 
