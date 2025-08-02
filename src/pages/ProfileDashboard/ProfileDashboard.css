@@ -148,24 +148,16 @@ background-color: transparent;
 }
 @media screen and (min-width: 320px) and (max-width: 450px) {
     .ProfileDashboard{
-      
-    height: 92vh;
+    
+    height: 96vh;
     width:100%;
   
    
 }
-.ProfileDashboard h2{
- 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5%;
-    width: 100%;
-    font-size: 2vh;
-}
+
 .ProfileDashboard section{
     display: flex;
-    height: 95%;
+    height: 100%;
     width: 100%;
     border-top: 1px solid gray;
 }
@@ -227,6 +219,11 @@ background-color: transparent;
     text-transform: capitalize;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     letter-spacing: 0.3px;
+}
+.ProfileDashboard-option div {
+    border: none;
+    width: 100%;
+        min-height: 30px;
 }
 
 .ProfileDashboard-option button::before {

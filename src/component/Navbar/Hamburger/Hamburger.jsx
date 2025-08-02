@@ -5,7 +5,7 @@ import NavLatest from "../NavLastest/NavLatest";
 import NavWomen from "../NavWomen/NavWomen";
 import NavMen from "../NavMen/NavMen";
 import Logout from "../../Logout/Logout";
-
+import { Link } from "react-router-dom";
 
 const Hamburger = ({ onClose }) => {
   return (
@@ -17,9 +17,11 @@ const Hamburger = ({ onClose }) => {
           <NavWomen onClose={onClose} />
           <NavMen onClose={onClose} />
         </div>
-  
+        <Link to="/profiledashboard">
+          <button className="ham-setting" onClick={onClose}>Setting</button>
+        </Link>
       </section>
-      <section className="ham-ad">
+      <section className="ham-ad" >
         <img src="/PHotos/home/block8-L.jpg" alt="" />
       </section>
     </div>

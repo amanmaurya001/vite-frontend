@@ -12,7 +12,7 @@ const WishList = () => {
     // To show Wishlist
   useEffect(() => {
     axios
-      .get("http://localhost:1234/showwishlist", {
+      .get(`${backendUrl}/showwishlist`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
