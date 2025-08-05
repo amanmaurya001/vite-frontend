@@ -23,11 +23,11 @@ const Block3 = () => {
             spaceBetween={30}
             slidesPerView={2}
             breakpoints={{
-              320: {
+              767: {
                 slidesPerView: 1,
                 spaceBetween: 20,
               },
-              451: {
+              768: {
                 slidesPerView: 2,
                 spaceBetween: 30,
               },

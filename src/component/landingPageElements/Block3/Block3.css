@@ -36,6 +36,7 @@
 }
 
 #box2 {
+  position: relative;
 
   height: 90%;
   width: 60%;
@@ -92,44 +93,44 @@
   width: 100%;
   border: rgb(191, 0, 255) solid px;
 }
-@media screen and (min-width: 320px) and (max-width: 450px) {
-  .block3 {
+
+
+
+
+
+@media screen and (max-width: 479px) {
+.block3 {
+
   max-width: 100vw;
-  display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 35vh;
+
+  height: clamp(24vh,34vh,44vh);
+ 
 }
-.block3-text-1,
-.block3-text-2,
-.block3-text-3 {
-  position: absolute;
-  font-family: Playfair;
-}
-.block3-text-1 {
-  top: 20%;
-    left: 12%;
-    font-size: 2.5vh;
-    font-weight: 100;
-}
-.block3-text-2 {
- top: 32%;
-    left: 8%;
-    font-size: 5.5vh;
-    font-weight: 100;
-}
-.block3-text-3 {
- top: 55%;
+
+ .block3-text-1 {
+    top: 16%;
+    left: 14%;
+     font-size: clamp(3vw, 5vw, 11vw);
+  }
+
+  .block3-text-2 {
+    top: 28%;
+    left: 14%;
+    font-size: clamp(7vw, 10vw, 11vw);
+  }
+
+  .block3-text-3 {
+    top: 50%;
     left: 3%;
-    font-size: 5vh;
-    font-weight: 100;
-}
+    font-size: clamp(8vw, 12vw, 15vw);
+  }
+
 
 #box2 {
 
- margin-right: 2vh;
-    height: 90%;
-    width: 47%;
+  height: 90%;
+  width: 50%;
+  overflow: hidden;
 }
 .mySwiper2{
   z-index: -0;
@@ -137,45 +138,147 @@
 }
 
 
-
-.block3-product {
-  width: 100%;
-  height: 100%;
-}
 .block3-product h1 {
   color: #ffffff;
-    font-size: 2.4vh;
-    margin-left: 4vh;
-    margin-top: 21vh;
-    position: absolute;
+  margin-left: 14vh;
+  margin-top: 60vh;
+  position: absolute;
+  font-family: Playfair;
 }
 .block3-product img {
   width: 100%;
   height: 100%;
 }
-  #button1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.7vh;
-    font-weight: 999;
-    color: #ffffff;
-    width: 70%;
-    height: 3vh;
-    position: absolute;
-    border: 1px solid #fff;
-    border-radius: 50px;
-    background-color: transparent;
-    margin-top: 25vh;
-    margin-left: 4vh;
+#button1 {
+  display: none;
+}
+
+
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .block3 {
+    height: clamp(40vh, 50vh, 60vh);
   }
-#button1:hover {
-  background-color: aliceblue;
-  color: #000000;
+
+  .block3-text-1 {
+    top: 16%;
+    left: 14%;
+     font-size: clamp(3vw, 5vw, 11vw);
+  }
+
+  .block3-text-2 {
+    top: 28%;
+    left: 14%;
+    font-size: clamp(7vw, 10vw, 11vw);
+  }
+
+  .block3-text-3 {
+    top: 50%;
+    left: 3%;
+    font-size: clamp(8vw, 12vw, 15vw);
+  }
+
+  #box2 {
+    width: clamp(48%, 52%, 56%);
+    height: 88%;
+  }
+
+  #button1 {
+    display: none;
+  }
 }
-.show-now {
-  height: 100%;
-  width: 100%;
-  border: rgb(191, 0, 255) solid px;
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .block3 {
+    height: clamp(40vh,50vh, 60vh);
+  }
+
+  .block3-text-1 {
+    top: 16%;
+    left: 12%;
+     font-size: clamp(3vw, 4vw, 11vw);
+  }
+
+  .block3-text-2 {
+    top: 28%;
+    left: 10%;
+    font-size: clamp(7vw, 8vw, 11vw);
+  }
+
+  .block3-text-3 {
+    top: 50%;
+    left: 3%;
+    font-size: clamp(8vw, 9vw, 15vw);
+  }
+
+  #box2 {
+    position: relative;
+    width: clamp(58%, 62%, 66%);
+    height: 90%;
+  }
+.block3-product h1 {
+  color: #ffffff;
+margin: 0;
+left: 20%;
+  bottom: 10%;
+  position: absolute;
+  font-family: Playfair;
+  font-size: clamp(1vw, 3.5vw, 6vw);
 }
+  #button1 {
+   display: none;
+  }
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .block3 {
+    height: clamp(75vh, 85vh, 90vh);
+  }
+
+   .block3-text-1 {
+    top: 16%;
+    left: 12%;
+     font-size: clamp(3vw, 4vw, 11vw);
+  }
+
+  .block3-text-2 {
+    top: 28%;
+    left: 10%;
+    font-size: clamp(7vw, 8vw, 11vw);
+  }
+
+  .block3-text-3 {
+    top: 50%;
+    left: 3%;
+    font-size: clamp(8vw, 9.5vw, 15vw);
+  }
+
+  #box2 {
+    position: relative;
+    width: clamp(58%, 62%, 66%);
+    height: 90%;
+  }
+
+  #box2 {
+    width: clamp(58%, 62%, 66%);
+    height: 90%;
+  }
+.block3-product h1 {
+  color: #ffffff;
+margin: 0;
+left: 20%;
+  bottom: 10%;
+  position: absolute;
+  font-family: Playfair;
+  font-size: clamp(1vw, 3.5vw, 6vw);
+}
+  #button1 {
+    font-size: clamp(2vh, 2.8vh, 3.5vh);
+     margin: 0;
+     left: 20%;
+  bottom: 5%;
+    height: clamp(2vh, 5vh, 6vh);
+    width: clamp(55%, 60%, 65%);
+  }
+}
+

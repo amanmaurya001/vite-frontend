@@ -29,7 +29,7 @@ const Login = () => {
   e.preventDefault();
 
   axios
-    .post(`http://localhost:1234/login`, formData)
+    .post(`${backendUrl}/login`, formData)
     .then((res) => {
       const token = res.data.token;
 

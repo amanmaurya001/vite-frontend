@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 5vh;
-  height: 150vh;
+  height: clamp(30vw,90vw,150vw);
   width: 100%;
   position: relative;
 }
@@ -51,58 +51,4 @@
 #block6-left-down a img {
   height: 94%;
   width: 80%;
-}
-@media screen and (min-width: 320px) and (max-width: 450px) {
-  #block6 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5vh;
-    height: 40vh;
-    width: 100%;
-    position: relative;
-  }
-
-  #block6-right {
-    height: 100%;
-    width: 55%;
-  }
-
-  #block6-right a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-  }
-
-  #block6-right a img {
-    height: 97%;
-    width: 95%;
-  }
-
-  #block6-left {
-    height: 100%;
-    width: 45%;
-  }
-
-  #block6-left-up,
-  #block6-left-down {
-    height: 50%;
-    width: 100%;
-  }
-
-  #block6-left-up a,
-  #block6-left-down a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-  }
-
-  #block6-left-up a img,
-  #block6-left-down a img {
-    height: 94%;
-    width: 80%;
-  }
 }
