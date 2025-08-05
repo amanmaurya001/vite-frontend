@@ -1,0 +1,311 @@
+/* 🎯 Complete Device Coverage CSS Variables */
+
+
+#navbar {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Complete device height coverage */
+  height: var(--navbar-height);
+  z-index: 9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--nav-padding);
+}
+
+.navbar-hamburger {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /* Smooth scaling from mobile to PC */
+  width: var(--hamburger-width);
+  margin-left: clamp(1%, 1vw, 1.5%);
+}
+
+.search-icon-btn,
+.menu-icon-btn {
+
+  align-items: center;
+  display: flex;
+  width:50%;
+  height:60%;
+  cursor: pointer;
+  gap: var(--element-gap);
+}
+
+.menu-icon-btn img {
+
+  /* Perfect scaling for all devices */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menu-icon-btn p,
+.search-icon-btn p {
+
+  /* Progressive text reveal */
+  font-size: var(--nav-text);
+  opacity: clamp(0, calc((100vw - 500px) / 300), 1);
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+}
+
+.search-icon-btn img {
+
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-logo {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Complete responsive logo */
+  width: var(--logo-width);
+  height: 100%;
+  margin-left: 0%;
+}
+
+.navbar-logo img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.navbar-actions {
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: var(--actions-width);
+  gap: var(--element-gap);
+  margin-right: clamp(1%, 1vw, 1.5%);
+}
+
+.nav-link {
+
+  /* Perfect scaling for all screen sizes */
+  height:80%;
+  width: clamp(25px, 5vw, 35px);
+  padding: 0;
+  position: relative;
+  border-radius: clamp(4px, 1vw, 8px);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgb(205, 209, 195);
+  transform: scale(1.1);
+}
+
+.nav-link img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding: clamp(2px, 0.5vw, 4px);
+}
+
+.nav-search-bar {
+  background-color: white;
+  position: absolute;
+  /* Responsive positioning */
+  top: var(--navbar-height);
+  animation: slideDown 0.3s ease forwards;
+  height: var(--search-bar-height);
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-search-bar form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: var(--element-gap);
+}
+
+.nav-search-bar input[type="text"] {
+  /* Complete responsive input */
+  width: clamp(200px, 40vw, 400px);
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(4, 5, 65);
+  height: clamp(25px, 4vh, 35px);
+  font-size: clamp(14px, 2vw, 16px);
+  padding: clamp(4px, 1vw, 8px);
+}
+
+.search-bar-btn {
+  /* Fluid button */
+  height: clamp(30px, 5vh, 40px);
+  width: clamp(30px, 5vw, 40px);
+  padding: clamp(4px, 1vw, 8px);
+  background-color: transparent;
+  border: 1px solid rgb(4, 5, 65);
+  border-radius: clamp(4px, 1vw, 8px);
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-bar-btn:hover {
+  background-color: rgb(4, 5, 65);
+  color: white;
+  transform: scale(1.05);
+}
+
+.search-bar-btn img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.avatar-circle {
+  width: 100%;
+  height: 100%;
+  background-color: #48302d;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  /* Responsive avatar font */
+  font-size: var(--avatar-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.avatar-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 10px rgba(72, 48, 45, 0.3);
+}
+
+.avatar-circle a {
+  text-decoration: none;
+  color: white;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Device-Specific Fine-tuning */
+
+/* 📱 Mobile-S (0 - 479px) */
+@media screen and (max-width: 479px) {
+  :root {
+    --navbar-height: clamp(42px, 48px, 54px);
+    --logo-width: 36%;
+    --hamburger-width: 12%;
+    --actions-width: 20%;
+    --menu-icon-btn-img-height: 100%;
+    --menu-icon-btn-img-width: 100%;
+    --logo-width:clamp(35%,40%,45%);
+    --actions-width:clamp(10%,15%,20%);
+  }
+.nav-link:nth-of-type(2),
+  .search-icon-btn,
+  .menu-icon-btn p,
+  .search-icon-btn p {
+    display: none;
+  }
+}
+
+/* 📱 Mobile-M/L (480px - 767px) */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  :root {
+    --navbar-height: clamp(45px, 50px, 58px);
+    --logo-width: 32%;
+    --hamburger-width: 10%;
+    --actions-width: 18%;
+    --logo-width:clamp(25%,30%,35%);
+    --actions-width:clamp(10%,12%,15%);
+  }
+.nav-link:nth-of-type(2),
+  .search-icon-btn,
+  .menu-icon-btn p,
+  .search-icon-btn p {
+    display: none;
+  }
+}
+
+/* 💻 Tablet (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --navbar-height: clamp(55px, 60px, 65px);
+    --logo-width: 26%;
+    --hamburger-width: 17%;
+    --actions-width: 16%;
+    --menu-icon-btn-img-height: 100%;
+    --menu-icon-btn-img-width: 60%;
+  }
+
+  .search-icon-btn img { padding: 1.1vh; }
+
+  .menu-icon-btn p,
+  .search-icon-btn p {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+}
+
+/* 🖥️ Laptop (1024px - 1439px) */
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  :root {
+    --navbar-height: clamp(60px, 65px, 70px);
+    --logo-width: 18%;
+    --hamburger-width: 12%;
+    --actions-width: 10%;
+  
+  }
+
+  .search-icon-btn img { padding: 1.3vh; }
+
+  .menu-icon-btn p,
+  .search-icon-btn p {
+    font-size: 13px;
+    opacity: 0.9;
+  }
+}
+
+/* 🖥️ Desktop (1440px and up) */
+@media screen and (min-width: 1440px) {
+  :root {
+    --navbar-height: clamp(65px, 70px, 75px);
+    --logo-width: 14%;
+    --hamburger-width: 9%;
+    --actions-width: 7%;
+    --menu-icon-btn-img-height: 100%;
+    --menu-icon-btn-img-width: 50%;
+  }
+
+  .search-icon-btn img { padding: 1.4vh; }
+
+  .menu-icon-btn p,
+  .search-icon-btn p {
+    font-size: 14px;
+    opacity: 1;
+  }
+}

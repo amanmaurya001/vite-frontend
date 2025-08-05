@@ -14,20 +14,20 @@
 .ProfileDashboard-option {
     height: 100%;
     width: 20%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-   
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+   /* background-color: azure; */
 padding: 0vh 2vh 0vh 2vh;
 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+   
 }
 
 
 .ProfileDashboard-option h3 {
     padding-left: 1vh;
-    color: #ffffff;
+    color: #000000;
     font-size: 1.2rem;
     font-weight: 600;
     margin: 1vh 0 1.5rem 0;
@@ -43,7 +43,7 @@ padding: 0vh 2vh 0vh 2vh;
     width: 100%;
     display: flex;
     align-items: center;
-  
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -78,7 +78,8 @@ background-color: transparent;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    /* background: linear-gradient(90deg, #667eea, #764ba2); */
+      background: black;
     transition: left 0.3s ease;
     z-index: -1;
 }
@@ -87,8 +88,9 @@ background-color: transparent;
     color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-    border-color: rgba(255, 255, 255, 0.5);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* border-color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+        background: black;
 }
 
 .ProfileDashboard-option button:hover::before {

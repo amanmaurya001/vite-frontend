@@ -19,6 +19,9 @@ const ProfileDashboard = () => {
           <Link to="showAdress">
           <button>showAdress</button>
         </Link>
+         <Link to="ChangePassword">
+          <button>Change Password</button>
+        </Link>
 
         <h3>My Activity</h3>
         <Link to="/cart">

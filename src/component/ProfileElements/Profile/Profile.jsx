@@ -34,7 +34,7 @@ const Profile = () => {
 
 
           <div className="detail-card">
-            <span>👤</span>
+      
             <p>
               <strong>User ID:</strong>
             </p>
@@ -45,35 +45,35 @@ const Profile = () => {
 
 
           <div className="detail-card">
-            <span>📧</span>
+         
             <p>
               <strong>Email:</strong>
             </p>
             <p>{profiledata.email}</p>
           </div>
           <div className="detail-card">
-            <span>📱</span>
+  
             <p>
               <strong>Phone:</strong>
             </p>
             <p>{profiledata.phone}</p>
           </div>
           <div className="detail-card">
-            <span>📱</span>
+         
             <p>
               <strong>DoB:</strong>
             </p>
             <p>{profiledata.dob?.split("T")[0]}</p>
           </div>
           <div className="detail-card">
-            <span>📱</span>
+          
             <p>
               <strong>Gender:</strong>
             </p>
             <p>{profiledata.gender}</p>
           </div>
           <div className="detail-card">
-            <span>📱</span>
+        
             <p>
               <strong>Join at :</strong>
             </p>

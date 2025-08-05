@@ -282,7 +282,7 @@
 .discription-disc,
 .discription-material,
 .discription-care {
-  border-top: #888 2px solid;
+  border-top: #888 1px solid;
 
   padding-left: 2vh;
   display: flex;
@@ -290,7 +290,7 @@
   height: 15vh;
 }
 .discription-care {
-  border-bottom: #888 2px solid;
+  border-bottom: #888 1px solid;
 }
 .discription-disc h1,
 .discription-material h1,
@@ -303,7 +303,7 @@
   animation: slideDown 0.7s ease forwards;
   height: auto;
   padding: 2vh 0vh;
-  border-top: #888 2px solid;
+  border-top: #888 1px solid;
 }
 .description-content h3 {
   margin-top: 1vh;

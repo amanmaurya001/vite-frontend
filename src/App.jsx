@@ -23,6 +23,7 @@ import EditAddress from "./component/ProfileElements/EditAddress/EditAddress";
 import RandomSwiper from "./component/RandomSwiper/RandomSwiper";
 import AddressSelection from "./component/AddressSelection/AddressSelection";
 import OrderHistory from "./component/OrderHistory/OrderHistory";
+import ChangePassword from "./component/ProfileElements/ChangePassword/ChangePassword";
 
 import { Toaster } from "react-hot-toast";
 
@@ -60,12 +61,12 @@ function App() {
                {/* internal routes of profile dash baord */}
           <Route path="/profiledashboard" element={<ProfileDashboard />} >
               <Route path="profile" element={<Profile />} />
-              <Route path="cart" element={<Cart />} />
-              <Route path="wishlist" element={<WishList />} />
+                <Route path="ChangePassword" element={<ChangePassword />} />
               <Route path="createAdress" element={<CreateAddress />} />
               <Route path="showAdress" element={<ShowAddress />} />
               <Route path="editAddress/:addressId" element={<EditAddress />} />
               <Route path="orderhistory" element={<OrderHistory />} />
+               <Route path="orderhistory" element={<OrderHistory />} />
 
          </Route>
 

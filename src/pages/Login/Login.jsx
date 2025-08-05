@@ -26,32 +26,39 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // API call yahan lagao
-    console.log("Form Submitted:", formData);
+  axios
+    .post(`http://localhost:1234/login`, formData)
+    .then((res) => {
+      const token = res.data.token;
 
-    axios
-      .post(`${backendUrl}/login`, formData)
-      .then((res) => {
-         const token = res.data.token;
-        console.log(res.data.token);
-        toast.success(res.data.message, { position: "top-center" });
-        window.localStorage.setItem("token", res.data.token);
-        const decoded = jwtDecode(token);
-        setUser({
-          id: decoded.userId,
-          username: decoded.username,
-          role: decoded.role,
-        });
-        console.log("User set in context:", decoded);
+      toast.success(res.data.message || "Login successful", { position: "top-center" });
 
-        navigate("/"); // ya jo route ho
-      })
-      .catch((err) => {
-        toast.error("Login failed", { position: "top-center" });
+      window.localStorage.setItem("token", token);
+      const decoded = jwtDecode(token);
+
+      setUser({
+        id: decoded.userId,
+        username: decoded.username,
+        role: decoded.role,
       });
-  };
+
+      navigate("/");
+    })
+    .catch((err) => {
+      if (err.response && err.response.status === 429) {
+        toast.error(err.response.data?.message || "Too many login attempts. Try again later.", {
+          position: "top-center",
+        });
+      } else if (err.response && err.response.data?.message) {
+        toast.error(err.response.data.message, { position: "top-center" });
+      } else {
+        toast.error("Login failed", { position: "top-center" });
+      }
+    });
+};
+
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
