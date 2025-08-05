@@ -170,7 +170,7 @@
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
      #block2 {
-    height: clamp(45vh, 90vh, 80vh);
+    height: clamp(45vh, 100vh, 110vh);
   }
 
 

@@ -50,3 +50,34 @@
   height: 94%;
   width: 80%;
 }
+@media screen and (max-width: 479px) {
+#block5 {
+
+  height: clamp(30vw,90vw,150vw);
+ 
+}
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+#block5 {
+
+  height: clamp(30vw,90vw,150vw);
+ 
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+#block5 {
+
+  height: clamp(30vw,90vw,150vw);
+ 
+}
+}
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+#block5 {
+
+  height: clamp(30vw,70vw,150vw);
+ 
+}
+}
+@media screen and (min-width: 1440px) {
+  
+}
