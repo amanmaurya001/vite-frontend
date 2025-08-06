@@ -65,6 +65,7 @@
   display: flex;
   height: auto;
   width: 100%;
+  margin-bottom: 2vw;
 }
 .Product-Images {
   overflow: hidden;
@@ -88,7 +89,6 @@
 }
 .Product-overview {
   padding-left: 2vh;
-
   position: sticky;
   top: 7vh;
   height: 93vh;
@@ -287,7 +287,7 @@
   padding-left: 2vh;
   display: flex;
   align-items: center;
-  height: 15vh;
+  height: 7vw;
 }
 .discription-care {
   border-bottom: #888 1px solid;
@@ -297,7 +297,7 @@
 .discription-care h1 {
   font-weight: 400;
   font-family: Playfair;
-  font-size: 5vh;
+  font-size: 2.5vw;
 }
 .description-content {
   animation: slideDown 0.7s ease forwards;
@@ -328,10 +328,10 @@
   height: auto;
 }
 .Product-Suggestion h1 {
-  font-size: 7vh;
+  font-size: 4vw;
   font-weight: 400;
 
-  height: 10vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,7 +343,7 @@
   align-items: center;
   justify-content: space-around;
 
-  height: 70vh;
+  height: 35vw;
 }
 .Product-Suggestion img {
   height: 95%;
@@ -357,369 +357,21 @@
   height: auto;
 }
 .Product-YouMayLike h1 {
-  font-size: 7vh;
+  font-size: 4vw;
   font-weight: 400;
 
-  height: 10vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: Playfair;
 }
 .you-make-like-box {
-  margin-bottom: 10vh;
-  height: 70vh;
-}
-
-@media screen and (min-width: 320px) and (max-width: 479px) {
-
-/* /////////////////////////////// */
-/* /////////////////////////////// */
-/* /////////////////////////////// */
-/* /////////////////////////////// */
-.ProductPage-main {
-  
-  display: block;
-  height: auto;
-  width: 100%;
-}
-.Product-Images {
-
- overflow-y: auto;
-  height: 70vh;
-  width: 100%;
-}
-.Scroll {
-  height: auto;
-  width: 100%;
-  padding-top: 0vh;
-  padding: 10px;
-  background-color: #fff;
-  display: block;
-  overflow-y: auto;
-
-}
-.Scroll img {
-  height: 100%;
-  width: 100%;
-}
-.Product-overview {
-  padding-left: 2vh;
-  
-  position: sticky;
-  top: 7vh;
-  height: 85vh;
-  width: 100%;
-}
-.Product-overview h1:nth-of-type(1) {
-   
-  font-size: 2.4vh;
-  color: black;
-  font-family: PlayfairDisplay;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-top: 2vh;
-}
-.Product-overview h1:nth-of-type(2) {
-   
-  color: black;
-  margin-top: 1vh;
-  font-size: 1.4vh;
-  letter-spacing: 1.5px;
-  font-weight: 500;
-  color: #888888ca;
-}
-.Product-overview h1:nth-of-type(3) {
-    
-  color: black;
-  font-family: cripson;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  margin-top: 2vh;
-  font-size: 2.5vh;
-}
-.Product-overview h1:nth-of-type(4) {
-   
-  font-family: Playfair;
-  margin-top: 2vh;
-  letter-spacing: 1.5px;
-  font-size: 1.5vh;
-  font-weight: 600;
-}
-.Product-overview h1:nth-of-type(5) {
-    
-  margin-top: 2vh;
-  font-family: Playfair;
-  font-size: 1.5vh;
-  letter-spacing: 1.5px;
-}
-.sizes {
- 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 10vh;
-  width: 97%;
-}
-.sizes button {
-  margin-left: 0;
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  font-family: Playfair;
-  border: 1px solid #888888ca;
-  font-size: 1.5vh;
-  border-radius: 50px;
-  height: 30%;
-  width: 16%;
-}
-.sizes button.active {
-  background-color: black;
-  color: white;
-}
-.quantity-and-wish{
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-   height: 35px;
-   width: 99%;
-}
-.quantity {
-  
- 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 120px;
-  height: 100%;
-
-  border-radius: 8px;
-
-  overflow: hidden;
-  background-color: #fff;
-}
-.quantity div{
-font-size: 1.5vh;
-}
-.quantity button {
-  margin-left: 0;
-  height: 100%;
-  width: 35%;
-
-  background-color: #f5f5f5;
-  color: #000000;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.quantity button:hover {
-  background-color: #e0e0e0;
-}
-
-.wish {
-  
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #333;
-  background-color: #fafafa;
-  width: 28px;
-  height: 70%;
-  background-color: #dad2d2;
-  margin-right: 5vh;
-  clip-path: polygon(
-    50% 15%,
-    61% 5%,
-    75% 0%,
-    90% 5%,
-    100% 20%,
-    100% 35%,
-    95% 50%,
-    50% 100%,
-    5% 50%,
-    0% 35%,
-    0% 20%,
-    10% 5%,
-    25% 0%,
-    39% 5%
-  );
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-.Product-overview h1:nth-of-type(6) {
-  
-  margin-top: 4vh;
-  font-family: Playfair;
-  font-size: 1.6vh;
-  letter-spacing: 1.5px;
-}
-
-.add-to-cart {
-   
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-top: 4vh;
-  height: 8vh;
-  width: 97%;
-}
-.add-to-cart button {
-  margin-left: 0;
-  border: transparent;
-  font-size: 2vh;
-  letter-spacing: 2px;
-  color: #fff;
-  background-color: rgb(0, 0, 0);
-  font-family: Playfair;
-  border-radius: 50px;
-  height: 100%;
-  width: 100%;
-}
-
-.Product-overview h1:nth-of-type(7) {
-  
-  margin-top: 7vh;
-  font-family: Playfair;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-
-  font-size: 3vh;
-}
-.Product-overview h1:nth-of-type(8),
-.Product-overview h1:nth-of-type(9) {
- 
-  margin-top: 2vh;
-  font-family: Playfair;
-  font-size: 2vh;
-  color: #888888ca;
-  letter-spacing: 1.5px;
-}
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-.discription-disc,
-.discription-material,
-.discription-care {
-  border-top: #888 2px solid;
-
-  padding-left: 2vh;
-  display: flex;
-  align-items: center;
-  height: 8vh;
-}
-.discription-care {
-  border-bottom: #888 2px solid;
-}
-.discription-disc h1,
-.discription-material h1,
-.discription-care h1 {
-  font-weight: 400;
-  font-family: Playfair;
-  font-size: 2.5vh;
-}
-.description-content {
-  animation: slideDown 0.7s ease forwards;
-  height: auto;
-  padding: 2vh 0vh;
-  border-top: #888 2px solid;
-}
-.description-content h3 {
-  margin-top: 0.5vh;
-  margin-left: 1vh;
-  color: black;
-  font-size: 1.5vh;
-  font-weight: 500;
-  font-family: Playfair;
-  letter-spacing: 0.5px;
-}
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-.Product-Suggestion {
-margin-top: 5vh;
+  margin:3vw 0vw;
   height: auto;
 }
-.Product-Suggestion h1 {
-  
-  font-size: 3.5vh;
-  font-weight: 400;
 
-  height: 6vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Playfair;
-}
 
-.suggestion-product {
- display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 2px;
-  row-gap: 0px;
-
-  height: auto;
-}
-.Product-Suggestion img {
-  height: 95%;
-  width: 100%;
-  object-fit: fill;
-}
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-/* ///////////// */
-.Product-YouMayLike {
-
-  padding: 0.5vh;
-  height: auto;
-  margin-top: 2vh;
-}
-.Product-YouMayLike h1 {
-
-  font-size: 3.5vh;
-  font-weight: 400;
-
-  height: 7vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Playfair;
-}
-.you-make-like-box {
-  margin-top: 2vh;
- 
-  margin-bottom: 0vh;
-  height: 50vh;
-}
-
-}
 /* ========================================= */
 /* LANDSCAPE TABLET & LAPTOP (1024px - 1439px) */
 /* ========================================= */
@@ -781,21 +433,26 @@ margin-top: 5vh;
   .ProductPage-main {
     flex-direction: column;
     gap: 2rem;
+  
+    margin-bottom: 5vw;
   }
   
   .Product-Images {
+   
     width: 100%;
     height: 60vh;
+     overflow-y: auto;
   }
   
   .Scroll {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
     padding: 15px;
   }
   
   .Product-overview {
+ 
     position: static;
     width: 100%;
     height: auto;
@@ -863,14 +520,14 @@ margin-top: 5vh;
   .discription-disc,
   .discription-material,
   .discription-care {
-    height: 12vh;
+    height: 15vw;
     justify-content: center;
   }
   
   .discription-disc h1,
   .discription-material h1,
   .discription-care h1 {
-    font-size: 3.5vh;
+    font-size: 5vw;
   }
   
   .description-content h3 {
@@ -880,7 +537,7 @@ margin-top: 5vh;
   
   .Product-Suggestion h1,
   .Product-YouMayLike h1 {
-    font-size: 5vh;
+    font-size: 6vw;
   }
   
   .suggestion-product {
@@ -893,11 +550,11 @@ margin-top: 5vh;
   
   .Product-Suggestion img {
     width: 100%;
-    height: 40vh;
+    height: 60vw;
   }
   
   .you-make-like-box {
-    height: 60vh;
+    height: auto;
   }
 }
 
@@ -908,17 +565,19 @@ margin-top: 5vh;
   .ProductPage-main {
     display: block;
     padding: 1rem;
+    margin-bottom: 5vw;
   }
   
   .Product-Images {
+     overflow-y: auto;
     width: 100%;
-    height: 50vh;
+    height: 135vw;
     margin-bottom: 2rem;
   }
   
   .Scroll {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 8px;
     padding: 8px;
   }
@@ -1018,14 +677,193 @@ margin-top: 5vh;
   .discription-disc,
   .discription-material,
   .discription-care {
-    height: 10vh;
+    height: 18vw;
     border-width: 1.5px;
   }
   
   .discription-disc h1,
   .discription-material h1,
   .discription-care h1 {
-    font-size: 3vh;
+    font-size: 6.5vw;
+  }
+  
+  .description-content {
+    border-width: 1.5px;
+  }
+  
+  .description-content h3 {
+    margin-left: 2vh;
+    font-size: 1.6vh;
+    margin-top: 1vh;
+  }
+  
+  .Product-Suggestion {
+   
+    margin-top: 4vh;
+  }
+  
+  .Product-Suggestion h1 {
+  
+    font-size: 4vh;
+    height: 15vw;
+  }
+  
+  .suggestion-product {
+    margin-top: 5vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    height: auto;
+  }
+  
+  .Product-Suggestion img {
+    width: 100%;
+    height: 65vw;
+  }
+  
+  .Product-YouMayLike {
+    padding: 1vh;
+    margin-top: 3vh;
+  }
+  
+  .Product-YouMayLike h1 {
+    font-size: 4vh;
+    height: 8vh;
+  }
+  
+  .you-make-like-box {
+    height: auto;
+    margin-bottom: 5vh;
+  }
+}
+/* ========================================= */
+/* BIG MOBILE (320px - 479px) */
+/* ========================================= */
+@media screen and (min-width: 320px) and (max-width: 479px) {
+
+  .ProductPage-main {
+    display: block;
+    padding: 0;
+    margin-bottom: 10vw;
+  }
+  
+  .Product-Images {
+     overflow-y: auto;
+    width: 100%;
+    height: 135vw;
+    margin-bottom: 2rem;
+  }
+  
+  .Scroll {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+  
+  .Product-overview {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding-left: 1vh;
+  }
+  
+  .Product-overview h1:nth-of-type(1) {
+    font-size: 2.8vh;
+    margin-top: 1vh;
+    text-align: center;
+  }
+  
+  .Product-overview h1:nth-of-type(2) {
+    font-size: 1.6vh;
+    text-align: center;
+  }
+  
+  .Product-overview h1:nth-of-type(3) {
+    font-size: 2.4vh;
+    text-align: center;
+  }
+  
+  .Product-overview h1:nth-of-type(4) {
+    font-size: 1.8vh;
+  }
+  
+  .Product-overview h1:nth-of-type(5) {
+    margin-top: 2vh;
+    font-size: 1.6vh;
+  }
+  
+  .sizes {
+    height: 8vh;
+    justify-content: space-evenly;
+  }
+  
+  .sizes button {
+    width: 18%;
+    height: 32px;
+    font-size: 1.4vh;
+  }
+  
+  .quantity-and-wish {
+    height: 38px;
+    justify-content: space-between;
+    margin-top: 2vh;
+  }
+  
+  .quantity {
+    width: 110px;
+  }
+  
+  .quantity div {
+    font-size: 1.4vh;
+  }
+  
+  .quantity button {
+    font-size: 0.9rem;
+  }
+  
+  .wish {
+    width: 35px;
+    height: 85%;
+    margin-right: 2vh;
+  }
+  
+  .Product-overview h1:nth-of-type(6) {
+    margin-top: 3vh;
+    font-size: 1.6vh;
+  }
+  
+  .add-to-cart {
+    margin-top: 3vh;
+    height: 7vh;
+  }
+  
+  .add-to-cart button {
+    font-size: 1.8vh;
+  }
+  
+  .Product-overview h1:nth-of-type(7) {
+    margin-top: 5vh;
+    font-size: 2.5vh;
+    text-align: center;
+  }
+  
+  .Product-overview h1:nth-of-type(8),
+  .Product-overview h1:nth-of-type(9) {
+    font-size: 1.6vh;
+  }
+  
+  .discription-disc,
+  .discription-material,
+  .discription-care {
+    height: 20vw;
+    border-width: 1.5px;
+  }
+  
+  .discription-disc h1,
+  .discription-material h1,
+  .discription-care h1 {
+    font-size: 6vw;
   }
   
   .description-content {
@@ -1040,14 +878,16 @@ margin-top: 5vh;
   
   .Product-Suggestion {
     margin-top: 4vh;
+    
   }
   
   .Product-Suggestion h1 {
-    font-size: 4vh;
-    height: 8vh;
+    font-size: 7vw;
+    height: 20vw;
   }
   
   .suggestion-product {
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
@@ -1056,21 +896,24 @@ margin-top: 5vh;
   
   .Product-Suggestion img {
     width: 100%;
-    height: 35vh;
+    height: 75vw;
   }
   
   .Product-YouMayLike {
+       
     padding: 1vh;
     margin-top: 3vh;
   }
   
   .Product-YouMayLike h1 {
-    font-size: 4vh;
-    height: 8vh;
+    font-size: 7vw;
+    height: 20vw; 
   }
   
   .you-make-like-box {
-    height: 45vh;
+    height: auto;
     margin-bottom: 5vh;
+
   }
+
 }
