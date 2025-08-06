@@ -15,7 +15,7 @@ const NavWomen = ({ onClose }) => {
         { itemname: "Crop Top", link: "/productlisting/Women/crop-top" },
         { itemname: "Corset top", link: "/productlisting/Women/Corset" },
 
-        { itemname: "Kurti", link: "/productlisting/Women/kurti" },
+      
       ],
     },
     {

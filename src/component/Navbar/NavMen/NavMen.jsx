@@ -10,7 +10,7 @@ const NavMen = ({ onClose }) => {
         { itemname: "All Products", link: "/productlisting/Men/allproducts" },
         { itemname: "Shirt", link: "/productlisting/Men/shirt" },
         { itemname: "T-Shirt", link: "/productlisting/Men/t-shirt" },
-        { itemname: "Polo T-shirt", link: "/productlisting/Men/polo-tshirt" },
+        { itemname: "Polo T-shirt", link: "/productlisting/Men/polo" },
       ],
     },
     {

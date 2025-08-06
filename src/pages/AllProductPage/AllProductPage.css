@@ -44,7 +44,7 @@
 
   grid-template-columns: repeat(4, 1fr);
 }
-@media screen and (min-width: 320px) and (max-width: 450px) {
+@media screen and (min-width: 320px) and (max-width: 479px) {
   .heading {
  
     margin-top: 2%;
@@ -80,8 +80,132 @@
 
     display: grid;
     column-gap:3px;
-    row-gap: 3px;
+    row-gap: 20px;
 
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .heading {
+ 
+    margin-top: 2%;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .heading h1 {
+    font-size: 3.5vh;
+    font-family: "GreatVibes";
+    color: black;
+  }
+  .filter-section {
+ 
+    position: sticky;
+    top: 4vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid grey;
+    height: 40px;
+  }
+  .product-grid {
+     
+    overflow: hidden;
+    padding: 1vh 1vh;
+
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    column-gap:3px;
+    row-gap: 20px;
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .heading {
+ 
+    margin-top: 2%;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .heading h1 {
+    font-size: 3.5vh;
+    font-family: "GreatVibes";
+    color: black;
+  }
+  .filter-section {
+ 
+    position: sticky;
+    top: 4vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid grey;
+    height: 40px;
+  }
+  .product-grid {
+     
+    overflow: hidden;
+    padding: 1vh 1vh;
+
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    column-gap:3px;
+    row-gap: 20px;
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .heading {
+ 
+    margin-top: 2%;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .heading h1 {
+    font-size: 3.5vh;
+    font-family: "GreatVibes";
+    color: black;
+  }
+  .filter-section {
+ 
+    position: sticky;
+    top: 4vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid grey;
+    height: 40px;
+  }
+  .product-grid {
+     
+    overflow: hidden;
+    padding: 1vh 1vh;
+
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    column-gap:3px;
+    row-gap: 20px;
+
+    grid-template-columns: repeat(3, 1fr);
   }
 }

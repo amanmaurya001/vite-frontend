@@ -29,10 +29,10 @@ const Login = () => {
   e.preventDefault();
 
   axios
-    .post(`${backendUrl}/login`, formData)
+    .post(`http://localhost:1234/login`, formData)
     .then((res) => {
       const token = res.data.token;
-
+console.log(token)
       toast.success(res.data.message || "Login successful", { position: "top-center" });
 
       window.localStorage.setItem("token", token);

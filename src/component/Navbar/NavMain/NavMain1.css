@@ -83,7 +83,7 @@
 }
 
 .navbar-actions {
-  
+
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -96,6 +96,8 @@
 .nav-link {
 
   /* Perfect scaling for all screen sizes */
+  display: flex;
+  align-items: center;
   height:80%;
   width: clamp(25px, 5vw, 35px);
   padding: 0;
@@ -176,7 +178,7 @@
 
 .avatar-circle {
   width: 100%;
-  height: 100%;
+  height: 60%;
   background-color: #48302d;
   color: white;
   border-radius: 50%;

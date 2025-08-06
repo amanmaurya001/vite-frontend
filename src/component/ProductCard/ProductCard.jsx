@@ -16,7 +16,7 @@ const ProductCard = (props) => {
       
       <section className="price">
         <h2>Rs{props.priceOriginal}.00</h2>
-        <h3>Rs{props.priceOffer}.00</h3>
+        {/* <h3>Rs{props.priceOffer}.00</h3> */}
         <h4>{props.Note}</h4>
       </section>
       </Link>
