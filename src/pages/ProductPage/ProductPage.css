@@ -88,7 +88,7 @@
   width: 100%;
 }
 .Product-overview {
-  padding-left: 2vh;
+  padding-left: 1vh;
   position: sticky;
   top: 7vh;
   height: 93vh;
@@ -381,16 +381,19 @@
   }
   
   .Product-Images {
+    
     width: 58%;
   }
   
   .Product-overview {
+
     width: 42%;
-    padding-left: 1.5vh;
+    margin-left: 0 !important;
+    padding-left: 0vh !important;
   }
   
   .Product-overview h1:nth-of-type(1) {
-    font-size: 3.5vh;
+    font-size: 2.5vh;
   }
   
   .Product-overview h1:nth-of-type(3) {
@@ -409,11 +412,16 @@
   .add-to-cart button {
     font-size: 1.8vh;
   }
-  
+    .discription-disc,
+  .discription-material,
+  .discription-care {
+    height: 10vw;
+   
+  }
   .discription-disc h1,
   .discription-material h1,
   .discription-care h1 {
-    font-size: 4.5vh;
+    font-size: 3.5vw;
   }
   
   .Product-Suggestion h1,
@@ -422,7 +430,7 @@
   }
   
   .suggestion-product {
-    height: 65vh;
+    height: 40vw;
   }
 }
 

@@ -99,10 +99,10 @@ const Cart = () => {
               <Link to="">
                 <img src={cartItem.image} alt="" />
                 <div className="product-details">
-                  <h4>Name:{cartItem.name}</h4>
-                  <h4>price:{cartItem.price?.original}</h4>
-                  <h4>size:{cartItem.size}</h4>
-                  <h4>quantity:{cartItem.quantity}</h4>
+                  <h4>Name: {cartItem.name}</h4>
+                  <h4>price: {cartItem.price?.original}</h4>
+                  <h4>size: {cartItem.size}</h4>
+                  <h4>quantity: {cartItem.quantity}</h4>
                 </div>
               </Link>
               <button

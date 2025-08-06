@@ -8,9 +8,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import "swiper/css";
 const RandomSwiper = ({ Gender }) => {
-     const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [randomProducts, setRandomProducts] = useState([]);
-
 
   useEffect(() => {
     fetch(`${backendUrl}/randomSwiper/${Gender}/products`)
@@ -19,7 +18,6 @@ const RandomSwiper = ({ Gender }) => {
       })
       .then((data) => {
         setRandomProducts(data);
-     
       })
       .catch((err) => {
         console.log(err);
@@ -42,30 +40,33 @@ const RandomSwiper = ({ Gender }) => {
             slidesPerView: 2,
             spaceBetween: 5,
           },
-          451: {
+          480: {
             slidesPerView: 2,
-            spaceBetween: 0,
+            spaceBetween: 5,
           },
           768: {
             slidesPerView: 3,
             spaceBetween: 10,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 4,
             spaceBetween: 10,
+          },
+          1340: {
+            slidesPerView: 5,
+            spaceBetween: 15,
           },
         }}
       >
-       {randomProducts.map((item) => (
+        {randomProducts.map((item) => (
           <SwiperSlide key={item._id} className="Random-swiperslide">
             <Link to={`/products/${item.id}`}>
-            <img src={item.images[0]} alt={item.name} loading="lazy" />
-            <p>{item.name}</p>
-             <p>Rs {item.price?.original}.00</p>
-             </Link>
+              <img src={item.images[0]} alt={item.name} loading="lazy" />
+              <p>{item.name}</p>
+              <p>Rs {item.price?.original}.00</p>
+            </Link>
           </SwiperSlide>
         ))}
-     
       </Swiper>
     </section>
   );

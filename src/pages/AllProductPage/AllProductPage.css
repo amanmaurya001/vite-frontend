@@ -54,9 +54,8 @@
     justify-content: center;
   }
   .heading h1 {
-    font-size: 3.5vh;
-    font-family: "GreatVibes";
-    color: black;
+    font-size: 7vw;
+   
   }
   .filter-section {
  
@@ -95,9 +94,8 @@
     justify-content: center;
   }
   .heading h1 {
-    font-size: 3.5vh;
-    font-family: "GreatVibes";
-    color: black;
+    font-size: 3.7vh;
+ 
   }
   .filter-section {
  
@@ -137,9 +135,8 @@
     justify-content: center;
   }
   .heading h1 {
-    font-size: 3.5vh;
-    font-family: "GreatVibes";
-    color: black;
+    font-size: 5vw;
+   
   }
   .filter-section {
  
@@ -165,7 +162,7 @@
     column-gap:3px;
     row-gap: 20px;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
@@ -177,10 +174,9 @@
     align-items: center;
     justify-content: center;
   }
-  .heading h1 {
-    font-size: 3.5vh;
-    font-family: "GreatVibes";
-    color: black;
+ .heading h1 {
+    font-size: 5vw;
+   
   }
   .filter-section {
  
