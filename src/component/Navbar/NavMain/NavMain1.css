@@ -219,7 +219,7 @@
 /* 📱 Mobile-S (0 - 479px) */
 @media screen and (max-width: 479px) {
   :root {
-    --navbar-height: clamp(38px, 40px, 45px);
+    --navbar-height: 4vh;
     --logo-width: 36%;
     --hamburger-width: 12%;
     --actions-width: 20%;
@@ -231,7 +231,7 @@
   .menu-icon-btn{
     padding: 0%;
     height: 100%;
-    width: 90%;
+    width: 70%;
   }
     .nav-link img {
 margin-top: 1vw;
