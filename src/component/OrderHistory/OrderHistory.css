@@ -1,13 +1,12 @@
 .order-history-container {
-
   width: 100%;
-height: 100%;
+  height: 100%;
   overflow-y: auto;
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.page-title {  
+.page-title {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 30px;
@@ -17,7 +16,7 @@ height: 100%;
   padding-bottom: 5px;
 }
 
-.order-card { 
+.order-card {
   background-color: #fdfdfd;
   border-left: 6px solid #4caf50;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -54,6 +53,12 @@ height: 100%;
   color: #555;
   font-size: 0.95rem;
 }
+.order-detail:nth-of-type(6) {
+  height: auto;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
 .item-container {
   margin-left: 12px;
@@ -64,72 +69,130 @@ height: 100%;
   margin-bottom: 10px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 450px) {
-.order-history-container {
-border: 2px solid red;
-  width: 100%;
-height: 100%;
-  overflow-y: auto;
-  padding: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@media screen and (min-width: 320px) and (max-width: 479px) {
+  .page-title {
+    font-size: 3vw;
+  }
+  .order-header {
+    font-size: 1.6vh;
+  }
+  .order-section h4 {
+    font-size: 1.4vh;
+  }
+  .order-detail,
+  .item-detail,
+  .address-detail {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1.2vh;
+  }
+  .order-detail:nth-of-type(6) {
+    height: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .item-container {
+    margin-left: 5px;
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+  }
 }
 
-.page-title {  
 
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #333;
- 
-  display: inline-block;
-  padding-bottom: 5px;
-}
 
-.order-card { 
-  background-color: #fdfdfd;
-  
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 32px;
-  padding: 10px;
-  border-radius: 14px;
-  transition: transform 0.3s ease;
+@media screen and (min-width: 380px) and (max-width: 767px) {
+  .page-title {
+    font-size: 3vw;
+  }
+  .order-header {
+    font-size: 1.6vh;
+  }
+  .order-section h4 {
+    font-size: 1.4vh;
+  }
+  .order-detail,
+  .item-detail,
+  .address-detail {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1.2vh;
+  }
+  .order-detail:nth-of-type(6) {
+    height: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .item-container {
+    margin-left: 5px;
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+  }
 }
-
-.order-card:hover {
-  transform: scale(1.01);
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .page-title {
+    font-size: 3vw;
+  }
+  .order-header {
+    font-size: 2vw;
+  }
+  .order-section h4 {
+    font-size: 1.8vw;
+  }
+  .order-detail,
+  .item-detail,
+  .address-detail {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1.6vw;
+  }
+  .order-detail:nth-of-type(6) {
+    height: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .item-container {
+    margin-left: 5px;
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+  }
 }
-
-.order-header {
-  font-size: 1.6vh;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #2e2e2e;
-}
-
-.order-section {
-  margin-top: 5px;
-}
-
-.order-section h4 {
-  font-size: 1.4vh;
-  margin-bottom: 0px;
-  color: #4caf50;
-}
-
-.order-detail,
-.item-detail,
-.address-detail {
-  margin: 5px 0;
-  color: #555;
-  font-size: 1.2vh;
-}
-
-.item-container {
-  margin-left: 5px;
-  background-color: #ffffff;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  margin-bottom: 10px;
-}
+@media screen and (min-width: 1024px) and (max-width: 1339px) {
+  .page-title {
+    font-size: 2vw;
+  }
+  .order-header {
+    font-size: 1.6vw;
+  }
+  .order-section h4 {
+    font-size: 1.5vw;
+  }
+  .order-detail,
+  .item-detail,
+  .address-detail {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1.3vw;
+  }
+  .order-detail:nth-of-type(6) {
+    height: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .item-container {
+    margin-left: 5px;
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+  }
 }
