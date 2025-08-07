@@ -305,7 +305,7 @@ height: 20vw !important;
 /* 4. Laptop: 1024px – 1339px */
 @media screen and (min-width: 1024px) and (max-width: 1339px) {
    .product {
-    height: 12vw;
+    height: 10vw;
   }
   .product button {
 

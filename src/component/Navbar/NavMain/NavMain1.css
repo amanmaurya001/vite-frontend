@@ -98,7 +98,7 @@
   /* Perfect scaling for all screen sizes */
   display: flex;
   align-items: center;
-  height:80%;
+  height:70%;
   width: clamp(25px, 5vw, 35px);
   padding: 0;
   position: relative;
@@ -114,8 +114,9 @@
 .nav-link img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
-  padding: clamp(2px, 0.5vw, 4px);
+  object-fit:fill ;
+  padding: clamp(2px, 1vw, 4px);
+
 }
 
 .nav-search-bar {
@@ -218,7 +219,7 @@
 /* 📱 Mobile-S (0 - 479px) */
 @media screen and (max-width: 479px) {
   :root {
-    --navbar-height: clamp(42px, 48px, 54px);
+    --navbar-height: clamp(38px, 40px, 45px);
     --logo-width: 36%;
     --hamburger-width: 12%;
     --actions-width: 20%;
@@ -227,6 +228,16 @@
     --logo-width:clamp(35%,40%,45%);
     --actions-width:clamp(10%,15%,20%);
   }
+  .menu-icon-btn{
+    padding: 0%;
+    height: 100%;
+    width: 90%;
+  }
+    .nav-link img {
+margin-top: 1vw;
+  padding: 0.9vw;
+
+}
 .nav-link:nth-of-type(2),
   .search-icon-btn,
   .menu-icon-btn p,
@@ -245,6 +256,7 @@
     --logo-width:clamp(25%,30%,35%);
     --actions-width:clamp(10%,12%,15%);
   }
+
 .nav-link:nth-of-type(2),
   .search-icon-btn,
   .menu-icon-btn p,
