@@ -1,196 +1,388 @@
-@font-face {
-    font-family: Playfair;
-    src: url(/fonts/Playfair-VariableFont_opsz,wdth,wght.ttf) format('truetype');
+/* Sort Trigger Button */
+.sort {
+  position: relative;
+  border: 2px solid transparent;
+
+  background-clip: padding-box;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  height: 60%;
+  width: 7%;
+  margin-right: 5%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  backdrop-filter: blur(20px);
+}
+
+
+
+.sort h3 {
+  letter-spacing: 2px;
+  font-size: 0.6vw;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f2937;
+  height: 100%;
+  width: 60%;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+
+
+.sort img {
+display: none;
+}
+
+
+
+/* Sort Overlay */
+.sort-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+   backdrop-filter: blur(2px) brightness(0.3) saturate(0.8);
+  z-index: 110;
+  pointer-events: auto;
+  animation: fadeInWhite 0.3s ease;
+}
+
+@keyframes fadeInWhite {
+  from { 
+    opacity: 0; 
+    background: rgba(255, 255, 255, 0);
   }
-  @font-face {
-  font-family:Merriweather;
-  src: url(/fonts/Merriweather-LightItalic.ttf) format('truetype');
+  to { 
+    opacity: 1; 
+    background: rgba(255, 255, 255, 0.95);
+  }
 }
-@font-face {
-  font-family: cripson;
-  src: url(/fonts/CrimsonPro-Italic-VariableFont_wght.ttf);
-}
-@font-face {
-  font-family: PlayfairDisplay;
-  src: url(/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
-}
-.sort{
-    display: flex;
-    height: 90%;
-   width: 7%;
-    margin-right: 10%;
-}
-.sort h3{
-  letter-spacing: 0.5px;
-    font-size:2.5vh;
-    font-family: Playfair;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    height: 100%;
-    width: 60%;
-   font-weight: 500;
-}
-.sort img{
 
-  padding: 5% 21% 5% 0%;
-     height: 100%;
-    width: 40%;
-   
-}
-.sort-overlay {
-
+/* Sort Menu */
+.sort-menu {
+  background: linear-gradient(
+    145deg, 
+    #ffffff 0%, 
+    #f9fafb 20%, 
+    #ffffff 40%, 
+    #f3f4f6 60%, 
+    #ffffff 80%, 
+    #f8fafc 100%
+  );
   position: fixed;
+  height: 100vh;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  width: 30%;
+  z-index: 111;
+  box-shadow: 
+    8px 0 48px rgba(0, 0, 0, 0.12),
+    4px 0 24px rgba(0, 0, 0, 0.08),
+    inset -2px 0 4px rgba(255, 255, 255, 1);
+  animation: slideInWhite 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-right: 1px solid rgba(229, 231, 235, 0.8);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
-  pointer-events: auto;
+.sort-menu::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  display: none;
 }
-.sort-menu{
- background: linear-gradient(to right, #00093c, #2d0b00);
-    position: fixed;
-    height: 100%;
-    top: 0;
-    left: 0;
-    width: 30%;
-    z-index: 111;
-    
+
+@keyframes slideInWhite {
+  from { 
+    transform: translateX(-100%); 
+    opacity: 0;
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1;
+  }
 }
-.sort-menu-box{
- 
-   height: 80%;
-   width: 100%;
-   margin-top: 3%;
+
+/* Sort Menu Box */
+.sort-menu-box {
+  height: 80%;
+  width: 100%;
+  margin-top: 5%;
+  padding: 0 4%;
+  position: relative;
 }
-.sort-menu-box h3{
-  color: hsl(40, 100%, 90%);
-  padding-left: 3%;
-  height: 5%;
-  font-size: 2.5vh;
-border-bottom: 1px solid hsl(40, 100%, 90%);
-  font-family: Playfair;
-  font-weight: 400;
+
+.sort-menu-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 92%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(229, 231, 235, 0.8), transparent);
+  transform: translateX(-50%);
 }
-.sort-btn-wrapp{
+
+.sort-menu-box h3 {
+  color: #1f2937;
+  padding: 1% 0 1% 0;
+   font-size: 0.8vw;
+  height: 8%;
+
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  margin-bottom: 0%;
+  display: flex;
+  align-items: center;
+}
+
+.sort-menu-box h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 3%;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #6b7280, rgba(107, 114, 128, 0.3));
+  border-radius: 2px;
+}
+
+/* Sort Button Wrapper */
+.sort-btn-wrapp {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  
+  justify-content: flex-start;
+  gap: 20px;
   height: 75%;
+  padding: 5% 0;
 }
-.sort-btn-wrapp button{
-  font-family: cripson;
-     color: rgb(243, 231, 231);
-  
-  font-weight: 300;
-   margin-top: 1%;
-  background-color: transparent;
+
+/* Sort Buttons */
+.sort-btn-wrapp button {
+  pointer-events: auto;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 0.6vw;
+  color: #374151;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 2px solid rgba(229, 231, 235, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 7%;
+  height: 40px;
   width: 80%;
-  border-radius: 20px;
-   border: 1px solid rgb(71, 69, 69);
-   font-size: 2vh;
+  padding: 0 20px;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
 }
-.sort-btn-wrapp button.active{
-   background-color: black;
-  color: white;
-}
-@media screen and (min-width: 320px) and (max-width: 450px) {
-  .sort{
-    display: flex;
-    height: 90%;
-   width: 20%;
-    margin-right: 10%;
-}
-.sort h3{
-  letter-spacing: 0.5px;
-    font-size:1.4vh;
-    font-family: Playfair;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    height: 100%;
-    width: 60%;
-   font-weight: 500;
-}
-.sort img{
 
-  padding:15% 21% 15% 0%;
-     height: 100%;
-    width: 40%;
-   
-}
-.sort-overlay {
-
-  position: fixed;
+.sort-btn-wrapp button::before {
+  content: '';
+  position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(90deg, transparent, rgba(243, 244, 246, 0.8), transparent);
+  transition: left 0.6s;
+}
 
-  pointer-events: auto;
+.sort-btn-wrapp button:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(156, 163, 175, 0.6);
+  color: #111827;
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 1);
 }
-.sort-menu{
- background: linear-gradient(to right, #00093c, #2d0b00);
-    position: fixed;
-    height: 100%;
-    top: 0;
-    left: 0;
-    width: 30%;
-    z-index: 111;
-    
+
+.sort-btn-wrapp button:hover::before {
+  left: 100%;
 }
-.sort-menu-box{
- 
-   height: 80%;
-   width: 100%;
-   margin-top: 3%;
+
+.sort-btn-wrapp button.active {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  color: #ffffff;
+  border-color: #1f2937;
+  box-shadow: 
+    0 8px 28px rgba(31, 41, 55, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
 }
-.sort-menu-box h3{
-  color: hsl(40, 100%, 90%);
-  padding-left: 3%;
-  height: 5%;
-  font-size: 2.5vh;
-border-bottom: 1px solid hsl(40, 100%, 90%);
-  font-family: Playfair;
-  font-weight: 400;
-}
-.sort-btn-wrapp{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  
-  height: 75%;
-}
-.sort-btn-wrapp button{
-  font-family: cripson;
-     color: rgb(243, 231, 231);
-  
-  font-weight: 300;
-   margin-top: 1%;
-  background-color: transparent;
+
+.sort-btn-wrapp button.active::after {
+  content: '✓';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 7%;
-  width: 80%;
-  border-radius: 20px;
-   border: 1px solid rgb(71, 69, 69);
-   font-size: 2vh;
-}
-.sort-btn-wrapp button.active{
-   background-color: black;
+  font-size: 12px;
   color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4);
 }
+
+/* Luxury Details */
+.sort-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(229, 231, 235, 0.8), transparent);
+}
+
+.sort-menu::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(229, 231, 235, 0.6), transparent);
+}
+
+/* Button Focus States */
+.sort-btn-wrapp button:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(59, 130, 246, 0.5);
+  ring-offset: 2px;
+}
+
+/* Responsive Design */
+@media screen and (min-width: 1024px) and (max-width: 1339px) {
+    .sort-menu {
+    width: 50%;
+  }
+  
+  .sort {
+    width: 10%;
+  }
+  
+  .sort h3 {
+      font-size: 1.3vw;
+  }
+    .sort-menu-box h3 {
+
+  padding: 1% 0 1% 0;
+   font-size: 1.5vw;
+  height:auto;
+
+
+}
+  .sort-btn-wrapp button {
+    height: 45px;
+    font-size: 1.3vw;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .sort-menu {
+    width: 50%;
+  }
+  
+  .sort {
+    width: 10%;
+  }
+  
+  .sort h3 {
+    font-size: 1.7vw;
+  }
+    .sort-menu-box h3 {
+
+  padding: 1% 0 1% 0;
+   font-size: 2vw;
+  height:auto;
+
+
+}
+  .sort-btn-wrapp button {
+    height: 45px;
+    font-size: 1.6vw;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .sort-menu {
+    width: 80%;
+  }
+  
+  .sort {
+    width: auto;
+  }
+  
+  .sort h3 {
+    font-size: 2vw;
+  }
+  .sort-menu-box h3 {
+
+  padding: 1% 0 1% 0;
+   font-size: 2.8vw;
+  height:auto;
+
+
+}
+  .sort-btn-wrapp button {
+    height: 45px;
+    font-size: 2.4vw;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sort-menu {
+    width: 80%;
+  }
+  
+  .sort {
+    width: auto;
+  }
+  
+  .sort h3 {
+    font-size: 2vw;
+  }
+  .sort-menu-box h3 {
+
+  padding: 1% 0 1% 0;
+   font-size: 2.8vw;
+  height:auto;
+
+
+}
+  .sort-btn-wrapp button {
+    height: 45px;
+    font-size: 2.4vw;
+    width: 90%;
+  }
 }

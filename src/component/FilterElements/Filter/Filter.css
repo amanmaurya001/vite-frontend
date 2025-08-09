@@ -55,11 +55,7 @@
 
 
 .filter img {
-  padding: 8% 0;
-  height: 100%;
-  width: 20%;
-  filter: brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
-  transition: all 0.4s ease;
+display: none;
 }
 
 
@@ -278,7 +274,7 @@
 .btn-wrapp-type-2 button {
   font-family: 'Playfair Display', serif;
   font-weight: 500;
-  font-size: 0.6vw;
+  font-size: 0.6vw ;
   color: #374151;
   background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
   border: 2px solid rgba(229, 231, 235, 0.8);

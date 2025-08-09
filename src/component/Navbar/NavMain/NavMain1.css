@@ -2,6 +2,7 @@
 
 
 #navbar {
+
   width: 100%;
   position: sticky;
   top: 0;
@@ -67,9 +68,7 @@
 
 .navbar-logo {
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   /* Complete responsive logo */
   width: var(--logo-width);
   height: 100%;
@@ -77,13 +76,14 @@
 }
 
 .navbar-logo img {
+
   max-width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
 .navbar-actions {
-
+    border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -94,7 +94,7 @@
 }
 
 .nav-link {
-
+    border: 1px solid red;
   /* Perfect scaling for all screen sizes */
   display: flex;
   align-items: center;
@@ -179,7 +179,7 @@
 
 .avatar-circle {
   width: 100%;
-  height: 60%;
+  height: 100%;
   background-color: #48302d;
   color: white;
   border-radius: 50%;
@@ -228,6 +228,10 @@
     --logo-width:clamp(35%,40%,45%);
     --actions-width:clamp(10%,15%,20%);
   }
+  .navbar-logo img {
+  margin-top: 2%;
+}
+
   .menu-icon-btn{
     padding: 0%;
     height: 100%;
