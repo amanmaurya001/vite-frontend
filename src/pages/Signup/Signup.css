@@ -1,13 +1,16 @@
 .signup-container {
-    border: 5px solid red;
-  max-width: 400px;
+
+  width: 400px;
   margin: 100px auto;
   padding: 30px;
-  background: white;
+
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-
+.signup-container form {
+  background-color: white;
+  border-radius: 20px;
+}
 .signup-container h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -22,15 +25,14 @@
 
 .signup-container input,
 .signup-container select {
-  width: 100%!important;
+  width: 100% !important;
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc !important;
   border-radius: 6px;
   box-sizing: border-box;
-  background-color: #fff!important;
+  background-color: #fff !important;
 }
-
 
 .signup-container input[type="date"] {
   color: #444;
@@ -63,14 +65,99 @@
 }
 @media screen and (min-width: 320px) and (max-width: 479px) {
   .signup-container {
-   width: 100%;
-  margin: 0;
-  padding: 30px;
-  background: white;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+    width: 100vw !important;
+    height: 96vh !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  .signup-container form {
+    width: 100%;
+    padding: 2vw;
+  }
+  .signup-container h2 {
+    font-size: 6vw;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .signup-container label {
+    display: block;
+    margin: 12px 0 6px;
+    color: #555;
+    font-size: 3vw;
+  }
+
+  .signup-container input,
+  .signup-container select {
+    width: 100% !important;
+    padding: 10px !important;
+    font-size: 2.5vw;
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #fff !important;
+  }
+
+  .signup-container input[type="date"] {
+    color: #444;
+  }
+
+  .signup-container input[type="tel"] {
+    color: #444;
+  }
+
+  .signup-container select {
+    background-color: #fff;
+    color: #444;
+  }
+
+  .signup-container button {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10vw;
+    padding: 4vw !important;
+    background-color: #667eea;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .signup-container button:hover {
+    background-color: #556cd6;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .signup-container {
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+   width: 100vw !important;
+  height: 96vh !important;
+display: flex;
+align-items: center;
+justify-content: center;
+
+  padding: 20px;
+
+margin: auto;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
+.signup-container  form{
 
+  width: 100%;
+    padding: 2vw;
+}
 .signup-container h2 {
   font-size: 6vw;
   text-align: center;
@@ -88,7 +175,7 @@
 .signup-container input,
 .signup-container select {
   width: 100%!important;
-  padding: 10px;
+  padding: 10px  !important;
   font-size: 2.5vw;
   border: 1px solid #ccc !important;
   border-radius: 6px;
@@ -113,7 +200,8 @@
 .signup-container button {
   width: 100%;
   margin-top: 20px;
-  padding: 12px;
+    margin-bottom: 10vw ;
+  padding: 4vw !important;
   background-color: #667eea;
   color: white;
   font-weight: bold;
@@ -127,41 +215,8 @@
   background-color: #556cd6;
 }
 }
-@media screen and (min-width: 480px) and (max-width: 767px) {
-  .signup-container {
-   width: 100vw !important;
-  margin: 0;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
 
-.signup-container h2 {
-  font-size: 6vw;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+@media screen and (min-width: 768px) and (max-width: 1023px) {
 }
-
-.signup-container label {
-  display: block;
-  margin: 12px 0 6px;
-  color: #555;
-    font-size: 3vw;
+@media screen and (min-width: 1024px) and (max-width: 1339px) {
 }
-
-.signup-container input,
-.signup-container select {
-  width: 100%!important;
-  padding: 10px;
-  font-size: 2.5vw;
-  border: 1px solid #ccc !important;
-  border-radius: 6px;
-  box-sizing: border-box;
-  background-color: #fff!important;
-}
-}
- 
-@media screen and (min-width: 768px) and (max-width: 1023px) {}
-@media screen and (min-width: 1024px) and (max-width: 1339px) {}

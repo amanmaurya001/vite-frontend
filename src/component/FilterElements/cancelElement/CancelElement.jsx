@@ -5,7 +5,7 @@ const CancelElement = ({onClose}) => {
   return (
     <div className="CancelElement">
       <div className="logo">
-        <img src="/PHotos/index/filter-logo-removebg-preview.png" alt="" />
+        <img src="/PHotos/index/cancel-logo.png" alt="" />
       </div>
       <div className="cancel"  onClick={onClose}>
       

@@ -9,7 +9,7 @@
   right: 0;
   /* Complete device height coverage */
   height: var(--navbar-height);
-  z-index: 9;
+  z-index: 9!;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e0e0e0;
   background-color: white;

@@ -49,11 +49,40 @@
 }
 
 .login-form button {
-padding: 3vw  !important;
-font-size: 16px;
+  width: 100%;
+  padding: 1vw ;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
+.login-form button:hover {
+  background-color: #0056b3;
+}
 
+.login-footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-footer p {
+  font-size: 14px;
+  color: #555;
+}
+
+.login-footer a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
 @media screen and (min-width: 320px) and (max-width: 479px) {
 
 .login-container {
@@ -95,11 +124,7 @@ font-size: 16px;
   transition: all 0.3s ease;
 }
 
-.login-form input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
+
 
 .login-form button {
   width: 100%;
@@ -113,29 +138,6 @@ font-size: 16px;
   transition: background 0.3s ease;
 }
 
-.login-form button:hover {
-  background-color: #0056b3;
-}
-
-.login-footer {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.login-footer p {
-  font-size: 14px;
-  color: #555;
-}
-
-.login-footer a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.login-footer a:hover {
-  text-decoration: underline;
-}
 
 }
 @media screen and (min-width: 480px) and (max-width: 767px) {}

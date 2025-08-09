@@ -179,7 +179,7 @@
    
   }
   .filter-section {
- 
+     border: 2px solid red ;
     position: sticky;
     top: 4vh;
     display: flex;
