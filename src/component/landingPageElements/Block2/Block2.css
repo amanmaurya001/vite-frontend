@@ -89,7 +89,7 @@
 
   #block2-left div a,
   #block2-right div a {
-    border: 1px solid red;
+   
     color: #ffffff;
   font-size: clamp(1px, 2.5vw, 16px);
     font-family: Playfair;

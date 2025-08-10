@@ -74,14 +74,14 @@
 }
 @media screen and (max-width: 479px) {
   #block7 {
-    height:clamp(80vw,120vw,150vw);
+    height:clamp(80vw,150vw,150vw);
   }
   #block7-up h3 {
     font-size: clamp(2vw, 5vw, 8vw);
   }
 
   #block7-mid {
-    border: 2px solid red;
+
     margin-top: 6vw;
     height: 80%;
     width: 100%;
