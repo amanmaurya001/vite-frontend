@@ -1,54 +1,194 @@
+/* Main Hamburger Container */
 #ham {
-  background: linear-gradient(to right, #00093c, #2d0b00);
-
+  background: linear-gradient(
+    145deg,
+    #00093c 0%,
+    #001a5e 20%,
+    #2d0b00 40%,
+    #4a1000 60%,
+    #1a0a3d 80%,
+    #2d0b00 100%
+  );
   height: 100%;
   width: 50%;
   display: flex;
   position: fixed;
   top: 0;
   z-index: 1010;
+  box-shadow: 4px 0 40px rgba(0, 9, 60, 0.6), 8px 0 80px rgba(45, 11, 0, 0.4),
+    inset -2px 0 4px rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(202, 185, 29, 0.3);
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
 }
+
+#ham::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(202, 185, 29, 0.1) 0%,
+    transparent 25%,
+    rgba(0, 9, 60, 0.2) 50%,
+    transparent 75%,
+    rgba(45, 11, 0, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .main-ham {
   height: 100%;
   width: 50%;
   overflow-y: auto;
   z-index: 1003;
   position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(202, 185, 29, 0.4) transparent;
 }
+
+.main-ham::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-ham::-webkit-scrollbar-track {
+  background: rgba(0, 9, 60, 0.3);
+  border-radius: 4px;
+}
+
+.main-ham::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(202, 185, 29, 0.6),
+    rgba(202, 185, 29, 0.3)
+  );
+  border-radius: 4px;
+  border: 1px solid rgba(202, 185, 29, 0.2);
+}
+
+.main-ham::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(202, 185, 29, 0.8),
+    rgba(202, 185, 29, 0.5)
+  );
+}
+
 .main-ham-content {
   height: 88%;
   width: 100%;
   overflow-y: auto;
   margin-bottom: 10%;
   z-index: 1010;
+  padding-top: 2%;
 }
-.main-ham-setting {
-  height: 5%;
-  width: 100%;
-}
+
 .ham-ad {
   width: 50%;
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 .ham-ad img {
   height: 100%;
   width: 100%;
 }
+
+/* Settings Button */
 .ham-setting {
-  width: 100%;
-  height: 5%;
-  border: none;
-  background-color: transparent;
-  bottom: 0;
-  color: azure;
+  width: 88%;
+  height: 55px;
+  border: 2px solid rgba(202, 185, 29, 0.6);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 9, 60, 0.8) 0%,
+    rgba(45, 11, 0, 0.6) 50%,
+    rgba(0, 9, 60, 0.8) 100%
+  );
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  color: hsl(40, 100%, 90%);
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   position: absolute;
-  bottom: 7%;
-  left: 0;
+  bottom: 2%;
+  left: 6%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(0, 9, 60, 0.5), 0 4px 12px rgba(45, 11, 0, 0.3),
+    inset 0 1px 2px rgba(202, 185, 29, 0.3);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.ham-setting::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(202, 185, 29, 0.4),
+    transparent
+  );
+  transition: left 0.8s;
+}
+
+.ham-setting::after {
+  content: "⚙";
+  position: absolute;
+  right: 15px;
+  font-size: 1.1rem;
+  color: rgba(202, 185, 29, 0.8);
+  transition: all 0.3s ease;
 }
 
 .ham-setting:hover {
-  background-color: black;
-  color: azure;
+  transform: translateY(-3px) scale(1.03);
+  background: linear-gradient(
+    135deg,
+    rgba(202, 185, 29, 0.2) 0%,
+    rgba(0, 9, 60, 0.9) 50%,
+    rgba(45, 11, 0, 0.8) 100%
+  );
+  color: #ffffff;
+  border-color: rgba(202, 185, 29, 0.9);
+  box-shadow: 0 15px 40px rgba(0, 9, 60, 0.7),
+    0 8px 20px rgba(202, 185, 29, 0.4), inset 0 2px 4px rgba(202, 185, 29, 0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.ham-setting:hover::before {
+  left: 100%;
+}
+
+.ham-setting:hover::after {
+  transform: rotate(180deg) scale(1.1);
+  color: #ffffff;
 }
 @media screen and (min-width: 320px) and (max-width: 479px) {
   #ham {
@@ -64,11 +204,22 @@
     display: none;
   }
   .main-ham-content {
+    border: 3px solid red;
     height: 88%;
     width: 100%;
     overflow-y: auto;
     margin-bottom: 0%;
     z-index: 1010;
+  }
+  .ham-setting {
+    width: 88%;
+    height: 50px !important;
+
+    font-size: 4vw !important;
+    letter-spacing: 2px;
+
+    bottom: 0%;
+    left: 6%;
   }
 }
 @media screen and (min-width: 480px) and (max-width: 767px) {
@@ -91,6 +242,16 @@
     margin-bottom: 0%;
     z-index: 1010;
   }
+  .ham-setting {
+    width: 88%;
+    height: 50px !important;
+
+    font-size: 4vw !important;
+    letter-spacing: 2px;
+
+    bottom: 0%;
+    left: 6%;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   #ham {
@@ -112,10 +273,15 @@
     margin-bottom: 0%;
     z-index: 1010;
   }
+  .ham-setting {
+    height: 50px !important;
+    font-size: 2vw !important;
+    bottom: 0%;
+  }
 }
 @media screen and (min-width: 1024px) and (max-width: 1339px) {
   #ham {
-    width: 70%;
+    width: 60%;
     z-index: 1010;
   }
   .main-ham {
@@ -132,5 +298,10 @@
     overflow-y: auto;
     margin-bottom: 0%;
     z-index: 1010;
+  }
+    .ham-setting {
+    height: 50px !important;
+    font-size: 2vw !important;
+    bottom: 0%;
   }
 }

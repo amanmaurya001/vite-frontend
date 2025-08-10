@@ -226,12 +226,20 @@
     --menu-icon-btn-img-height: 100%;
     --menu-icon-btn-img-width: 100%;
     --logo-width:clamp(35%,40%,45%);
-    --actions-width:clamp(10%,15%,20%);
+   
   }
   .navbar-logo img {
   margin-top: 2%;
 }
+.nav-link{
+    padding:0.5vw !important;
+  margin-left: 1vw;
+}
+.nav-link img {
 
+
+
+}
   .menu-icon-btn{
     padding: 0%;
     height: 100%;
