@@ -96,7 +96,9 @@
   z-index: 1010;
   padding-top: 2%;
 }
-
+.main-ham-content a{
+  text-decoration: none;
+}
 .ham-ad {
   width: 50%;
   height: 100%;
@@ -204,7 +206,7 @@
     display: none;
   }
   .main-ham-content {
-    border: 3px solid red;
+
     height: 88%;
     width: 100%;
     overflow-y: auto;
@@ -215,7 +217,7 @@
     width: 88%;
     height: 50px !important;
 
-    font-size: 4vw !important;
+    font-size: 3vw !important;
     letter-spacing: 2px;
 
     bottom: 0%;

@@ -9,6 +9,7 @@
 }
 
 .navLatest {
+ 
   margin-top: 4%;
   height: auto;
 }
@@ -154,7 +155,7 @@
     height: 40px;
   }
   .navLatest-box h2 {
-    font-size: 2vh;
+    font-size: 4.5vw;
   }
   .latest-menu-men h3,
   .latest-menu-women h3 {

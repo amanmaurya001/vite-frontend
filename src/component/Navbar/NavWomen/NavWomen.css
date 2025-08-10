@@ -8,6 +8,7 @@
   src: url(/public/fonts/Merriweather-LightItalic.ttf) format("truetype");
 }
 .navWomen {
+  width: 100%;
   margin-top: 4%;
 
   height: auto;
@@ -18,7 +19,7 @@
 }
 .navWomen-box h2 {
   color: hsl(40, 100%, 90%);
-  margin-left: 5%;
+  margin-left: 3%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -202,7 +203,7 @@ padding: 2%;
   }
 
   .navWomen-box h2 {
-    font-size: 1.1rem;
+   font-size: 4.5vw;
     letter-spacing: 1.5px;
   }
 

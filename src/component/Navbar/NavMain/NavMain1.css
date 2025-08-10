@@ -231,7 +231,7 @@
   .navbar-logo img {
   margin-top: 2%;
 }
-.nav-link{
+.nav-link{margin-top: 2%;
     padding:0.5vw !important;
   margin-left: 1vw;
 }

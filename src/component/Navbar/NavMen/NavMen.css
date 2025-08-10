@@ -8,7 +8,7 @@
 }
 
 /* Main container */
-.navMen {
+.navMen {  
   margin-top: 4%;
   height: auto;
 }
@@ -195,7 +195,7 @@
   }
 
   .navMen-box h2 {
-    font-size: 2vh;
+      font-size: 4.5vw;
   }
 
   .Men-item h3 {
