@@ -10,7 +10,7 @@
   right: 0;
   /* Complete device height coverage */
   height: var(--navbar-height);
-  z-index: 9!;
+  z-index: 9;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e0e0e0;
   background-color: white;
@@ -27,7 +27,7 @@
   height: 100%;
   /* Smooth scaling from mobile to PC */
   width: var(--hamburger-width);
-  margin-left: clamp(1%, 1vw, 1.5%);
+  margin-left: 1vw;
 }
 
 .search-icon-btn,
@@ -90,11 +90,13 @@
   height: 100%;
   width: var(--actions-width);
   gap: var(--element-gap);
-  margin-right: clamp(1%, 1vw, 1.5%);
+  margin-right: 1vw;
 }
 
 .nav-link {
+  overflow: hidden;
     border: 1px solid red;
+    margin-left: 0 ;
   /* Perfect scaling for all screen sizes */
   display: flex;
   align-items: center;
@@ -231,7 +233,8 @@
   .navbar-logo img {
   margin-top: 2%;
 }
-.nav-link{margin-top: 2%;
+.nav-link{
+  margin-top: 2%;
     padding:0.5vw !important;
   margin-left: 1vw;
 }

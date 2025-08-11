@@ -149,10 +149,14 @@
     margin: 1vh 0 1.5rem 0;
     height: 5%;
   }
-
+  .ProfileDashboard-option div {
+    border: none;
+    height: auto;
+    width: 100%;
+  }
   .ProfileDashboard-option button {
     width: 100%;
-  
+
     height: 7vw !important;
 
     margin-bottom: 0.75rem;
@@ -271,14 +275,7 @@
   }
 }
 
-
-
-
-
-
-
-
-@media screen and (min-width: 1024px) and (max-width: 1339px) {
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
   .ProfileDashboard {
     height: 96vh;
     width: 100%;

@@ -11,28 +11,24 @@ const Block3 = () => {
         <h2 className="block3-text-2">Rare</h2>
         <h3 className="block3-text-3">Comfort</h3>
         <div id="box2">
-          <Swiper
-            id="xxxx"
-            className="LP-block3-swiper"
-            modules={[Autoplay]}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            spaceBetween={30}
-            slidesPerView={2}
-            breakpoints={{
-              767: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-              },
-            }}
-          >
+       <Swiper
+  id="xxxx"
+  className="LP-block3-swiper"
+  modules={[Autoplay]}
+  autoplay={{
+    delay: 2000,
+    disableOnInteraction: false,
+  }}
+  loop={true}
+  spaceBetween={30}
+  slidesPerView={1} // Default small screens ke liye
+  breakpoints={{
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+  }}
+>
             {[
               {
                 label: "T-Shirt",

@@ -80,9 +80,7 @@ const Profile = () => {
             <p>{profiledata.createdAt?.split("T")[0]}</p>
           </div>
         </div>
-        <div className="profile-logout">
-          <Logout />
-        </div>
+   
       </div>
       
     </div>
