@@ -11,6 +11,7 @@
   width: 100%;
   margin-top: 4%;
 
+  width: 100%;
   height: auto;
 }
 
@@ -19,7 +20,7 @@
 }
 .navWomen-box h2 {
   color: hsl(40, 100%, 90%);
-  margin-left: 3%;
+ margin-left: 5%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -28,12 +29,14 @@
   font-weight: 400;
 }
 .women-menu {
+  padding: 1%;
   display: grid;
   column-gap: 5px;
   row-gap: 5px;
   grid-template-columns: repeat(2, 1fr);
 }
 .women-menu {
+
   /* Your existing styles remain same, just add these: */
   opacity: 0;
   transform: translateY(30px);
@@ -195,11 +198,11 @@ padding: 2%;
  
 
   .navWomen {
-    margin: 4% 2% 0 2%;
+   
   }
 
   .navWomen-box {
-    height: 55px;
+    height: 40px;
   }
 
   .navWomen-box h2 {

@@ -9,7 +9,7 @@
 }
 
 .navLatest {
- 
+
   margin-top: 4%;
   height: auto;
 }
@@ -31,6 +31,7 @@
 
 /* Base menu style (no opacity hide by default) */
 .latest-menu {
+  padding: 1%;
   display: grid;
   column-gap: 5px;
   row-gap: 5px;

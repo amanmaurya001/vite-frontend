@@ -17,11 +17,12 @@ const Hamburger = ({ onClose }) => {
           <NavWomen onClose={onClose} />
           <NavMen onClose={onClose} />
         </div>
-        <Link to="/profiledashboard">
-          <button className="ham-setting" onClick={onClose}>Setting</button>
-        </Link>
+
+        <button className="ham-setting" onClick={onClose}>
+          <Link to="/profiledashboard">Setting</Link>
+        </button>
       </section>
-      <section className="ham-ad" >
+      <section className="ham-ad">
         <img src="/PHotos/home/block8-L.jpg" alt="" />
       </section>
     </div>

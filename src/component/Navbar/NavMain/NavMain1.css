@@ -10,7 +10,7 @@
   right: 0;
   /* Complete device height coverage */
   height: var(--navbar-height);
-  z-index: 9;
+  z-index: 5;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e0e0e0;
   background-color: white;
@@ -72,7 +72,7 @@
   /* Complete responsive logo */
   width: var(--logo-width);
   height: 100%;
-  margin-left: 0%;
+  margin-left: -10%;
 }
 
 .navbar-logo img {
@@ -83,7 +83,7 @@
 }
 
 .navbar-actions {
-    border: 1px solid red;
+ 
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -183,7 +183,7 @@
   width: 100%;
   height: 100%;
   background-color: #48302d;
-  color: white;
+  color: rgb(0, 0, 0) !important;
   border-radius: 50%;
   font-weight: bold;
   /* Responsive avatar font */
@@ -250,7 +250,7 @@
   }
     .nav-link img {
 margin-top: 1vw;
-  padding: 0.9vw;
+  padding: 1vw;
 
 }
 .nav-link:nth-of-type(2),
@@ -331,7 +331,9 @@ margin-top: 1vw;
   }
 
   .search-icon-btn img { padding: 1.4vh; }
-
+.nav-link {
+  height: 50%;
+}
   .menu-icon-btn p,
   .search-icon-btn p {
     font-size: 14px;
