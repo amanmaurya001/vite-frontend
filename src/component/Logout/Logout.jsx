@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Logout.css";
 import { useDispatch } from "react-redux";
-import { checkAuth } from "./redux/authSlice";
+import { checkAuth } from "../../redux/authSlice";
   const Logout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
