@@ -31,7 +31,7 @@ const ProductPage = () => {
   const [delWish, setDelWish] = useState(null); // Wishlist item ID for removal
 
   // User token
-  const token = localStorage.getItem("token");
+
 
   // ✅ Product details fetch on mount or when productId changes
   useEffect(() => {
@@ -50,7 +50,7 @@ const ProductPage = () => {
     if ( !product1?._id) return;
 
     axios
-      .get(`http://localhost:1234/showwishlist`, {
+      .get(`${backendUrl}/showwishlist`, {
      withCredentials: true,
       })
       .then((res) => {
@@ -79,7 +79,7 @@ const ProductPage = () => {
     };
 
     axios
-      .post(`http://localhost:1234/addtocart`, cartdata, {
+      .post(`${backendUrl}/addtocart`, cartdata, {
         withCredentials: true,
       })
       .then((res) => {
