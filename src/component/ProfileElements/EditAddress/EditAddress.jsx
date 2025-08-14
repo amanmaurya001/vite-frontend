@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const EditAddress = () => {
   const navigate = useNavigate();
   const {addressId}=useParams();
-  const token = localStorage.getItem("token");
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const [formData, setFormData] = useState({
     fullName: "",

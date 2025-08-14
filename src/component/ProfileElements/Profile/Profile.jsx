@@ -10,7 +10,7 @@ const Profile = () => {
   const [profiledata, setProfiledata] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:1234/profile`, {
+      .get(`${backendUrl}/profile`, {
         withCredentials: true,
       })
       .then((res) => {
