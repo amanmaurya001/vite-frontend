@@ -26,7 +26,7 @@ const ChangePassword = () => {
 
     try {
       const res = await axios.post(
-        `${backendUrl}/change-password`,
+        `${backendUrl}/changePassword`,
         formData,
         {
              withCredentials: true,
