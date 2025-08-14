@@ -114,6 +114,7 @@
 }
 
 .nav-link img {
+     border: 1px solid rgb(32, 22, 163);
   height: 100%;
   width: 100%;
   object-fit:fill ;
@@ -249,8 +250,8 @@ color: black;
 
 }
 .nav-link{
-  margin-top: 2%;
-    padding:0.5vw !important;
+  margin-top: 0%;
+    padding:0vw !important;
   margin-left: 1vw;
 }
 .nav-link img {
