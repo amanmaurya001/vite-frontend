@@ -3,9 +3,10 @@ import "./EditAddress.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const EditAddress = () => {
-
+  const navigate = useNavigate();
   const {addressId}=useParams();
   const token = localStorage.getItem("token");
 
@@ -22,10 +23,12 @@ const EditAddress = () => {
     isDefault: false,
   });
 
+  const [errors, setErrors] = useState({}); // Field-wise errors
+
   useEffect(() => {
     axios
-      .get(`http://localhost:1234/editShowAdress/${addressId}`, {
-        headers: { Authorization: `Bearer ${token}` },
+      .get(`${backendUrl}/editShowAdress/${addressId}`, {
+       withCredentials: true,
       })
       .then((res) => {
         setFormData(res.data.targetAddresses);
@@ -41,6 +44,11 @@ const EditAddress = () => {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
+
+    // Clear field error on change
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -49,15 +57,27 @@ const EditAddress = () => {
     // backend me bhejne ke liye yahan axios ya fetch use kar sakte ho
 
     axios
-      .post(`http://localhost:1234/updateAddress/${addressId}`, formData, {
-        headers: { Authorization: `Bearer ${token}` },
+      .post(`${backendUrl}/updateAddress/${addressId}`, formData, {
+         withCredentials: true,
       })
 
       .then((res) => {
         toast.success(res.data?.message, { position: "top-center" });
+
+        // Clear errors on success
+        setErrors({});
+           navigate('/profiledashboard/showAdress');
       })
-      .catch((err) => {
-        toast.error("something went wrong", { position: "top-center" });
+      .catch((error) => {
+        if (error.response?.data?.fieldErrors) {
+          // Backend sent field-wise validation errors
+          setErrors(error.response.data.fieldErrors);
+        } else {
+          toast.error(
+            error.response?.data?.message || 'Something went wrong',
+            { position: 'top-center' }
+          );
+        }
       });
   };
   return (
@@ -74,6 +94,8 @@ const EditAddress = () => {
               onChange={handleChange}
               required
             />
+            {errors.fullName && <p className="error-text">{errors.fullName}</p>}
+
             <input
               type="text"
               name="mobile"
@@ -82,6 +104,7 @@ const EditAddress = () => {
               onChange={handleChange}
               required
             />
+            {errors.mobile && <p className="error-text">{errors.mobile}</p>}
           </div>
 
           <div className="form-group">
@@ -93,6 +116,8 @@ const EditAddress = () => {
               onChange={handleChange}
               required
             />
+            {errors.pincode && <p className="error-text">{errors.pincode}</p>}
+
             <input
               type="text"
               name="city"
@@ -101,6 +126,7 @@ const EditAddress = () => {
               onChange={handleChange}
               required
             />
+            {errors.city && <p className="error-text">{errors.city}</p>}
           </div>
 
           <input
@@ -111,6 +137,7 @@ const EditAddress = () => {
             onChange={handleChange}
             required
           />
+          {errors.state && <p className="error-text">{errors.state}</p>}
 
           <div className="form-group">
             <input
@@ -121,6 +148,8 @@ const EditAddress = () => {
               onChange={handleChange}
               required
             />
+            {errors.block && <p className="error-text">{errors.block}</p>}
+
             <input
               type="text"
               name="locality"
@@ -129,6 +158,7 @@ const EditAddress = () => {
               onChange={handleChange}
               required
             />
+            {errors.locality && <p className="error-text">{errors.locality}</p>}
           </div>
 
           <input
@@ -138,6 +168,7 @@ const EditAddress = () => {
             value={formData.landmark}
             onChange={handleChange}
           />
+          {errors.landmark && <p className="error-text">{errors.landmark}</p>}
 
           <select
             name="addressType"
@@ -148,6 +179,7 @@ const EditAddress = () => {
             <option value="Work">Work</option>
             <option value="Other">Other</option>
           </select>
+          {errors.addressType && <p className="error-text">{errors.addressType}</p>}
 
           <label className="checkbox-label">
             <input
@@ -158,6 +190,7 @@ const EditAddress = () => {
             />
             Set as default address
           </label>
+          {errors.isDefault && <p className="error-text">{errors.isDefault}</p>}
 
           <button type="submit">Update Address</button>
         </form>

@@ -1,18 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import axios from "axios";
+import "./ProductListingPage.css";
+// Components
 import ProductCard from "../../component/ProductCard/ProductCard";
-//import ProductCard from "../productCard/ProductCard";
 import Filter from "../../component/FilterElements/Filter/Filter";
 import Sort from "../../component/FilterElements/Sort/Sort";
-
+import FilterLogic from "../../component/FilterLogic/FilterLogic";
+import LodingSpiner from "../../component/LodingSpiner/LodingSpiner";
 
 const ProductListingPage = () => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
-    const [isFilterOpen, setIsFilterOpen] = useState(false);
-    const [isSortOpen, setIsSortOpen] = useState(false);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const { navGender, navCategory } = useParams();
+  const location = useLocation();
+
+  // Query param for search
+  const queryParam = new URLSearchParams(location.search).get("query");
+
+  // UI states
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isSortOpen, setIsSortOpen] = useState(false);
+
+  // Data states
   const [listing, setListing] = useState([]);
   const [filteredListing, setFilteredListing] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Filter states
   const [selectedSize, setSelectedSize] = useState([]);
   const [selectedPattern, setSelectedPattern] = useState([]);
   const [selectedMaterial, setSelectedMaterial] = useState([]);
@@ -20,181 +34,96 @@ const ProductListingPage = () => {
   const [selectedColour, setSelectedColour] = useState([]);
   const [selectedSort, setSelectedSort] = useState([]);
 
+  // Fetch products based on route or search
   useEffect(() => {
-    fetch(`${backendUrl}/productlisting/${navGender}/${navCategory}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setListing(data);
-        setFilteredListing(data);
+    setLoading(true);
+    let apiUrl = "";
+
+    if (queryParam) {
+      // Search API
+      apiUrl = `${backendUrl}/search?search=${queryParam}`;
+    } else if (navGender && navCategory) {
+      // Gender + Category
+      apiUrl = `${backendUrl}/productlisting/${navGender}/${navCategory}`;
+    } else if (navGender) {
+      // Gender only
+      apiUrl = `${backendUrl}/productlisting/${navGender}/allproducts`;
+    }
+
+    axios
+      .get(apiUrl)
+      .then((res) => {
+        setListing(res.data);
+        setFilteredListing(res.data);
       })
       .catch((err) => {
-        console.log(err);
-      });
-  }, [navGender, navCategory]);
-
-  useEffect(() => {
-    let filtered = listing;
-    if (selectedSize.length > 0) {
-      filtered = filtered.filter((p) => {
-        return p.sizes?.some((size) => selectedSize.includes(size));
-      });
-    }
-    // Pattern
-    if (selectedPattern.length > 0) {
-      filtered = filtered.filter((p) => {
-        return p.pattern?.some((pat) => selectedPattern.includes(pat));
-      });
-    }
-
-    // Material
-    if (selectedMaterial.length > 0) {
-      filtered = filtered.filter((p) => {
-        return p.material?.some((mat) => selectedMaterial.includes(mat));
-      });
-    }
-
-    // Sleeves
-    if (selectedSleeves.length > 0) {
-      filtered = filtered.filter((p) => {
-        return p.sleeves?.some((sl) => selectedSleeves.includes(sl));
-      });
-    }
-
-    // Colour
-    if (selectedColour.length > 0) {
-      filtered = filtered.filter((p) => {
-        return p.colour?.some((clr) => selectedColour.includes(clr));
-      });
-    }
-
-    if (selectedSort.length > 0) {
-      filtered = applySorting(filtered, selectedSort);
-    }
-    setFilteredListing(filtered);
-  }, [
-    listing,
-    selectedSize,
-    selectedPattern,
-    selectedMaterial,
-    selectedSleeves,
-    selectedColour,
-    selectedSort,
-  ]);
-
-  const applySorting = (products, sortOptions) => {
-    let sorted = [...products];
-
-    // Handle price sorting
-    if (sortOptions.includes("High to Low")) {
-      sorted = sorted.sort((a, b) => {
-        const priceA = a.price?.original || 0;
-        const priceB = b.price?.original || 0;
-        return priceB - priceA;
-      });
-    } else if (sortOptions.includes("Low to High")) {
-      sorted = sorted.sort((a, b) => {
-        const priceA = a.price?.original || 0;
-        const priceB = b.price?.original || 0;
-        return priceA - priceB;
-      });
-    }
-
-    // Handle price range filtering
-    const priceRangeFilters = sortOptions.filter(
-      (sort) =>
-        sort.includes("₹") || sort.includes("Below") || sort.includes("Above")
-    );
-
-    if (priceRangeFilters.length > 0) {
-      sorted = sorted.filter((product) => {
-        const price = product.price?.original || 0;
-
-        return priceRangeFilters.some((filter) => {
-          switch (filter) {
-            case "Below ₹499":
-              return price < 499;
-            case "₹500 - ₹999":
-              return price >= 500 && price <= 999;
-            case "₹1000 - ₹1499":
-              return price >= 1000 && price <= 1499;
-            case "₹1500 - ₹1999":
-              return price >= 1500 && price <= 1999;
-            case "Above ₹2000":
-              return price > 2000;
-            default:
-              return true;
-          }
-        });
-      });
-    }
-
-    return sorted;
-  };
-
-  /////////////////////
-  /////////////////////
-  ////////////////////
-  ///////////////////
-  // Handler function to receive size changes from Filter component
-  const handleSizeChange = (sizes) => {
-    setSelectedSize(sizes);
-  };
-
-  const handlePatternChange = (pattern) => {
-    setSelectedPattern(pattern);
-  };
-  const handleMaterialChange = (material) => {
-    setSelectedMaterial(material);
-  };
-  const handleSleevesChange = (sleeves) => {
-    setSelectedSleeves(sleeves);
-  };
-  const handleColourChange = (colour) => {
-    setSelectedColour(colour);
-  };
-  const handleSortChange = (sort) => {
-    setSelectedSort(sort);
-  };
+        console.error(err);
+      })
+      .finally(() => setLoading(false));
+  }, [navGender, navCategory, queryParam, backendUrl]);
 
   return (
     <>
+      {/* Page Heading */}
       <section className="heading">
-        <h1>
-             {navGender.charAt(0).toUpperCase() + navGender.slice(1)}{" "}
-              {navCategory.charAt(0).toUpperCase() + navCategory.slice(1)}
-        </h1>
-      </section>
-      <section className="filter-section">
-        <Filter
-          onSizeChange={handleSizeChange}
-          onPatternChange={handlePatternChange}
-          onMaterialChange={handleMaterialChange}
-          onSleevesChange={handleSleevesChange}
-          onColourChange={handleColourChange}
-             setIsFilterOpen={setIsFilterOpen}
-        />
-        <Sort onSortChange={handleSortChange} 
-           setIsSortOpen={setIsSortOpen}/>
+        {queryParam ? (
+          <h1>Results for: {queryParam}</h1>
+        ) : (
+          <h1>
+            {navGender
+              ? navGender.charAt(0).toUpperCase() + navGender.slice(1)
+              : ""}{" "}
+            {navCategory
+              ? navCategory.charAt(0).toUpperCase() + navCategory.slice(1)
+              : ""}
+          </h1>
+        )}
       </section>
 
+      {/* Filter & Sort */}
+      <section className="filter-section">
+        <FilterLogic
+          listing={listing}
+          selectedSize={selectedSize}
+          selectedPattern={selectedPattern}
+          selectedMaterial={selectedMaterial}
+          selectedSleeves={selectedSleeves}
+          selectedColour={selectedColour}
+          selectedSort={selectedSort}
+          setFilteredListing={setFilteredListing}
+        />
+
+        <Filter
+          onSizeChange={setSelectedSize}
+          onPatternChange={setSelectedPattern}
+          onMaterialChange={setSelectedMaterial}
+          onSleevesChange={setSelectedSleeves}
+          onColourChange={setSelectedColour}
+          setIsFilterOpen={setIsFilterOpen}
+        />
+
+        <Sort onSortChange={setSelectedSort} setIsSortOpen={setIsSortOpen} />
+      </section>
+
+      {/* Product Grid */}
       <section
         className="product-grid"
         style={{
-       pointerEvents: isFilterOpen || isSortOpen ? "none" : "auto",
+          pointerEvents: isFilterOpen || isSortOpen ? "none" : "auto",
         }}
       >
-        {filteredListing.length > 0 ? (
+        {loading ? (
+          <LodingSpiner />
+        ) : filteredListing.length > 0 ? (
           filteredListing.map((product) => (
             <ProductCard
-              key={product.id}
-               productId={product.id}
-              image0={product.images[0]}
-              image1={product.images[1]}
+              key={product.id || product._id}
+              productId={product.id || product._id}
+              image0={product.images?.[0]}
+              image1={product.images?.[1]}
               name={product.name}
-              priceOriginal={product.price.original}
-              priceOffer={product.price.offer}
+              priceOriginal={product.price?.original}
+              priceOffer={product.price?.offer}
               Note={product.productNote}
             />
           ))
@@ -209,3 +138,4 @@ const ProductListingPage = () => {
 };
 
 export default ProductListingPage;
+

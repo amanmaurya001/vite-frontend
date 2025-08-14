@@ -1,53 +1,49 @@
 import { useState, useEffect } from "react";
 import "../WishList/WishList.css";
+import ProductCard from "../../component/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 const WishList = () => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const token = localStorage.getItem("token");
   const [data, setData] = useState([]);
 
-
-    // To show Wishlist
+  // Wishlist show karne ke liye
   useEffect(() => {
     axios
       .get(`${backendUrl}/showwishlist`, {
-        headers: { Authorization: `Bearer ${token}` },
+ 
+        withCredentials: true,
       })
       .then((res) => {
-        console.log(res.data.items);
-        setData(res.data.items);
+        setData(res.data.items || []);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.response?.data?.message || "Unable to load wishlist", {
+          position: "top-center",
+        });
       });
   }, []);
 
-  // To Delete WishList
+  // Wishlist se item delete karne ke liye
   const handleRemoveFromWish = (passingItemId) => {
     axios
       .delete(`${backendUrl}/deletewishitem/${passingItemId}`, {
-        headers: { Authorization: `Bearer ${token}` },
+         withCredentials: true,
       })
       .then((res) => {
-        toast.success(res.data.message, { position: "top-center" });
-        axios
-          .get(`${backendUrl}/showwishlist`, {
-            headers: { Authorization: `Bearer ${token}` },
-          })
-          .then((res) => {
-            console.log(res.data.items);
-            setData(res.data.items);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        toast.success(res.data.message || "Item removed", {
+          position: "top-center",
+        });
       })
       .catch((err) => {
-        toast.error(res.data.message, { position: "top-center" });
+        toast.error(err.response?.data?.message || "Failed to remove item", {
+          position: "top-center",
+        });
       });
   };
+
   return (
     <>
       <div className="wishList">
@@ -57,12 +53,11 @@ const WishList = () => {
             <div className="wish-product" key={cartItem.wishlistItemId}>
               <Link to={cartItem.Link}>
                 <img src={cartItem.image} alt="" />
-
                 <h3>{cartItem.name}</h3>
                 <h4>Rs {cartItem.price?.original}.00</h4>
               </Link>
               <button
-              className="wishList-Delete-Btn"
+                className="wishList-Delete-Btn"
                 onClick={() => handleRemoveFromWish(cartItem.wishlistItemId)}
               >
                 X

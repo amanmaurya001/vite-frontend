@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -16,20 +17,31 @@ const Signup = () => {
     phone: "",
   });
 
+  // Field-wise errors state
+  const [fieldErrors, setFieldErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    // Field error reset on change
+    setFieldErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Clear errors before submit
+    setFieldErrors({});
+
     axios
       .post(`${backendUrl}/register`, formData)
-
       .then((res) => {
         toast.success(res.data?.message, { position: "top-center" });
         navigate("/login");
@@ -38,9 +50,17 @@ const Signup = () => {
         const errors = err?.response?.data?.errors;
 
         if (errors && Array.isArray(errors)) {
+          // Map array errors to fields based on keywords in error message
+          const newFieldErrors = {};
           errors.forEach((msg) => {
-            toast.error(msg, { position: "top-center" });
+            if (msg.toLowerCase().includes("username")) newFieldErrors.username = msg;
+            else if (msg.toLowerCase().includes("email")) newFieldErrors.email = msg;
+            else if (msg.toLowerCase().includes("password")) newFieldErrors.password = msg;
+            else if (msg.toLowerCase().includes("gender")) newFieldErrors.gender = msg;
+            else if (msg.toLowerCase().includes("dob")) newFieldErrors.dob = msg;
+            else if (msg.toLowerCase().includes("phone")) newFieldErrors.phone = msg;
           });
+          setFieldErrors(newFieldErrors);
         } else {
           toast.error(err?.response?.data?.message || "Something went wrong", {
             position: "top-center",
@@ -62,6 +82,7 @@ const Signup = () => {
           onChange={handleChange}
           required
         />
+        {fieldErrors.username && <p className="error-text" >{fieldErrors.username}</p>}
 
         <label>Email</label>
         <input
@@ -71,6 +92,7 @@ const Signup = () => {
           onChange={handleChange}
           required
         />
+        {fieldErrors.email && <p className="error-text">{fieldErrors.email}</p>}
 
         <label>Password</label>
         <input
@@ -80,6 +102,7 @@ const Signup = () => {
           onChange={handleChange}
           required
         />
+        {fieldErrors.password && <p className="error-text">{fieldErrors.password}</p>}
 
         <label>Gender</label>
         <select
@@ -93,22 +116,27 @@ const Signup = () => {
           <option value="female">Female</option>
           <option value="others">Others</option>
         </select>
+        {fieldErrors.gender && <p className="error-text">{fieldErrors.gender}</p>}
 
-        <label>Date of Birth (Optional)</label>
+        <label>Date of Birth</label>
         <input
           type="date"
           name="dob"
           value={formData.dob}
           onChange={handleChange}
+          required
         />
+        {fieldErrors.dob && <p className="error-text">{fieldErrors.dob}</p>}
 
-        <label>Phone Number (Optional)</label>
+        <label>Phone Number</label>
         <input
           type="tel"
           name="phone"
           value={formData.phone}
           onChange={handleChange}
+          required
         />
+        {fieldErrors.phone && <p className="error-text">{fieldErrors.phone}</p>}
 
         <button type="submit">Create Account</button>
       </form>

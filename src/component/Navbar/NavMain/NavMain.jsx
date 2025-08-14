@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Hamburger from "../Hamburger/Hamburger";
 import "../NavMain/NavMain1.css";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../../../context/user-Context";
 
+import { useSelector, useDispatch } from "react-redux";
 const NavMain = () => {
-  const { user } = useContext(UserContext);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const [isMenuOpen, setIsMenuOpen] = useState({});
   const [showSearch, setShowSearch] = useState(false);
@@ -31,19 +31,19 @@ const NavMain = () => {
       [id]: !prev[id],
     }));
   };
+
   return (
     <>
       <nav id="navbar">
-        <div className="navbar-hamburger" >
+        <div className="navbar-hamburger">
           <div className="menu-icon-btn" onClick={() => call(1)}>
             <img src="/PHotos/hamburger2.png" alt="Logo" />
             <p>menu</p>
           </div>
-          <div className="search-icon-btn"   onClick={toggleSearch}>
+          <div className="search-icon-btn" onClick={toggleSearch}>
             <img
               src="/PHotos/search.png"
               alt=""
-            
               style={{ cursor: "pointer" }}
             />
             <p>search</p>
@@ -62,12 +62,10 @@ const NavMain = () => {
 
         <div className="navbar-actions">
           <div className="nav-link">
-            {user && user.username ? (
-              <div className="avatar-circle">
-                <Link to="/profiledashboard/profile">
-                  {user.username[0].toUpperCase()}
-                </Link>
-              </div>
+            {isAuthenticated ? (
+              <Link to="/profiledashboard/profile">
+               <h3 >  {user?.username ? user.username[0] : ""}</h3>
+              </Link>
             ) : (
               <Link to="/login">
                 <img src="/PHotos/user.png" alt="User" />
@@ -79,13 +77,12 @@ const NavMain = () => {
               <img src="/PHotos/heart.png" alt="" />
             </Link>
           </div>
-          {user && (
-            <div className="nav-link">
-              <Link to="/cart">
-                <img src="/PHotos/shopping-bag.png" alt="" />
-              </Link>
-            </div>
-          )}
+
+          <div className="nav-link">
+            <Link to="/cart">
+              <img src="/PHotos/shopping-bag.png" alt="" />
+            </Link>
+          </div>
         </div>
       </nav>
       {isMenuOpen[1] && (

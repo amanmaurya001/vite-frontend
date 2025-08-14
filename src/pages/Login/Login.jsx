@@ -1,64 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../Login/Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import { loginStart, loginSuccess, loginFail } from "../../redux/authSlice";
+
 import { UserContext } from "../../context/user-Context";
-import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const { setUser } = useContext(UserContext);
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Form state
+  const [formData, setFormData] = useState({ username: "", password: "" });
+
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // Handle form submit
+const handleSubmit = async (e) => {
   e.preventDefault();
+  
+  dispatch(loginStart()); // Loading start
+  
+  try {
+    const res = await axios.post(`${backendUrl}/login`, formData, {
+      withCredentials: true
+    });
 
-  axios
-    .post(`${backendUrl}/login`, formData)
-    .then((res) => {
-      const token = res.data.token;
-console.log(token)
-      toast.success(res.data.message || "Login successful", { position: "top-center" });
+    toast.success("Login successful", { position: "top-center" });
 
-      window.localStorage.setItem("token", token);
-      const decoded = jwtDecode(token);
+    // Redux mein user data save karo
+    dispatch(loginSuccess(res.data.user));
 
-      setUser({
-        id: decoded.userId,
-        username: decoded.username,
-        role: decoded.role,
-      });
-
-      navigate("/");
-    })
-    .catch((err) => {
-      if (err.response && err.response.status === 429) {
-        toast.error(err.response.data?.message || "Too many login attempts. Try again later.", {
+    navigate("/");
+  } catch (err) {
+    dispatch(loginFail()); // Error state
+    
+    if (err.response) {
+      const { status, data } = err.response;
+      if (status === 429) {
+        toast.error(data?.message || "Too many login attempts. Try again later.", {
           position: "top-center",
         });
-      } else if (err.response && err.response.data?.message) {
-        toast.error(err.response.data.message, { position: "top-center" });
       } else {
-        toast.error("Login failed", { position: "top-center" });
+        toast.error(data?.message || "Login failed", { position: "top-center" });
       }
-    });
+    } else {
+      toast.error("Network error. Please try again.", { position: "top-center" });
+    }
+  }
 };
-
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
@@ -73,6 +71,7 @@ console.log(token)
           placeholder="Username"
           required
         />
+
         <input
           type="password"
           name="password"

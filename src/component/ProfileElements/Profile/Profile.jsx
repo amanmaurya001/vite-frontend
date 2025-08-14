@@ -6,12 +6,12 @@ import { Link, Outlet } from "react-router-dom";
 
 const Profile = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const token = localStorage.getItem("token");
+
   const [profiledata, setProfiledata] = useState([]);
   useEffect(() => {
     axios
       .get(`${backendUrl}/profile`, {
-        headers: { Authorization: `Bearer ${token}` },
+        withCredentials: true
       })
       .then((res) => {
         console.log(res.data);
@@ -20,7 +20,7 @@ const Profile = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [token]);
+  },);
 
   return (
     <div className="profile-container">

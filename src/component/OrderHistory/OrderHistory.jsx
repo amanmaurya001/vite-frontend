@@ -9,7 +9,7 @@ const OrderHistory = () => {
   useEffect(() => {
     axios
       .get(`${backendUrl}/orderHistory`, {
-        headers: { Authorization: `Bearer ${token}` },
+           withCredentials: true,
       })
       .then((res) => setOrders(res.data))
       .catch((err) => console.error('Failed to fetch order history', err));

@@ -120,7 +120,22 @@
   padding: clamp(2px, 1vw, 4px);
 
 }
+.nav-link a {
+text-decoration: none;
+color: black;
+  height: 100%;
+  width: 100%;
+ 
+}
+.nav-link a h3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  width: 100%;
+  height: 100%;
+  font-size:1vw ;
+}
 .nav-search-bar {
   background-color: white;
   position: absolute;
@@ -248,10 +263,8 @@
     height: 100%;
     width: 70%;
   }
-    .nav-link img {
-margin-top: 1vw;
-  padding: 1vw;
-
+.nav-link a h3{
+  font-size: 4vw;
 }
 .nav-link:nth-of-type(2),
   .search-icon-btn,
@@ -271,7 +284,9 @@ margin-top: 1vw;
     --logo-width:clamp(25%,30%,35%);
     --actions-width:clamp(10%,12%,15%);
   }
-
+.nav-link a h3{
+  font-size: 4vw;
+}
 .nav-link:nth-of-type(2),
   .search-icon-btn,
   .menu-icon-btn p,

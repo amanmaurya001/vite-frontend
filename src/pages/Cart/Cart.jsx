@@ -17,68 +17,84 @@ const Cart = () => {
   useEffect(() => {
     axios
       .get(`${backendUrl}/cart`, {
-        headers: { Authorization: `Bearer ${token}` },
+        withCredentials: true,
       })
       .then((res) => {
-        console.log(res.data.items);
-        console.log(res.data.summary);
         setData(res.data.items);
         setsummary(res.data.summary);
       })
       .catch((err) => {
-        console.log(err);
+        console.error("Error fetching cart:", err);
+        toast.error(
+          err.response?.data?.message || "Failed to load cart items.",
+          { position: "top-center" }
+        );
       });
   }, []);
 
   const handleRemoveFromCart = (passingItemId) => {
     axios
       .delete(`${backendUrl}/deletecartitem/${passingItemId}`, {
-        headers: { Authorization: `Bearer ${token}` },
+        withCredentials: true,
       })
       .then((res) => {
         toast.success(res.data.message, { position: "top-center" });
+
+        // 🔹 Re-fetch updated cart
         axios
           .get(`${backendUrl}/cart`, {
-            headers: { Authorization: `Bearer ${token}` },
+            withCredentials: true,
           })
           .then((res) => {
-            console.log(res.data.items);
             setData(res.data.items);
             setsummary(res.data.summary);
           })
           .catch((err) => {
-            console.log(err);
+            console.error("Error refreshing cart after delete:", err);
+            toast.error(
+              err.response?.data?.message || "Failed to refresh cart.",
+              { position: "top-center" }
+            );
           });
       })
       .catch((err) => {
-        toast.error(res.data.message, { position: "top-center" });
+        console.error("Error removing cart item:", err);
+        toast.error(
+          err.response?.data?.message || "Failed to remove item from cart.",
+          { position: "top-center" }
+        );
       });
   };
 
   const handleCheckout = () => {
     if (!selectedAddressId) {
-      console.log("No address selected");
+      toast.error("Please select an address before checkout.", {
+        position: "top-center",
+      });
       return;
     }
-  if (!selectPaymentMethod) {
-      console.log("No Payment Method selected");
+    if (!selectPaymentMethod) {
+      toast.error("Please select a payment method.", {
+        position: "top-center",
+      });
       return;
     }
+
     axios
       .post(
         `${backendUrl}/checkoutsession`,
-        { addressId: selectedAddressId ,
-          paymentMethod: selectPaymentMethod
-        }, // ✅ pass addressId to backend
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        { addressId: selectedAddressId, paymentMethod: selectPaymentMethod },
+        { withCredentials: true }
       )
       .then((res) => {
-        window.location.href = res.data.url; // ✅ redirect to Stripe
+        window.location.href = res.data.url; // Redirect to Stripe
       })
       .catch((err) => {
-        console.log("Checkout error:", err);
+        console.error("Checkout error:", err);
+        toast.error(
+          err.response?.data?.message || "Checkout failed. Please try again.",
+          { position: "top-center" }
+        );
       });
   };
 

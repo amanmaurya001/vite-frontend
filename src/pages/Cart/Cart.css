@@ -1,3 +1,6 @@
+/* =======================================================
+   FONT IMPORTS
+   ======================================================= */
 @font-face {
   font-family: Playfair;
   src: url(./../../public/fonts/Playfair-VariableFont_opszwdthwght.ttf) format("truetype");
@@ -15,20 +18,27 @@
   src: url(./../../public/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
 }
 
-/* Universal Styles */
+/* =======================================================
+   MAIN CART LAYOUT
+   ======================================================= */
 .cart-main {
-  display: flex;
-  min-height: 92vh;
-  height: auto;
+  display: flex;          /* Left = product list, Right = order summary */
+  min-height: 92vh;       /* Covers almost full screen height */
   width: 100%;
 }
+
+/* =======================================================
+   LEFT SIDE - CART PRODUCTS LIST
+   ======================================================= */
 .cart-products {
-  padding: 1vh;
+  padding: 1vh;           /* Space inside product section */
   border-top: 1px solid grey;
+  width: 60%;             /* Left section width */
   height: 100%;
-  width: 60%;
-  overflow-y: auto;
+  overflow-y: auto;       /* Scroll if items exceed height */
 }
+
+/* Single product card style */
 .product {
   position: relative;
   margin-top: 1vh;
@@ -36,25 +46,31 @@
   border: 1px solid grey;
   height: 7vw;
   width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
   transition: transform 0.2s;
 }
 .product:hover {
-  transform: scale(1.01);
+  transform: scale(1.01); /* Slight zoom effect on hover */
 }
+
+/* Link wrapper for image + details */
 .product a {
-  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
   padding: 1vh;
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: space-around;
+  text-decoration: none;
 }
+
+/* Product image styling */
 .product a img {
   border-radius: 20px;
   height: 100%;
   width: 10%;
 }
+
+/* Product details text */
 .product-details {
   display: flex;
   flex-direction: column;
@@ -69,23 +85,30 @@
   font-weight: 600;
   color: black;
 }
-.product button {
-  top: 20px;
-  right: 10px;
-  position: absolute;
 
+/* Delete button ("X") in product card */
+.product button {
+  position: absolute;
+  top: 1vw;
+  right: 10px;
   border-radius: 7px;
-  border: transparent;
+  border: none;
   height: 15%;
   width: 2%;
 }
+
+/* =======================================================
+   RIGHT SIDE - ORDER SUMMARY SECTION
+   ======================================================= */
 .cart-calculation {
-  position: sticky;
+  position: sticky;       /* Stays fixed while scrolling products */
   top: 7vh;
   border: 1px solid grey;
   height: 93vh;
   width: 40%;
 }
+
+/* Summary row blocks */
 .cart-right-blocks {
   border-bottom: 1px solid #2e2e2e;
   display: flex;
@@ -99,6 +122,8 @@
   font-family: Playfair;
   font-size: 4vh;
 }
+
+/* Checkout button inside summary */
 .cart-right-blocks button {
   display: flex;
   align-items: center;
@@ -107,6 +132,7 @@
   width: 90%;
   border-radius: 50px;
   background-color: black;
+  border: none;
 }
 .cart-right-blocks button:active {
   background-color: #e1e1e1;
@@ -115,6 +141,8 @@
   font-size: 3vh;
   color: aliceblue;
 }
+
+/* Left column (label) in summary rows */
 .cart-right-blocks-L {
   display: flex;
   align-items: center;
@@ -128,12 +156,8 @@
   font-family: Playfair;
   font-size: 3vh;
 }
-.cart-right-blocks-R h1 {
-  color: #2e2e2e;
-  font-weight: 300;
-  font-family: cripson;
-  font-size: 3vh;
-}
+
+/* Right column (value) in summary rows */
 .cart-right-blocks-R {
   display: flex;
   align-items: center;
@@ -141,13 +165,19 @@
   height: 100%;
   width: 35%;
 }
+.cart-right-blocks-R h1 {
+  color: #2e2e2e;
+  font-weight: 300;
+  font-family: cripson;
+  font-size: 3vh;
+}
 
-/* === Responsive Media Queries Optimized === */
-
-/* 1. Mobile S: 320px – 479px */
-@media screen and (min-width: 320px) and (max-width: 479px) {
+/* =======================================================
+   RESPONSIVE DESIGN - MOBILE (320px – 479px)
+   ======================================================= */
+@media screen and (max-width: 479px) {
   .cart-main {
-    display: block;
+    display: block; /* Stack products & summary vertically */
   }
   .cart-products {
     padding: 0.5vh;
@@ -163,12 +193,11 @@
     width: 25%;
   }
   .product button {
-  top: 20px;
-  right: 10px;
-top: 3vw;
-  height: 5vw;
-  width: 5vw;
-}
+    top: 3vw;
+    height: 5vw;
+    width: 5vw;
+  }
+  /* Make text smaller on mobile */
   .product-details h4,
   .cart-right-blocks h1,
   .cart-right-blocks button h1,
@@ -176,81 +205,34 @@ top: 3vw;
   .cart-right-blocks-R h1 {
     font-size: 3vw;
   }
+  /* Smaller checkout button */
   .cart-right-blocks button {
     height: 6vh;
     width: 70%;
   }
-  .cart-right-blocks:nth-of-type(5){
+  /* Remove top border for specific rows */
+  .cart-right-blocks:nth-of-type(5) {
     border-top: none !important;
-   margin: 0 !important;
+    margin: 0 !important;
   }
-    .cart-right-blocks:nth-of-type(6){
-height: 20vw !important;
+  /* Increase height for bottom block */
+  .cart-right-blocks:nth-of-type(6) {
+    height: 20vw !important;
   }
   .cart-calculation {
     height: auto;
     width: 100%;
   }
-   .cart-right-blocks{
+  .cart-right-blocks {
     height: 10vw;
-   }
+  }
 }
 
-/* 2. Mobile M/L: 480px – 767px */
-@media screen and (min-width: 480px) and (max-width: 767px) {
-   .cart-main {
-    display: block;
-  }
-  .cart-products {
-    padding: 0.5vh;
-    min-height: 90vh;
-    max-height: 90vh;
-    width: 100%;
-  }
-  .product {
-    height: 30vw;
-  }
-  .product a img {
-    border-radius: 10px;
-    width: 25%;
-  }
-  .product button {
-  top: 20px;
-  right: 10px;
-top: 3vw;
-  height: 5vw;
-  width: 5vw;
-}
-  .product-details h4,
-  .cart-right-blocks h1,
-  .cart-right-blocks button h1,
-  .cart-right-blocks-L h1,
-  .cart-right-blocks-R h1 {
-    font-size: 3vw;
-  }
-  .cart-right-blocks button {
-    height: 6vh;
-    width: 70%;
-  }
-  .cart-right-blocks:nth-of-type(5){
-    border-top: none !important;
-   margin: 0 !important;
-  }
-    .cart-right-blocks:nth-of-type(6){
-height: 20vw !important;
-  }
-  .cart-calculation {
-    height: auto;
-    width: 100%;
-  }
-   .cart-right-blocks{
-    height: 10vw;
-   }
-}
-
-/* 3. Tablet: 768px – 1023px */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    .cart-main {
+/* =======================================================
+   RESPONSIVE DESIGN - TABLET (480px – 1023px)
+   ======================================================= */
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+  .cart-main {
     display: block;
   }
   .cart-products {
@@ -267,13 +249,11 @@ height: 20vw !important;
     width: 15%;
   }
   .product button {
-  top: 20px;
-  right: 10px;
-top: 2vw;
-  height: 2.5vw;
-  width: 2.5vw;
-}
-  .product-details h4{
+    top: 2vw;
+    height: 2.5vw;
+    width: 2.5vw;
+  }
+  .product-details h4 {
     font-size: 1.5vw;
   }
   .cart-right-blocks h1,
@@ -286,35 +266,35 @@ top: 2vw;
     height: 6vh;
     width: 70%;
   }
-  .cart-right-blocks:nth-of-type(5){
+  .cart-right-blocks:nth-of-type(5) {
     border-top: none !important;
-   margin: 0 !important;
+    margin: 0 !important;
   }
-    .cart-right-blocks:nth-of-type(6){
-height: 20vw !important;
+  .cart-right-blocks:nth-of-type(6) {
+    height: 20vw !important;
   }
   .cart-calculation {
     height: auto;
     width: 100%;
   }
-   .cart-right-blocks{
+  .cart-right-blocks {
     height: 7vw;
-   }
+  }
 }
 
-/* 4. Laptop: 1024px – 1339px */
+/* =======================================================
+   RESPONSIVE DESIGN - LAPTOP (1024px – 1339px)
+   ======================================================= */
 @media screen and (min-width: 1024px) and (max-width: 1339px) {
-   .product {
+  .product {
     height: 10vw;
   }
   .product button {
-
-  right: 10px;
-top: 1vw;
-  height: 1.8vw;
-  width: 1.8vw;
-}
-  .product-details h4{
+    top: 1vw;
+    height: 1.8vw;
+    width: 1.8vw;
+  }
+  .product-details h4 {
     font-size: 1.2vw;
   }
   .cart-right-blocks h1,

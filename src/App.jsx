@@ -7,8 +7,8 @@ import Login from "./pages/Login/Login";
 import WishList from "./pages/WishList/WishList";
 import Cart from "./pages/Cart/Cart";
 import ProductPage from "./pages/ProductPage/ProductPage";
-import AllProductPage from "./pages/AllProductPage/AllProductPage";
-import SearchPage from "./pages/SearchPage/SearchPage";
+// import AllProductPage from "./pages/AllProductPage/AllProductPage";
+// import SearchPage from "./pages/SearchPage/SearchPage";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./component/ProfileElements/Profile/Profile";
 import CreateProduct from "./component/Admin/CreateProducts/CreateProduct";
@@ -24,24 +24,29 @@ import RandomSwiper from "./component/RandomSwiper/RandomSwiper";
 import AddressSelection from "./component/AddressSelection/AddressSelection";
 import OrderHistory from "./component/OrderHistory/OrderHistory";
 import ChangePassword from "./component/ProfileElements/ChangePassword/ChangePassword";
-
+import { useDispatch } from 'react-redux';
+import { checkAuth } from "./redux/authSlice";
 import { Toaster } from "react-hot-toast";
 
 import "./App.css";
 
 function App() {
+    const dispatch = useDispatch();
+     useEffect(() => {
+    dispatch(checkAuth()); // Page load pe check karo
+  }, []);
   return (
     <Layout>
       <Routes>
           <Route path="/adressSelection" element={<AddressSelection/>} />
         <Route path="/" element={<LandingPage />} />
               
-         <Route path="/search" element={<SearchPage />} />
+         <Route path="/search" element={<ProductListingPage />} />
         <Route path="/RandomSwiper" element={<RandomSwiper />} />
 
         <Route
           path="/productlisting/:navGender/allproducts"
-          element={<AllProductPage />}
+          element={<ProductListingPage />}
         />
           
 
@@ -59,7 +64,7 @@ function App() {
 
 
                {/* internal routes of profile dash baord */}
-          <Route path="/profiledashboard" element={<ProfileDashboard />} >
+             <Route path="/profiledashboard" element={<ProfileDashboard />} >
               <Route path="profile" element={<Profile />} />
                 <Route path="ChangePassword" element={<ChangePassword />} />
               <Route path="createAdress" element={<CreateAddress />} />

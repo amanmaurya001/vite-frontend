@@ -10,7 +10,7 @@ const AddressSelection = ({
   paymentInitiate,
 }) => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const token = localStorage.getItem("token");
+
   const navigate = useNavigate();
 
   const [addresses, setAddresses] = useState([]);
@@ -19,18 +19,18 @@ const AddressSelection = ({
   useEffect(() => {
     axios
       .get(`${backendUrl}/showAdress`, {
-        headers: { Authorization: `Bearer ${token}` },
+     withCredentials: true,
       })
       .then((res) => {
         if (!res.data.addresses || res.data.addresses.length === 0) {
-          navigate("/add-address");
+          // navigate("/add-address");
         } else {
           setAddresses(res.data.addresses);
         }
       })
       .catch((err) => {
         console.log(err);
-        navigate("/add-address");
+        // navigate("/add-address");
       });
   }, []);
 

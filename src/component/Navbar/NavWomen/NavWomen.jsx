@@ -8,7 +8,7 @@ const NavWomen = ({ onClose }) => {
     {
       Heading: "Tops",
       item: [
-        { itemname: "All Products", link: "/productlisting/Women/allproducts" },
+        { itemname: "All Products", link: "/productlisting/women/allproducts" },
         { itemname: "Shirt", link: "/productlisting/Women/Shirt" },
         { itemname: "T-Shirt", link: "/productlisting/Women/t-shirt" },
         { itemname: "Kurti", link: "/productlisting/Women/Kurti" },

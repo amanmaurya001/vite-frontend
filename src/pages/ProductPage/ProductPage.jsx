@@ -1,68 +1,71 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import RandomSwiper from "../../component/RandomSwiper/RandomSwiper";
 import LodingSpiner from "../../component/LodingSpiner/LodingSpiner";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "swiper/css";
 import "../ProductPage/ProductPage.css";
-import { useNavigate } from "react-router-dom";
+
+// Custom modular components
+import ProductImages from "../../component/ProductPageElements/productimages";
+import ProductOverview from "../../component/ProductPageElements/productOverview";
+import ProductInfo from "../../component/ProductPageElements/productinfo";
+import ZoomModal from "../../component/ProductPageElements/zoom";
 
 const ProductPage = () => {
   const navigate = useNavigate();
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const { productId } = useParams();
-  const [showStates, setShowStates] = useState({});
-  const [product1, setProducts] = useState(null);
-  const [selectSize, setSelectSize] = useState("");
-  const [quantity, setQuantity] = useState(1);
-  const token = localStorage.getItem("token");
-  const [isZoomed, setIsZoomed] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
-  const [isWished, setIsWished] = useState(false);
-  const [delWish, setDelWish] = useState(null);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-  // To show Product page
+  // URL se productId fetch karna
+  const { productId } = useParams();
+
+  // UI & data states
+  const [showStates, setShowStates] = useState({}); // Accordion toggle state
+  const [product1, setProducts] = useState(null); // Product data
+  const [selectSize, setSelectSize] = useState(""); // Selected size
+  const [quantity, setQuantity] = useState(1); // Quantity selector
+  const [isZoomed, setIsZoomed] = useState(false); // Image zoom modal control
+  const [selectedImage, setSelectedImage] = useState(""); // Image for zoom modal
+  const [isWished, setIsWished] = useState(false); // Wishlist status
+  const [delWish, setDelWish] = useState(null); // Wishlist item ID for removal
+
+  // User token
+  const token = localStorage.getItem("token");
+
+  // ✅ Product details fetch on mount or when productId changes
   useEffect(() => {
     axios
       .get(`${backendUrl}/products/${productId}`)
       .then((res) => {
         setProducts(res.data);
-        
       })
-
       .catch((err) => {
         console.log(err);
       });
-       
   }, [productId]);
-  // To check k ye product h k nhi wishlist me
+
+  // ✅ Wishlist check if product already exists in user's wishlist
   useEffect(() => {
-    if (!token || !product1?._id) return;
+    if ( !product1?._id) return;
 
     axios
-      .get(`${backendUrl}/showwishlist`, {
-        headers: { Authorization: `Bearer ${token}` },
+      .get(`http://localhost:1234/showwishlist`, {
+     withCredentials: true,
       })
       .then((res) => {
-        console.log(res.data);
         const wishIds = res.data.items.map((item) => item.productId);
         if (wishIds.includes(product1._id)) {
-          const lodu = res.data.items.find(
+          const wishItem = res.data.items.find(
             (item) => item.productId === product1._id
           );
-
-          setDelWish(lodu.wishlistItemId);
-
+          setDelWish(wishItem.wishlistItemId);
           setIsWished(true);
         }
       });
   }, [product1]);
 
-  // Add to cart
+  // ✅ Add to cart handler
   const handleAddToCart = async () => {
     if (!selectSize) {
       toast.error("Please select a size");
@@ -74,80 +77,68 @@ const ProductPage = () => {
       size: selectSize,
       quantity: quantity,
     };
+
     axios
-      .post(`${backendUrl}/addtocart`, cartdata, {
-        headers: { Authorization: `Bearer ${token}` },
+      .post(`http://localhost:1234/addtocart`, cartdata, {
+        withCredentials: true,
       })
       .then((res) => {
         toast.success(res.data.message, { position: "top-center" });
       })
-      .catch((err) => {
+      .catch(() => {
         toast.error("please login ", { position: "top-center" });
         navigate("/login");
       });
   };
 
-
-    // wish list product add or remove
+  // ✅ Add / Remove wishlist handler
   const handleAddToWishList = async () => {
-    if (!token) {
-      toast.error("Login first to manage wishlist", { position: "top-center" });
-      return;
-    }
+
 
     try {
       if (isWished) {
-        // remove
+        // Remove from wishlist
         await axios.delete(`${backendUrl}/deletewishitem/${delWish}`, {
-          headers: { Authorization: `Bearer ${token}` },
+       withCredentials: true,
         });
         setIsWished(false);
         toast.success("Removed from wishlist", { position: "top-center" });
 
-        axios
-          .get(`${backendUrl}/products/${productId}`)
-          .then((res) => {
-            setProducts(res.data);
-          })
-
-          .catch((err) => {
-            console.log(err);
-          });
+        // Refresh product data
+        axios.get(`${backendUrl}/products/${productId}`).then((res) => {
+          setProducts(res.data);
+        });
       } else {
-        // add
-        const wishdata = {
-          productId: product1._id,
-        };
+        // Add to wishlist
+        const wishdata = { productId: product1._id };
         await axios.post(`${backendUrl}/addtoWishList`, wishdata, {
-          headers: { Authorization: `Bearer ${token}` },
+           withCredentials: true,
         });
         setIsWished(true);
         toast.success("Added to wishlist", { position: "top-center" });
 
-
-
-        axios
-          .get(`${backendUrl}/products/${productId}`)
-          .then((res) => {
-            setProducts(res.data);
-          })
-
-          .catch((err) => {
-            console.log(err);
-          });
+        // Refresh product data
+        axios.get(`${backendUrl}/products/${productId}`).then((res) => {
+          setProducts(res.data);
+        });
       }
     } catch (err) {
       toast.error("Something went wrong", { position: "top-center" });
     }
   };
 
+  // ✅ Image click handler for zoom
   const handleImageClick = (imageSrc) => {
     setSelectedImage(imageSrc);
     setIsZoomed(true);
   };
+
+  // ✅ Size select handler
   const handleSizeSelect = (size) => {
     setSelectSize(size);
   };
+
+  // ✅ Accordion toggle handler
   const call = (id) => {
     setShowStates((prev) => ({
       ...prev,
@@ -155,126 +146,33 @@ const ProductPage = () => {
     }));
   };
 
+  // ✅ Loading state
   if (!product1) {
-    return <LodingSpiner/>;
+    return <LodingSpiner />;
   }
 
   return (
     <>
+      {/* Main product view */}
       <section className="ProductPage-main">
-        <div className="Product-Images">
-          <div className="Scroll">
-            {product1.images.slice(0, 6).map((userimg, key) => (
-              <img
-                key={key}
-                src={userimg}
-                alt=""
-                onClick={() => handleImageClick(userimg)}
-                style={{ cursor: "pointer" }}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="Product-overview">
-          <h1>{product1.name}</h1>
-          <h1>MRP inclusive of all taxes</h1>
-          <h1>Rs {product1.price?.original}.00</h1>
-          <h1>{product1.overview}</h1>
-          <h1>Sizes</h1>
+        <ProductImages images={product1.images} onImageClick={handleImageClick} />
 
-          <div className="sizes">
-            {["XS", "S", "M", "L", "XL"].map((size) => (
-              <button
-                key={size}
-                className={selectSize === size ? "active" : ""}
-                onClick={() => {
-                  handleSizeSelect(size);
-                }}
-              >
-                {size}
-              </button>
-            ))}
-          </div>
-          <section className="quantity-and-wish">
-            
-            <div className="quantity">
-              <button
-                onClick={() => {
-                  if (quantity > 1) {
-                    setQuantity(quantity - 1);
-                  }
-                }}
-              >
-                -
-              </button>
-              <div> {quantity}</div>
-
-              <button
-                onClick={() => {
-                  if (quantity < 10) setQuantity(quantity + 1);
-                }}
-              >
-                +
-              </button>
-
-            </div>
-
-            <div
-              className="wish"
-              onClick={handleAddToWishList}
-              style={{ backgroundColor: isWished ? "red" : " #dad2d2" }}
-            ></div>
-
-            
-          </section>
-
-
-
-
-          <h1>size guide</h1>
-          <div className="add-to-cart">
-            {/* <h2>Add to Collection</h2> */}
-            <button onClick={handleAddToCart}>Add to Collection</button>
-          </div>
-          <h1>Delivery & Payment Options</h1>
-          <h1>cash on delivery available</h1>
-          <h1>Delivery Time 2-7 days</h1>
-        </div>
+        <ProductOverview
+          product={product1}
+          selectSize={selectSize}
+          onSelectSize={handleSizeSelect}
+          quantity={quantity}
+          onQuantityChange={setQuantity}
+          isWished={isWished}
+          onWishToggle={handleAddToWishList}
+          onAddToCart={handleAddToCart}
+        />
       </section>
-      <section className="Product-Info">
-        <div className="discription-disc " onClick={() => call(100)}>
-          <h1>Discription</h1>
-        </div>
-        {showStates[100] && (
-          <div className="description-content">
-            {product1.description.map((disc, index) => (
-              <h3 key={index}>{disc}</h3>
-            ))}
-          </div>
-        )}
 
-        <div className="discription-material" onClick={() => call(101)}>
-          <h1>Material</h1>
-        </div>
-        {showStates[101] && (
-          <div className="description-content">
-            {product1.material.map((material, index) => (
-              <h3 key={index}>{material}</h3>
-            ))}
-          </div>
-        )}
+      {/* Product info accordion */}
+      <ProductInfo product={product1} showStates={showStates} onToggle={call} />
 
-        <div className="discription-care" onClick={() => call(102)}>
-          <h1>Care</h1>
-        </div>
-        {showStates[102] && (
-          <div className="description-content">
-            {product1.care.map((care, index) => (
-              <h3 key={index}>{care}</h3>
-            ))}
-          </div>
-        )}
-      </section>
+      {/* Suggested outfit section */}
       <section className="Product-Suggestion">
         <h1>Recomended Outfit!</h1>
         <div className="suggestion-product">
@@ -284,28 +182,21 @@ const ProductPage = () => {
           <img src="/PHotos/women/women-cottage/cottage-0001/1.jpg" alt="" />
         </div>
       </section>
+
+      {/* You may also like section */}
       <section className="Product-YouMayLike">
         <h1>You may also like</h1>
         <div className="you-make-like-box">
-    {product1 && <RandomSwiper Gender={product1.gender} />}
+          {product1 && <RandomSwiper Gender={product1.gender} />}
         </div>
       </section>
+
+      {/* Image zoom modal */}
       {isZoomed && (
-        <div className="zoom-modal" onClick={() => setIsZoomed(false)}>
-          <div className="zoom-content">
-            <button
-              className="cancel-button"
-              onClick={() => setIsZoomed(false)}
-            >
-              X
-            </button>
-            <img
-              src={selectedImage}
-              alt="Zoomed product image"
-              className="zoomed-image"
-            />
-          </div>
-        </div>
+        <ZoomModal
+          imageSrc={selectedImage}
+          onClose={() => setIsZoomed(false)}
+        />
       )}
     </>
   );
