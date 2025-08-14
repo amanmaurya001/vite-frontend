@@ -3,6 +3,7 @@ import axios from "axios";
 import "./ChangePassword.css";
 
 const ChangePassword = () => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [formData, setFormData] = useState({
     currentPassword: "",
     newPassword: "",
@@ -25,12 +26,10 @@ const ChangePassword = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:1234/user/change-password",
+        `${backendUrl}/user/change-password`,
         formData,
         {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+             withCredentials: true,
         }
       );
       setMessage(res.data.message);

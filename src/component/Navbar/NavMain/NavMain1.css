@@ -246,7 +246,7 @@ color: black;
    
   }
   .navbar-logo img {
-  margin-top: 2%;
+
 }
 .nav-link{
   margin-top: 2%;
@@ -255,7 +255,8 @@ color: black;
 }
 .nav-link img {
 
-
+height: 100%;
+width: 100%;
 
 }
   .menu-icon-btn{
