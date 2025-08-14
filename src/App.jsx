@@ -7,8 +7,7 @@ import Login from "./pages/Login/Login";
 import WishList from "./pages/WishList/WishList";
 import Cart from "./pages/Cart/Cart";
 import ProductPage from "./pages/ProductPage/ProductPage";
-// import AllProductPage from "./pages/AllProductPage/AllProductPage";
-// import SearchPage from "./pages/SearchPage/SearchPage";
+
 import Signup from "./pages/Signup/Signup";
 import Profile from "./component/ProfileElements/Profile/Profile";
 import CreateProduct from "./component/Admin/CreateProducts/CreateProduct";
