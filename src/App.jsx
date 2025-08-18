@@ -84,7 +84,7 @@ function App() {
         {/* ==============================
               Profile Dashboard (Nested Routes)
         =============================== */}
-        <Route path="/profiledashboard" element={<ProfileDashboard />}>
+        <Route path="/profiledashboard" element={  <ProtectedRoute> <ProfileDashboard /> </ProtectedRoute> }>
           <Route path="profile" element={<Profile />} />
           <Route path="ChangePassword" element={<ChangePassword />} />
           <Route path="createAdress" element={<CreateAddress />} />

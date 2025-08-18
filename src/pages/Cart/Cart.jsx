@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import AddressSelection from "../../component/AddressSelection/AddressSelection";
+import { useSelector, useDispatch } from "react-redux";
 const Cart = () => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const token = localStorage.getItem("token");
   const [data, setData] = useState([]);
@@ -110,26 +112,44 @@ const Cart = () => {
     <>
       <section className="cart-main">
         <section className="cart-products">
-          {data.map((cartItem) => (
-            <div className="product" key={cartItem.itemId}>
-              <Link to="">
-                <img src={cartItem.image} alt="" />
-                <div className="product-details">
-                  <h4>Name: {cartItem.name}</h4>
-                  <h4>price: {cartItem.price?.original}</h4>
-                  <h4>size: {cartItem.size}</h4>
-                  <h4>quantity: {cartItem.quantity}</h4>
-                </div>
+          {isAuthenticated ? (
+            data.map((cartItem) => (
+              <div className="product" key={cartItem.itemId}>
+                <Link to="">
+                  <img src={cartItem.image} alt="" />
+                  <div className="product-details">
+                    <h4>Name: {cartItem.name}</h4>
+                    <h4>Price: {cartItem.price?.original}</h4>
+                    <h4>Size: {cartItem.size}</h4>
+                    <h4>Quantity: {cartItem.quantity}</h4>
+                  </div>
+                </Link>
+                <button
+                  className="cartItem-Delete-Btn"
+                  onClick={() => handleRemoveFromCart(cartItem.itemId)}
+                >
+                  X
+                </button>
+              </div>
+            ))
+          ) : (
+            <div
+              style={{
+                height: "100%",
+                width: "100%",
+                border: "5px solid red",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Link to="/login" style={{ textDecoration: "none" }}>
+                <h2 style={{ color: "black" }}>🛒 Click here to login</h2>
               </Link>
-              <button
-                className="cartItem-Delete-Btn"
-                onClick={() => handleRemoveFromCart(cartItem.itemId)}
-              >
-                X
-              </button>
             </div>
-          ))}
+          )}
         </section>
+
         <section className="cart-calculation">
           <div className="cart-right-blocks">
             <h1>Order Summary</h1>

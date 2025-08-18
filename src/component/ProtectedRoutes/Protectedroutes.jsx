@@ -1,43 +1,19 @@
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const ProtectedRoute = ({ children }) => {
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  const token = localStorage.getItem("token");
-  const [authorized, setAuthorized] = useState(null);
+const { isAuthenticated, authChecked } = useSelector((state) => state.auth);
 
-
-  useEffect(() => {
-     if (!token) {
-    setAuthorized(false);
-    return;
-     }
-    axios
-      .get(`${backendUrl}/admin/dashboard`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.data.access === true) {
-          setAuthorized(true);
-        } else {
-          setAuthorized(false);
-        }
-      })
-      .catch((err) => {
-        setAuthorized(false);
-      });
-  }, [token]);
-  if (authorized === null) {
-  return <div>Loading...</div>;
-   }
-  if (authorized === true) {
-    return children;
+  // Jab tak auth check ho raha hai, tab loading dikha do
+  if (!authChecked) {
+    return <div>Loading...</div>;
   }
 
-  if (authorized === false) {
-    return <Navigate to="/" replace />;
+  // Agar login nahi hai, to redirect to login
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
   }
 
   return children;
