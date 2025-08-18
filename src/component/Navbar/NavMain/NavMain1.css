@@ -83,25 +83,25 @@
 }
 
 .navbar-actions {
- 
+border: 1px blue solid;
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  width: var(--actions-width);
+  width: auto;
   gap: var(--element-gap);
   margin-right: 1vw;
 }
 
 .nav-link {
   overflow: hidden;
-    border: 1px solid red;
-    margin-left: 0 ;
-  /* Perfect scaling for all screen sizes */
+border: 1px solid red;
+    margin-left: 1vw ;
+
   display: flex;
   align-items: center;
   height:70%;
-  width: clamp(25px, 5vw, 35px);
+  width: 2vw;
   padding: 0;
   position: relative;
   border-radius: clamp(4px, 1vw, 8px);
@@ -249,10 +249,12 @@ color: black;
   .navbar-logo img {
 
 }
+
 .nav-link{
   margin-top: 0%;
     padding:0vw !important;
   margin-left: 1vw;
+  width: 5vw;
 }
 .nav-link img {
 
@@ -284,7 +286,7 @@ width: 100%;
     --hamburger-width: 10%;
     --actions-width: 18%;
     --logo-width:clamp(25%,30%,35%);
-    --actions-width:clamp(10%,12%,15%);
+    --actions-width:auto;
   }
 .nav-link a h3{
   font-size: 4vw;
