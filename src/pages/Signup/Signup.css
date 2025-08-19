@@ -200,7 +200,8 @@ color: white;
   font-size: 4vw;
 }
 .signup-container label {
-   
+
+   font-size: 3vw;
   display: block;
   margin: 12px 0 6px;
   color: #555;
@@ -209,8 +210,8 @@ color: white;
 #signup-input,
 .signup-container select {
   width: 100% !important;
-  padding: 8px;
-  font-size: 1rem;
+  padding: 6px;
+  font-size: 3.5vw;
   border: 1px solid #ccc !important;
   border-radius: 6px;
   box-sizing: border-box;
