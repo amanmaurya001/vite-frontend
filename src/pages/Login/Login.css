@@ -194,11 +194,11 @@ color: white;
 
 #login-form-input{
   width:100% !important;
-  padding: 12px 15px !important;
+  padding: 8px 15px !important;
   margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 3.5vw;
   transition: all 0.3s ease;
 }
 
