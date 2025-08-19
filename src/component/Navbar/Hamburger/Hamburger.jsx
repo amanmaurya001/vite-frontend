@@ -12,7 +12,7 @@ const Hamburger = ({ onClose }) => {
     <div id="ham">
       <section className="main-ham">
         <div className="main-ham-content">
-          <CancelElement onClose={onClose} />
+         <CancelElement onClose={onClose} color="hsl(40, 100%, 90%)" />
           <NavLatest />
           <NavWomen onClose={onClose} />
           <NavMen onClose={onClose} />

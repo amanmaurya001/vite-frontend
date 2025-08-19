@@ -1,50 +1,58 @@
-/* Login.css */
+/* =========================
+   Login Page Styles
+   ========================= */
 
-.login-container{
+/* --- Container for whole page --- */
+.login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 96vh;
-
   background: linear-gradient(to right, #e0eafc, #cfdef3);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.login-container section{
+
+/* --- Inner white section (form + text) --- */
+.login-container section {
   overflow: hidden;
   background-color: white;
   display: flex;
   width: 50%;
   height: 70%;
-
   border-radius: 30px;
 }
-.login-form,.login-text {
+
+/* --- Form (left side) & Text (right side) --- */
+.login-form,
+.login-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  height:100%;
+  height: 100%;
   background-color: white;
   padding: 40px 30px;
- width: 50%;
+  width: 50%;
 }
 
+/* --- Form heading --- */
 .login-form h2 {
-  
   margin-bottom: 20px;
   font-size: 2vw;
   font-weight: 800;
   color: #333;
   text-align: center;
 }
-.login-socials{
+
+/* --- Social login icons container --- */
+.login-socials {
   display: flex;
   justify-content: space-around;
-
-    margin-bottom: 25px;
-    width: 80%;
+  margin-bottom: 25px;
+  width: 80%;
 }
+
+/* --- Each social login icon --- */
 .login-socials-icons {
   display: flex;
   align-items: center;
@@ -57,16 +65,18 @@
   transition: 0.3s ease-in-out;
   font-size: 22px;
 }
-.login-form p {
 
+/* --- Paragraph under socials --- */
+.login-form p {
   margin-bottom: 25px;
   font-size: 14px;
   color: #000000;
   text-align: center;
 }
 
-#login-form-input{
-  width:100% !important;
+/* --- Input fields --- */
+#login-form-input {
+  width: 100% !important;
   padding: 12px 15px !important;
   margin-bottom: 20px;
   border: 1px solid #ddd;
@@ -75,16 +85,18 @@
   transition: all 0.3s ease;
 }
 
+/* --- Input focus effect --- */
 .login-form input:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
+/* --- Submit button --- */
 #login-form-btn {
   width: 100%;
-  padding: 1vw ;
-  background-color:  #432694;
+  padding: 1vw;
+  background-color: #432694;
   color: white;
   font-size: 16px;
   border: none;
@@ -96,183 +108,188 @@
 .login-form button:hover {
   background-color: #0056b3;
 }
-.login-footer {
 
+/* --- Footer (only visible on small screens) --- */
+.login-footer {
   display: none;
 }
 
-
-.login-text{
+/* --- Right side (text & signup button) --- */
+.login-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-    border-top-left-radius: 150px;
+  border-top-left-radius: 150px;
   border-bottom-left-radius: 150px;
- background: #432694;
- color: white;
-} 
-.login-text h2{
-  font-size:2vw ;
+  background: #432694;
+  color: white;
 }
-.login-text p{
+
+.login-text h2 {
+  font-size: 2vw;
+}
+
+.login-text p {
   font-size: 0.7vw;
 }
-#login-text-btn{
+
+/* --- Signup button inside text section --- */
+#login-text-btn {
   width: 35%;
   height: 6%;
   background-color: transparent;
   border: 1px solid gray;
-  border-radius:5px;
+  border-radius: 5px;
   color: white;
-  
-  
 }
-#login-text-btn a{
+
+#login-text-btn a {
   display: flex;
-    align-items: center;
+  align-items: center;
   justify-content: center;
-text-decoration: none;
-height: 100%;
-width: 100%;
-color: white;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  color: white;
 }
+
 #login-text-btn:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease-in-out;
 }
 
-
+/* =========================
+   Mobile (320px–479px)
+   ========================= */
 @media screen and (min-width: 320px) and (max-width: 479px) {
+  .login-container {
+    height: 96vh;
+  }
 
-.login-container {
- height: 96vh;
-}
-.login-container section{
- width: 90%;
-  height: 70%;
- }
- .login-text {
-  display: none;
- }
-.login-form {
-   
-  background-color: white;
-  padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  .login-container section {
+    width: 90%;
+    height: 70%;
+  }
 
-  width: 100%;
-}
+  .login-text {
+    display: none;
+  }
 
-.login-form h2 {
-  margin-bottom: 20px;
-  font-size: 8vw;
-  color: #333;
-}
-.login-socials{
-  display: flex;
-  justify-content: space-around;
+  .login-form {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
 
+  .login-form h2 {
+    margin-bottom: 20px;
+    font-size: 8vw;
+    color: #333;
+  }
+
+  .login-socials {
     margin-bottom: 25px;
     width: 80%;
-}
-.login-socials-icons {
+  }
 
-  width: 30px;
-  height: 30px;
+  .login-socials-icons {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
 
+  .login-form p {
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #666;
+  }
 
-  font-size: 15px;
-}
-.login-form p {
-  margin-bottom: 25px;
-  font-size: 14px;
-  color: #666;
-}
+  #login-form-input {
+    padding: 8px 15px !important;
+    font-size: 3.5vw;
+  }
 
-#login-form-input{
-  width:100% !important;
-  padding: 8px 15px !important;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 3.5vw;
-  transition: all 0.3s ease;
-}
+  .login-footer {
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+  }
 
-.login-footer {
-  margin-top: 20px;
-  text-align: center;
- display: block;
-}
+  .login-footer p {
+    font-size: 14px;
+    color: #555;
+  }
 
-.login-footer p {
-  font-size: 14px;
-  color: #555;
+  .login-footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-}
+  .login-footer a:hover {
+    text-decoration: underline;
+  }
 
-.login-footer a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.login-footer a:hover {
-  text-decoration: underline;
-}
-
-#login-form-btn {
+  #login-form-btn {
   width: 100%;
-  padding: 12px;
-  background-color:  #432694 !important;
+  padding: 3vw;
+  background-color: #432694;
   color: white;
   font-size: 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
+  }
 }
 
-
-}
+/* =========================
+   Tablet Portrait (480px–767px)
+   ========================= */
 @media screen and (min-width: 480px) and (max-width: 767px) {
-  
+  /* Empty for now */
 }
+
+/* =========================
+   Tablet Landscape (768px–1023px)
+   ========================= */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .login-container{border: 2px solid red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:94vh;
+  .login-container {
+    border: 2px solid red; /* Debug border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 94vh;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-  .login-container section{
- width: 90%;
-  height: 70%;
- }
+  .login-container section {
+    width: 90%;
+    height: 70%;
+  }
 
-.login-text h2{
-  font-size:5vw ;
-}
-.login-text p{
-  font-size:2vw;
-}
-#login-text-btn{
-  width: 55%;
-  height: 7%;
-  background-color: transparent;
-  border: 1px solid gray;
-  border-radius:5px;
-  color: white;
-  
-  
+  .login-text h2 {
+    font-size: 5vw;
+  }
+
+  .login-text p {
+    font-size: 2vw;
+  }
+
+  #login-text-btn {
+    width: 55%;
+    height: 7%;
+  }
 }
 
-
+/* =========================
+   Large Screens (1024px–1339px)
+   ========================= */
+@media screen and (min-width: 1024px) and (max-width: 1339px) {
+  /* Empty for now */
 }
-@media screen and (min-width: 1024px) and (max-width: 1339px) {}
