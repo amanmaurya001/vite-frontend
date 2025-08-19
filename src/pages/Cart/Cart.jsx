@@ -135,9 +135,9 @@ const Cart = () => {
           ) : (
             <div
               style={{
-                height: "100%",
+                height: "40vh",
                 width: "100%",
-                border: "5px solid red",
+            
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

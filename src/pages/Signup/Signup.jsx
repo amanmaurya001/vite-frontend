@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -53,12 +53,18 @@ const Signup = () => {
           // Map array errors to fields based on keywords in error message
           const newFieldErrors = {};
           errors.forEach((msg) => {
-            if (msg.toLowerCase().includes("username")) newFieldErrors.username = msg;
-            else if (msg.toLowerCase().includes("email")) newFieldErrors.email = msg;
-            else if (msg.toLowerCase().includes("password")) newFieldErrors.password = msg;
-            else if (msg.toLowerCase().includes("gender")) newFieldErrors.gender = msg;
-            else if (msg.toLowerCase().includes("dob")) newFieldErrors.dob = msg;
-            else if (msg.toLowerCase().includes("phone")) newFieldErrors.phone = msg;
+            if (msg.toLowerCase().includes("username"))
+              newFieldErrors.username = msg;
+            else if (msg.toLowerCase().includes("email"))
+              newFieldErrors.email = msg;
+            else if (msg.toLowerCase().includes("password"))
+              newFieldErrors.password = msg;
+            else if (msg.toLowerCase().includes("gender"))
+              newFieldErrors.gender = msg;
+            else if (msg.toLowerCase().includes("dob"))
+              newFieldErrors.dob = msg;
+            else if (msg.toLowerCase().includes("phone"))
+              newFieldErrors.phone = msg;
           });
           setFieldErrors(newFieldErrors);
         } else {
@@ -71,75 +77,113 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <form onSubmit={handleSubmit}>
-        <h2>Signup</h2>
+      <section>
+        <div className="signup-text">
+          <h2>Hello, Stars!</h2>
+          <p> Ready to explore your best fits! </p>
+          <button id="signup-text-btn">
+            <Link to="/login"> SIGN IN </Link>
+          </button>
+        </div>
+        <form onSubmit={handleSubmit}  className="signup-form">
+          <h2>Signup</h2>
+          <div className="signup-socials">
+            <div className="signup-socials-icons">
+              <i className="fab fa-google"></i>
+            </div>
+            <div className="signup-socials-icons">
+              <i className="fab fa-facebook-f"></i>
+            </div>
+            <div className="signup-socials-icons">
+              <i className="fab fa-github"></i>
+            </div>
+            <div className="signup-socials-icons">
+              <i className="fab fa-linkedin-in"></i>
+            </div>
+          </div>
 
-        <label>Username</label>
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-        {fieldErrors.username && <p className="error-text" >{fieldErrors.username}</p>}
+          <label>Username</label>
+          <input
+          id="signup-input"
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+          {fieldErrors.username && (
+            <p className="error-text">{fieldErrors.username}</p>
+          )}
 
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        {fieldErrors.email && <p className="error-text">{fieldErrors.email}</p>}
+          <label>Email</label>
+          <input
+             id="signup-input"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          {fieldErrors.email && (
+            <p className="error-text">{fieldErrors.email}</p>
+          )}
 
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        {fieldErrors.password && <p className="error-text">{fieldErrors.password}</p>}
+          <label>Password</label>
+          <input
+             id="signup-input"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          {fieldErrors.password && (
+            <p className="error-text">{fieldErrors.password}</p>
+          )}
 
-        <label>Gender</label>
-        <select
-          name="gender"
-          value={formData.gender}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="others">Others</option>
-        </select>
-        {fieldErrors.gender && <p className="error-text">{fieldErrors.gender}</p>}
+          <label>Gender</label>
+          <select
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
+          {fieldErrors.gender && (
+            <p className="error-text">{fieldErrors.gender}</p>
+          )}
 
-        <label>Date of Birth</label>
-        <input
-          type="date"
-          name="dob"
-          value={formData.dob}
-          onChange={handleChange}
-          required
-        />
-        {fieldErrors.dob && <p className="error-text">{fieldErrors.dob}</p>}
+          <label>Date of Birth</label>
+          <input
+             id="signup-input"
+            type="date"
+            name="dob"
+            value={formData.dob}
+            onChange={handleChange}
+            required
+          />
+          {fieldErrors.dob && <p className="error-text">{fieldErrors.dob}</p>}
 
-        <label>Phone Number</label>
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
-        {fieldErrors.phone && <p className="error-text">{fieldErrors.phone}</p>}
+          <label>Phone Number</label>
+          <input
+             id="signup-input"
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+          {fieldErrors.phone && (
+            <p className="error-text">{fieldErrors.phone}</p>
+          )}
 
-        <button type="submit">Create Account</button>
-      </form>
+          <button type="submit" id="signup-container-btn">Create Account</button>
+        </form>
+      </section>
     </div>
   );
 };

@@ -1,39 +1,72 @@
 /* Login.css */
 
-.login-container {
+.login-container{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
- 
+  height: 96vh;
+
   background: linear-gradient(to right, #e0eafc, #cfdef3);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.login-container section{
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  width: 50%;
+  height: 70%;
 
-.login-form {
-  
+  border-radius: 30px;
+}
+.login-form,.login-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height:100%;
   background-color: white;
   padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 380px;
+ width: 50%;
 }
 
 .login-form h2 {
-  margin-bottom: 10px;
-  font-size: 26px;
+  
+  margin-bottom: 20px;
+  font-size: 2vw;
+  font-weight: 800;
   color: #333;
+  text-align: center;
 }
+.login-socials{
+  display: flex;
+  justify-content: space-around;
 
+    margin-bottom: 25px;
+    width: 80%;
+}
+.login-socials-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-size: 22px;
+}
 .login-form p {
+
   margin-bottom: 25px;
   font-size: 14px;
-  color: #666;
+  color: #000000;
+  text-align: center;
 }
 
-.login-form input {
-  width:90% !important;
+#login-form-input{
+  width:100% !important;
   padding: 12px 15px !important;
   margin-bottom: 20px;
   border: 1px solid #ddd;
@@ -48,10 +81,10 @@
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-.login-form button {
+#login-form-btn {
   width: 100%;
   padding: 1vw ;
-  background-color: #007bff;
+  background-color:  #432694;
   color: white;
   font-size: 16px;
   border: none;
@@ -72,6 +105,7 @@
 .login-footer p {
   font-size: 14px;
   color: #555;
+  display: none;
 }
 
 .login-footer a {
@@ -83,39 +117,99 @@
 .login-footer a:hover {
   text-decoration: underline;
 }
+
+.login-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+    border-top-left-radius: 150px;
+  border-bottom-left-radius: 150px;
+ background: #432694;
+ color: white;
+} 
+.login-text h2{
+  font-size:2vw ;
+}
+.login-text p{
+  font-size: 0.7vw;
+}
+#login-text-btn{
+  width: 35%;
+  height: 6%;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius:5px;
+  color: white;
+  
+  
+}
+#login-text-btn a{
+  display: flex;
+    align-items: center;
+  justify-content: center;
+text-decoration: none;
+height: 100%;
+width: 100%;
+color: white;
+}
+#login-text-btn:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+
 @media screen and (min-width: 320px) and (max-width: 479px) {
 
 .login-container {
-
-  height: 96vh;
-
+ height: 96vh;
 }
-
+.login-container section{
+ width: 90%;
+  height: 70%;
+ }
+ .login-text {
+  display: none;
+ }
 .login-form {
    
   background-color: white;
   padding: 40px 30px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
   width: 100%;
-  width: 90%;
 }
 
 .login-form h2 {
-  margin-bottom: 10px;
-  font-size: 5vw;
+  margin-bottom: 20px;
+  font-size: 8vw;
   color: #333;
 }
+.login-socials{
+  display: flex;
+  justify-content: space-around;
 
+    margin-bottom: 25px;
+    width: 80%;
+}
+.login-socials-icons {
+
+  width: 30px;
+  height: 30px;
+
+
+  font-size: 15px;
+}
 .login-form p {
   margin-bottom: 25px;
   font-size: 14px;
   color: #666;
 }
 
-.login-form input {
-  height: 10vw;
-  width:90% !important;
+#login-form-input{
+  width:100% !important;
   padding: 12px 15px !important;
   margin-bottom: 20px;
   border: 1px solid #ddd;
@@ -126,10 +220,10 @@
 
 
 
-.login-form button {
+#login-form-btn {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color:  #432694 !important;
   color: white;
   font-size: 16px;
   border: none;
@@ -140,6 +234,41 @@
 
 
 }
-@media screen and (min-width: 480px) and (max-width: 767px) {}
-@media screen and (min-width: 768px) and (max-width: 1023px) {}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .login-container{border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:94vh;
+
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  .login-container section{
+ width: 90%;
+  height: 70%;
+ }
+
+.login-text h2{
+  font-size:5vw ;
+}
+.login-text p{
+  font-size:2vw;
+}
+#login-text-btn{
+  width: 55%;
+  height: 7%;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius:5px;
+  color: white;
+  
+  
+}
+
+
+}
 @media screen and (min-width: 1024px) and (max-width: 1339px) {}

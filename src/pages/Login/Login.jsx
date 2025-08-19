@@ -24,71 +24,102 @@ const Login = () => {
   };
 
   // Handle form submit
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  
-  dispatch(loginStart()); // Loading start
-  
-  try {
-    const res = await axios.post(`${backendUrl}/login`, formData, {
-      withCredentials: true
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    toast.success("Login successful", { position: "top-center" });
+    dispatch(loginStart()); // Loading start
 
-    // Redux mein user data save karo
-    dispatch(loginSuccess(res.data.user));
+    try {
+      const res = await axios.post(`${backendUrl}/login`, formData, {
+        withCredentials: true,
+      });
 
-    navigate("/");
-  } catch (err) {
-    dispatch(loginFail()); // Error state
-    
-    if (err.response) {
-      const { status, data } = err.response;
-      if (status === 429) {
-        toast.error(data?.message || "Too many login attempts. Try again later.", {
+      toast.success("Login successful", { position: "top-center" });
+
+      // Redux mein user data save karo
+      dispatch(loginSuccess(res.data.user));
+
+      navigate("/");
+    } catch (err) {
+      dispatch(loginFail()); // Error state
+
+      if (err.response) {
+        const { status, data } = err.response;
+        if (status === 429) {
+          toast.error(
+            data?.message || "Too many login attempts. Try again later.",
+            {
+              position: "top-center",
+            }
+          );
+        } else {
+          toast.error(data?.message || "Login failed", {
+            position: "top-center",
+          });
+        }
+      } else {
+        toast.error("Network error. Please try again.", {
           position: "top-center",
         });
-      } else {
-        toast.error(data?.message || "Login failed", { position: "top-center" });
       }
-    } else {
-      toast.error("Network error. Please try again.", { position: "top-center" });
     }
-  }
-};
+  };
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Welcome Back</h2>
-        <p>Please login to your account</p>
+      <section>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Sign in</h2>
+          <div className="login-socials">
+            <div className="login-socials-icons">
+              <i className="fab fa-google"></i>
+            </div>
+            <div className="login-socials-icons">
+              <i className="fab fa-facebook-f"></i>
+            </div>
+            <div className="login-socials-icons">
+              <i className="fab fa-github"></i>
+            </div>
+            <div className="login-socials-icons">
+              <i className="fab fa-linkedin-in"></i>
+            </div>
+          </div>
+          <p>or use your email/username & password</p>
 
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          placeholder="Username"
-          required
-        />
+          <input
+          id="login-form-input"
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Username"
+            required
+          />
 
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Password"
-          required
-        />
+          <input
+          id="login-form-input"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Password"
+            required
+          />
+          <p>Forget Password?</p>
 
-        <button type="submit">Login</button>
+          <button type="submit" id="login-form-btn">Login</button>
 
-        <div className="login-footer">
-          <p>
-            Don't have an account? <Link to="/signup">Sign up</Link>
-          </p>
+          <div className="login-footer">
+            <p>
+              Don't have an account? <Link to="/signup">Sign up</Link>
+            </p>
+          </div>
+        </form>
+        <div className="login-text">
+          <h2>Hello, Stars!</h2>
+          <p> Register with your deatails to join the Fashion </p>
+          <button id="login-text-btn"><Link to="/signup"> SIGN UP </Link></button>
         </div>
-      </form>
+      </section>
     </div>
   );
 };
