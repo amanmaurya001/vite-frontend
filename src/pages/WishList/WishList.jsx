@@ -51,7 +51,7 @@ const WishList = () => {
         <div className="wishList-grid">
           {data.map((cartItem) => (
             <div className="wish-product" key={cartItem.wishlistItemId}>
-              <Link to={cartItem.Link}>
+              <Link to={`/products/${cartItem.productId}`}>
                 <img src={cartItem.image} alt="" />
                 <h3>{cartItem.name}</h3>
                 <h4>Rs {cartItem.price?.original}.00</h4>

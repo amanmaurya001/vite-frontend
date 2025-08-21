@@ -72,7 +72,7 @@
   /* Complete responsive logo */
   width: var(--logo-width);
   height: 100%;
-  margin-left: -10%;
+  margin-left: -5%;
 }
 
 .navbar-logo img {
@@ -94,13 +94,14 @@
 }
 
 .nav-link {
+
   overflow: hidden;
 
     margin-left: 1vw ;
 
 
-  height:70%;
-  width: 2vw;
+  height:65%;
+  width: 1.8vw;
   padding: 0;
   position: relative;
   border-radius: clamp(4px, 1vw, 8px);

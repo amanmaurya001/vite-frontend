@@ -23,6 +23,7 @@ const Cart = () => {
       })
       .then((res) => {
         setData(res.data.items);
+        
         setsummary(res.data.summary);
       })
       .catch((err) => {
@@ -108,6 +109,7 @@ const Cart = () => {
   const handlePaymentSelect = (method) => {
     setSelectedPaymentMethod(method);
   };
+
   return (
     <>
       <section className="cart-main">
@@ -115,7 +117,7 @@ const Cart = () => {
           {isAuthenticated ? (
             data.map((cartItem) => (
               <div className="product" key={cartItem.itemId}>
-                <Link to="">
+                <Link to={`/products/${cartItem.productId}`}>
                   <img src={cartItem.image} alt="" />
                   <div className="product-details">
                     <h4>Name: {cartItem.name}</h4>

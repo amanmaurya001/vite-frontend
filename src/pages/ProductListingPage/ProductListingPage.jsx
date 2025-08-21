@@ -70,12 +70,8 @@ const ProductListingPage = () => {
           <h1>Results for: {queryParam}</h1>
         ) : (
           <h1>
-            {navGender
-              ? navGender.charAt(0).toUpperCase() + navGender.slice(1)
-              : ""}{" "}
-            {navCategory
-              ? navCategory.charAt(0).toUpperCase() + navCategory.slice(1)
-              : ""}
+            {navGender ? navGender.charAt(0).toUpperCase() + navGender.slice(1): ""}{" "}
+            {navCategory ? navCategory.charAt(0).toUpperCase() + navCategory.slice(1): "All products"}
           </h1>
         )}
       </section>

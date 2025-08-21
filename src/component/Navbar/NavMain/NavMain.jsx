@@ -79,7 +79,7 @@ const NavMain = () => {
           </div>
 
           <div className="nav-link">
-            <Link to="/cart">
+            <Link to="/cart" >
               <img src="/PHotos/shopping-bag.png" alt="" />
             </Link>
           </div>
