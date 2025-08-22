@@ -6,17 +6,33 @@
   font-family: "GreatVibes";
   src: url("/fonts/GreatVibes-Regular.ttf") format("truetype");
 }
+
 .heading {
+ 
   margin-top: 2%;
   height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.heading h1 {
+.heading h1 { 
   font-size: 10vh;
   font-family: "GreatVibes";
   color: black;
+}
+.search-stats {  
+
+  font-size: 14px;
+  color: #888;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-stats span {
+  display: flex;
+  align-items: center;
 }
 .filter-section {
   position: sticky;

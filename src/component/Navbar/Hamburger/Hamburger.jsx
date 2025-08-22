@@ -27,7 +27,7 @@ const Hamburger = ({ onClose }) => {
             <input
               className="hamburger-serach-input"
               placeholder="Search here..."
-              autoFocus
+             
               onChange={(e) => setSearchText(e.target.value)}
             />
             <button

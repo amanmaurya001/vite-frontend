@@ -67,12 +67,26 @@ const ProductListingPage = () => {
       {/* Page Heading */}
       <section className="heading">
         {queryParam ? (
-          <h1>Results for: {queryParam}</h1>
+          <div>
+            <h1>Results for: {queryParam}</h1>
+            <div className="search-stats">
+              <span>Showing {filteredListing.length} results</span>
+              <span>•</span>
+              <span>{listing.length} items in collection</span>
+            </div>
+          </div>
         ) : (
-          <h1>
-            {navGender ? navGender.charAt(0).toUpperCase() + navGender.slice(1): ""}{" "}
-            {navCategory ? navCategory.charAt(0).toUpperCase() + navCategory.slice(1): "All products"}
-          </h1>
+          <div>
+            <h1>
+              {navGender ? navGender.charAt(0).toUpperCase() + navGender.slice(1): ""}{" "}
+              {navCategory ? navCategory.charAt(0).toUpperCase() + navCategory.slice(1): "All products"}
+            </h1>
+            <div className="search-stats">
+              <span>Showing {filteredListing.length} results</span>
+              <span>•</span>
+              <span>{listing.length} items in collection</span>
+            </div>
+          </div>
         )}
       </section>
 
@@ -134,4 +148,3 @@ const ProductListingPage = () => {
 };
 
 export default ProductListingPage;
-
